@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 
 void main() {
   runApp(MyApp());
@@ -66,23 +67,346 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Row(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.red, width: 5),
-                  shape: BoxShape.circle,
+      body: Container(
+        color: Colors.black,
+        child: Column(
+          children: [
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Container(
+                color: Colors.black,
+                height: 100,
+                width: 500,
+                child: Row(
+                  children: [
+                    Column(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  "assets/images/lake.png",
+                                ),
+                                fit: BoxFit.fill,
+                              ),
+                              border: Border.all(color: Colors.red, width: 3),
+                              shape: BoxShape.circle,
+                            ),
+                            height: 100,
+                            width: 100,
+                          ),
+                        ),
+                        Text(
+                          "Your story",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  "assets/images/lake.png",
+                                ),
+                                fit: BoxFit.fill,
+                              ),
+                              border: Border.all(color: Colors.red, width: 3),
+                              shape: BoxShape.circle,
+                            ),
+                            height: 100,
+                            width: 100,
+                          ),
+                        ),
+                        Text(
+                          "piyush123",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  "assets/images/lake.png",
+                                ),
+                                fit: BoxFit.fill,
+                              ),
+                              border: Border.all(color: Colors.red, width: 3),
+                              shape: BoxShape.circle,
+                            ),
+                            height: 100,
+                            width: 100,
+                          ),
+                        ),
+                        Text(
+                          "piyush234",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  "assets/images/lake.png",
+                                ),
+                                fit: BoxFit.fill,
+                              ),
+                              border: Border.all(color: Colors.red, width: 3),
+                              shape: BoxShape.circle,
+                            ),
+                            height: 100,
+                            width: 100,
+                          ),
+                        ),
+                        Text(
+                          "piyush888",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  "assets/images/lake.png",
+                                ),
+                                fit: BoxFit.fill,
+                              ),
+                              border: Border.all(color: Colors.red, width: 3),
+                              shape: BoxShape.circle,
+                            ),
+                            height: 100,
+                            width: 100,
+                          ),
+                        ),
+                        Text(
+                          "piyush567",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-
-                height: 200,
-                width: 100,
-                margin: EdgeInsets.all(5),
-              )
-            ],
-          )
-        ],
+              ),
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  children: [
+                    Container(
+                      child: Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  "assets/images/lake.png",
+                                ),
+                                fit: BoxFit.fill,
+                              ),
+                              border: Border.all(color: Colors.red, width: 1),
+                              shape: BoxShape.circle,
+                            ),
+                            height: 50,
+                            width: 40,
+                            margin: EdgeInsets.all(5),
+                          ),
+                          Expanded(
+                            child: Container(
+                              margin: EdgeInsets.all(10),
+                              child: Text(
+                                'piyush123',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          ),
+                          IconButton(
+                            icon: Icon(
+                              Icons.info,
+                              color: Colors.white,
+                            ),
+                            onPressed: () {
+                              // do something
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      child: Image.asset(
+                        "assets/images/Tree.webp",
+                        height: 300,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    Container(
+                      child: Row(
+                        children: [
+                          IconButton(
+                            icon: Icon(
+                              Icons.favorite_border_rounded,
+                              color: Colors.white,
+                            ),
+                            onPressed: () {},
+                          ),
+                          IconButton(
+                            icon: Icon(
+                              Icons.comment_rounded,
+                              color: Colors.white,
+                            ),
+                            onPressed: () {},
+                          ),
+                          IconButton(
+                            icon: Icon(
+                              Icons.share,
+                              color: Colors.white,
+                            ),
+                            onPressed: () {},
+                          ),
+                          Expanded(
+                            child: IconButton(
+                              icon: Icon(
+                                Icons.save,
+                                color: Colors.white,
+                              ),
+                              onPressed: () {},
+                              alignment: Alignment.centerRight,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      child: Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  "assets/images/lake.png",
+                                ),
+                                fit: BoxFit.fill,
+                              ),
+                              shape: BoxShape.circle,
+                            ),
+                            height: 20,
+                            width: 20,
+                            margin: EdgeInsets.only(left: 5,right: 10),
+                          ),
+                          Text(
+                            "liked by piyush_123 and 1212 others",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Text(
+                      "liked by piyush_123 and 1212 others",
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    Container(
+                      child: Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  "assets/images/lake.png",
+                                ),
+                                fit: BoxFit.fill,
+                              ),
+                              border: Border.all(color: Colors.red, width: 1),
+                              shape: BoxShape.circle,
+                            ),
+                            height: 50,
+                            width: 40,
+                            margin: EdgeInsets.all(5),
+                          ),
+                          Expanded(
+                            child: Container(
+                              margin: EdgeInsets.all(10),
+                              child: Text(
+                                'piyush123',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          ),
+                          IconButton(
+                            icon: Icon(
+                              Icons.info,
+                              color: Colors.white,
+                            ),
+                            onPressed: () {
+                              // do something
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      child: Image.asset(
+                        "assets/images/Tree.webp",
+                        height: 300,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    Container(
+                        child: Row(
+                      children: [
+                        IconButton(
+                          icon: Icon(
+                            Icons.favorite_border_rounded,
+                            color: Colors.white,
+                          ),
+                          onPressed: () {},
+                        ),
+                        IconButton(
+                          icon: Icon(
+                            Icons.comment_rounded,
+                            color: Colors.white,
+                          ),
+                          onPressed: () {},
+                        ),
+                        IconButton(
+                          icon: Icon(
+                            Icons.share,
+                            color: Colors.white,
+                          ),
+                          onPressed: () {},
+                        ),
+                        Expanded(
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.save,
+                              color: Colors.white,
+                            ),
+                            onPressed: () {},
+                            alignment: Alignment.centerRight,
+                          ),
+                        ),
+                      ],
+                    )),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
