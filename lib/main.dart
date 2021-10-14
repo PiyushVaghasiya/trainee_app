@@ -305,8 +305,8 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                               shape: BoxShape.circle,
                             ),
                             height: 20,
-                            width: 20,
-                            margin: EdgeInsets.only(left: 5,right: 10),
+                            width: 30,
+                            margin: EdgeInsets.only(left: 5, right: 10),
                           ),
                           Text(
                             "liked by piyush_123 and 1212 others",
@@ -314,10 +314,70 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                           ),
                         ],
                       ),
+                      margin: EdgeInsets.all(5),
                     ),
-                    Text(
-                      "liked by piyush_123 and 1212 others",
-                      style: TextStyle(color: Colors.grey),
+                    Container(
+                      height: 20,
+                      child: Text(
+                        "View all 30 comments ",
+                        textAlign: TextAlign.left,
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      margin: EdgeInsets.only(left: 0, right: 250),
+                    ),
+                    Container(
+                      child: Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  "assets/images/lake.png",
+                                ),
+                                fit: BoxFit.fill,
+                              ),
+                              shape: BoxShape.circle,
+                            ),
+                            height: 20,
+                            width: 30,
+                            margin: EdgeInsets.all(5),
+                          ),
+                          Expanded(
+                            child: Text(
+                              "Add a comment... ",
+                              textAlign: TextAlign.left,
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                          ),
+                          Icon(
+                            Icons.favorite,
+                            color: Colors.red,
+                            size: 20,
+                          ),
+                          Container(
+                            child: Image.asset(
+                              "assets/images/hands.jpg",
+                              fit: BoxFit.fill,
+                            ),
+                            height: 20,
+                            width: 20,
+                            margin: EdgeInsets.only(left: 5, right: 5),
+                          ),
+                          Icon(
+                            Icons.add_box_outlined,
+                            color: Colors.white,
+                            size: 20,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      child: Text(
+                        "20 minutes ago",
+                        style: TextStyle(color: Colors.grey, fontSize: 10),
+                        textAlign: TextAlign.left,
+                      ),
+                      margin: EdgeInsets.only(left: 0, right: 300),
                     ),
                     Container(
                       child: Row(
@@ -341,7 +401,7 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                             child: Container(
                               margin: EdgeInsets.all(10),
                               child: Text(
-                                'piyush123',
+                                'vaghasiya890',
                                 style: TextStyle(color: Colors.white),
                               ),
                             ),
@@ -360,47 +420,136 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                     ),
                     Container(
                       child: Image.asset(
-                        "assets/images/Tree.webp",
+                        "assets/images/taj.jpeg",
                         height: 300,
                         fit: BoxFit.fill,
                       ),
                     ),
                     Container(
-                        child: Row(
-                      children: [
-                        IconButton(
-                          icon: Icon(
-                            Icons.favorite_border_rounded,
-                            color: Colors.white,
-                          ),
-                          onPressed: () {},
-                        ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.comment_rounded,
-                            color: Colors.white,
-                          ),
-                          onPressed: () {},
-                        ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.share,
-                            color: Colors.white,
-                          ),
-                          onPressed: () {},
-                        ),
-                        Expanded(
-                          child: IconButton(
+                      child: Row(
+                        children: [
+                          IconButton(
                             icon: Icon(
-                              Icons.save,
+                              Icons.favorite_border_rounded,
                               color: Colors.white,
                             ),
                             onPressed: () {},
-                            alignment: Alignment.centerRight,
                           ),
-                        ),
-                      ],
-                    )),
+                          IconButton(
+                            icon: Icon(
+                              Icons.comment_rounded,
+                              color: Colors.white,
+                            ),
+                            onPressed: () {},
+                          ),
+                          IconButton(
+                            icon: Icon(
+                              Icons.share,
+                              color: Colors.white,
+                            ),
+                            onPressed: () {},
+                          ),
+                          Expanded(
+                            child: IconButton(
+                              icon: Icon(
+                                Icons.save,
+                                color: Colors.white,
+                              ),
+                              onPressed: () {},
+                              alignment: Alignment.centerRight,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      child: Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  "assets/images/lake.png",
+                                ),
+                                fit: BoxFit.fill,
+                              ),
+                              shape: BoxShape.circle,
+                            ),
+                            height: 20,
+                            width: 30,
+                            margin: EdgeInsets.only(left: 5, right: 10),
+                          ),
+                          Text(
+                            "liked by piyush_123 and 1212 others",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                      margin: EdgeInsets.all(5),
+                    ),
+                    Container(
+                      height: 20,
+                      child: Text(
+                        "View all 30 comments ",
+                        textAlign: TextAlign.left,
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      margin: EdgeInsets.only(left: 0, right: 250),
+                    ),
+                    Container(
+                      child: Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  "assets/images/lake.png",
+                                ),
+                                fit: BoxFit.fill,
+                              ),
+                              shape: BoxShape.circle,
+                            ),
+                            height: 20,
+                            width: 30,
+                            margin: EdgeInsets.all(5),
+                          ),
+                          Expanded(
+                            child: Text(
+                              "Add a comment... ",
+                              textAlign: TextAlign.left,
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                          ),
+                          Icon(
+                            Icons.favorite,
+                            color: Colors.red,
+                            size: 20,
+                          ),
+                          Container(
+                            child: Image.asset(
+                              "assets/images/hands.jpg",
+                              fit: BoxFit.fill,
+                            ),
+                            height: 20,
+                            width: 20,
+                            margin: EdgeInsets.only(left: 5, right: 5),
+                          ),
+                          Icon(
+                            Icons.add_box_outlined,
+                            color: Colors.white,
+                            size: 20,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      child: Text(
+                        "25 minutes ago",
+                        style: TextStyle(color: Colors.grey, fontSize: 10),
+                        textAlign: TextAlign.left,
+                      ),
+                      margin: EdgeInsets.only(left: 0, right: 300),
+                    ),
                   ],
                 ),
               ),
