@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:untitled/messages.dart';
 
 void main() {
   runApp(MyApp());
@@ -62,6 +63,10 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
               color: Colors.white,
             ),
             onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) =>Msg()),
+              );
               // do something
             },
           ),
@@ -76,8 +81,9 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
               child: Container(
                 color: Colors.black,
                 height: 100,
-                width: 500,
+                width: 450,
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
                       children: [
@@ -93,8 +99,8 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                               border: Border.all(color: Colors.red, width: 3),
                               shape: BoxShape.circle,
                             ),
-                            height: 100,
-                            width: 100,
+                            height: 80,
+                            width: 80,
                           ),
                         ),
                         Text(
@@ -117,8 +123,8 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                               border: Border.all(color: Colors.red, width: 3),
                               shape: BoxShape.circle,
                             ),
-                            height: 100,
-                            width: 100,
+                            height: 80,
+                            width: 80,
                           ),
                         ),
                         Text(
@@ -141,8 +147,8 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                               border: Border.all(color: Colors.red, width: 3),
                               shape: BoxShape.circle,
                             ),
-                            height: 100,
-                            width: 100,
+                            height: 80,
+                            width: 80,
                           ),
                         ),
                         Text(
@@ -165,8 +171,8 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                               border: Border.all(color: Colors.red, width: 3),
                               shape: BoxShape.circle,
                             ),
-                            height: 100,
-                            width: 100,
+                            height: 80,
+                            width: 80,
                           ),
                         ),
                         Text(
@@ -189,8 +195,8 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                               border: Border.all(color: Colors.red, width: 3),
                               shape: BoxShape.circle,
                             ),
-                            height: 100,
-                            width: 100,
+                            height: 80,
+                            width: 80,
                           ),
                         ),
                         Text(
@@ -222,8 +228,8 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                               border: Border.all(color: Colors.red, width: 1),
                               shape: BoxShape.circle,
                             ),
-                            height: 50,
-                            width: 40,
+                            height: 45,
+                            width: 30,
                             margin: EdgeInsets.all(5),
                           ),
                           Expanded(
@@ -393,8 +399,8 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                               border: Border.all(color: Colors.red, width: 1),
                               shape: BoxShape.circle,
                             ),
-                            height: 50,
-                            width: 40,
+                            height: 45,
+                            width: 30,
                             margin: EdgeInsets.all(5),
                           ),
                           Expanded(
