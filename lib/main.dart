@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:untitled/messages.dart';
+import 'package:untitled/profile.dart';
 
 void main() {
   runApp(MyApp());
@@ -65,7 +66,7 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) =>Msg()),
+                MaterialPageRoute(builder: (context) => Msg()),
               );
               // do something
             },
@@ -76,18 +77,527 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
         color: Colors.black,
         child: Column(
           children: [
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Container(
-                color: Colors.black,
-                height: 100,
-                width: 450,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
+
+            Expanded(
+              child: Column(
+                children: [
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Container(
+                      color: Colors.black,
+                      height: 100,
+                      width: 450,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        "assets/images/lake.png",
+                                      ),
+                                      fit: BoxFit.fill,
+                                    ),
+                                    border: Border.all(color: Colors.red, width: 3),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  height: 80,
+                                  width: 80,
+                                ),
+                              ),
+                              Text(
+                                "Your story",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        "assets/images/lake.png",
+                                      ),
+                                      fit: BoxFit.fill,
+                                    ),
+                                    border: Border.all(color: Colors.red, width: 3),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  height: 80,
+                                  width: 80,
+                                ),
+                              ),
+                              Text(
+                                "piyush123",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        "assets/images/lake.png",
+                                      ),
+                                      fit: BoxFit.fill,
+                                    ),
+                                    border: Border.all(color: Colors.red, width: 3),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  height: 80,
+                                  width: 80,
+                                ),
+                              ),
+                              Text(
+                                "piyush234",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        "assets/images/lake.png",
+                                      ),
+                                      fit: BoxFit.fill,
+                                    ),
+                                    border: Border.all(color: Colors.red, width: 3),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  height: 80,
+                                  width: 80,
+                                ),
+                              ),
+                              Text(
+                                "piyush888",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        "assets/images/lake.png",
+                                      ),
+                                      fit: BoxFit.fill,
+                                    ),
+                                    border: Border.all(color: Colors.red, width: 3),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  height: 80,
+                                  width: 80,
+                                ),
+                              ),
+                              Text(
+                                "piyush567",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: Column(
+                        children: [
+                          Container(
+                            child: Row(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        "assets/images/lake.png",
+                                      ),
+                                      fit: BoxFit.fill,
+                                    ),
+                                    border: Border.all(color: Colors.red, width: 1),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  height: 45,
+                                  width: 30,
+                                  margin: EdgeInsets.all(5),
+                                ),
+                                Expanded(
+                                  child: Container(
+                                    margin: EdgeInsets.all(10),
+                                    child: Text(
+                                      'piyush123',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ),
+                                ),
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.info,
+                                    color: Colors.white,
+                                  ),
+                                  onPressed: () {
+                                    // do something
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            child: Image.asset(
+                              "assets/images/Tree.webp",
+                              height: 300,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                          Container(
+                            child: Row(
+                              children: [
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.favorite_border_rounded,
+                                    color: Colors.white,
+                                  ),
+                                  onPressed: () {},
+                                ),
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.comment_rounded,
+                                    color: Colors.white,
+                                  ),
+                                  onPressed: () {},
+                                ),
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.share,
+                                    color: Colors.white,
+                                  ),
+                                  onPressed: () {},
+                                ),
+                                Expanded(
+                                  child: IconButton(
+                                    icon: Icon(
+                                      Icons.save,
+                                      color: Colors.white,
+                                    ),
+                                    onPressed: () {},
+                                    alignment: Alignment.centerRight,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            child: Row(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        "assets/images/lake.png",
+                                      ),
+                                      fit: BoxFit.fill,
+                                    ),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  height: 20,
+                                  width: 30,
+                                  margin: EdgeInsets.only(left: 5, right: 10),
+                                ),
+                                Text(
+                                  "liked by piyush_123 and 1212 others",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ],
+                            ),
+                            margin: EdgeInsets.all(5),
+                          ),
+                          Container(
+                            height: 20,
+                            child: Text(
+                              "View all 30 comments ",
+                              textAlign: TextAlign.left,
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                            margin: EdgeInsets.only(left: 0, right: 250),
+                          ),
+                          Container(
+                            child: Row(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        "assets/images/lake.png",
+                                      ),
+                                      fit: BoxFit.fill,
+                                    ),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  height: 20,
+                                  width: 30,
+                                  margin: EdgeInsets.all(5),
+                                ),
+                                Expanded(
+                                  child: Text(
+                                    "Add a comment... ",
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.favorite,
+                                  color: Colors.red,
+                                  size: 20,
+                                ),
+                                Container(
+                                  child: Image.asset(
+                                    "assets/images/hands.jpg",
+                                    fit: BoxFit.fill,
+                                  ),
+                                  height: 20,
+                                  width: 20,
+                                  margin: EdgeInsets.only(left: 5, right: 5),
+                                ),
+                                Icon(
+                                  Icons.add_box_outlined,
+                                  color: Colors.white,
+                                  size: 20,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            child: Text(
+                              "20 minutes ago",
+                              style: TextStyle(color: Colors.grey, fontSize: 10),
+                              textAlign: TextAlign.left,
+                            ),
+                            margin: EdgeInsets.only(left: 0, right: 300),
+                          ),
+                          Container(
+                            child: Row(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        "assets/images/lake.png",
+                                      ),
+                                      fit: BoxFit.fill,
+                                    ),
+                                    border: Border.all(color: Colors.red, width: 1),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  height: 45,
+                                  width: 30,
+                                  margin: EdgeInsets.all(5),
+                                ),
+                                Expanded(
+                                  child: Container(
+                                    margin: EdgeInsets.all(10),
+                                    child: Text(
+                                      'vaghasiya890',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ),
+                                ),
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.info,
+                                    color: Colors.white,
+                                  ),
+                                  onPressed: () {
+                                    // do something
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            child: Image.asset(
+                              "assets/images/taj.jpeg",
+                              height: 300,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                          Container(
+                            child: Row(
+                              children: [
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.favorite_border_rounded,
+                                    color: Colors.white,
+                                  ),
+                                  onPressed: () {},
+                                ),
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.comment_rounded,
+                                    color: Colors.white,
+                                  ),
+                                  onPressed: () {},
+                                ),
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.share,
+                                    color: Colors.white,
+                                  ),
+                                  onPressed: () {},
+                                ),
+                                Expanded(
+                                  child: IconButton(
+                                    icon: Icon(
+                                      Icons.save,
+                                      color: Colors.white,
+                                    ),
+                                    onPressed: () {},
+                                    alignment: Alignment.centerRight,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            child: Row(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        "assets/images/lake.png",
+                                      ),
+                                      fit: BoxFit.fill,
+                                    ),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  height: 20,
+                                  width: 30,
+                                  margin: EdgeInsets.only(left: 5, right: 10),
+                                ),
+                                Text(
+                                  "liked by piyush_123 and 1212 others",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ],
+                            ),
+                            margin: EdgeInsets.all(5),
+                          ),
+                          Container(
+                            height: 20,
+                            child: Text(
+                              "View all 30 comments ",
+                              textAlign: TextAlign.left,
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                            margin: EdgeInsets.only(left: 0, right: 250),
+                          ),
+                          Container(
+                            child: Row(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        "assets/images/lake.png",
+                                      ),
+                                      fit: BoxFit.fill,
+                                    ),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  height: 20,
+                                  width: 30,
+                                  margin: EdgeInsets.all(5),
+                                ),
+                                Expanded(
+                                  child: Text(
+                                    "Add a comment... ",
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.favorite,
+                                  color: Colors.red,
+                                  size: 20,
+                                ),
+                                Container(
+                                  child: Image.asset(
+                                    "assets/images/hands.jpg",
+                                    fit: BoxFit.fill,
+                                  ),
+                                  height: 20,
+                                  width: 20,
+                                  margin: EdgeInsets.only(left: 5, right: 5),
+                                ),
+                                Icon(
+                                  Icons.add_box_outlined,
+                                  color: Colors.white,
+                                  size: 20,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            child: Text(
+                              "25 minutes ago",
+                              style: TextStyle(color: Colors.grey, fontSize: 10),
+                              textAlign: TextAlign.left,
+                            ),
+                            margin: EdgeInsets.only(left: 0, right: 300),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Expanded(
+                        IconButton(
+                          icon: Icon(
+                            Icons.home,
+                            color: Colors.white,
+                          ),
+                          onPressed: () {},
+                        ),
+                        IconButton(
+                          icon: Icon(
+                            Icons.search,
+                            color: Colors.white,
+                          ),
+                          onPressed: () {},
+                        ),
+                        IconButton(
+                          icon: Icon(
+                            Icons.play_circle_outline,
+                            color: Colors.white,
+                          ),
+                          onPressed: () {},
+                        ),
+                        IconButton(
+                          icon: Icon(
+                            Icons.favorite_border_rounded,
+                            color: Colors.white,
+                          ),
+                          onPressed: () {},
+                        ),
+                        InkWell(
                           child: Container(
                             decoration: BoxDecoration(
                               image: DecorationImage(
@@ -96,473 +606,55 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                                 ),
                                 fit: BoxFit.fill,
                               ),
-                              border: Border.all(color: Colors.red, width: 3),
+                              border: Border.all(color: Colors.red, width: 1),
                               shape: BoxShape.circle,
                             ),
-                            height: 80,
-                            width: 80,
+                            height: 45,
+                            width: 30,
+                            margin: EdgeInsets.all(5),
+
                           ),
-                        ),
-                        Text(
-                          "Your story",
-                          style: TextStyle(color: Colors.white),
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => Profile()));
+                          }
                         ),
                       ],
                     ),
-                    Column(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/lake.png",
-                                ),
-                                fit: BoxFit.fill,
-                              ),
-                              border: Border.all(color: Colors.red, width: 3),
-                              shape: BoxShape.circle,
-                            ),
-                            height: 80,
-                            width: 80,
-                          ),
-                        ),
-                        Text(
-                          "piyush123",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/lake.png",
-                                ),
-                                fit: BoxFit.fill,
-                              ),
-                              border: Border.all(color: Colors.red, width: 3),
-                              shape: BoxShape.circle,
-                            ),
-                            height: 80,
-                            width: 80,
-                          ),
-                        ),
-                        Text(
-                          "piyush234",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/lake.png",
-                                ),
-                                fit: BoxFit.fill,
-                              ),
-                              border: Border.all(color: Colors.red, width: 3),
-                              shape: BoxShape.circle,
-                            ),
-                            height: 80,
-                            width: 80,
-                          ),
-                        ),
-                        Text(
-                          "piyush888",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/lake.png",
-                                ),
-                                fit: BoxFit.fill,
-                              ),
-                              border: Border.all(color: Colors.red, width: 3),
-                              shape: BoxShape.circle,
-                            ),
-                            height: 80,
-                            width: 80,
-                          ),
-                        ),
-                        Text(
-                          "piyush567",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                  ),
+
+                ],
               ),
             ),
-            Expanded(
-              child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: Column(
-                  children: [
-                    Container(
-                      child: Row(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/lake.png",
-                                ),
-                                fit: BoxFit.fill,
-                              ),
-                              border: Border.all(color: Colors.red, width: 1),
-                              shape: BoxShape.circle,
-                            ),
-                            height: 45,
-                            width: 30,
-                            margin: EdgeInsets.all(5),
-                          ),
-                          Expanded(
-                            child: Container(
-                              margin: EdgeInsets.all(10),
-                              child: Text(
-                                'piyush123',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
-                          ),
-                          IconButton(
-                            icon: Icon(
-                              Icons.info,
-                              color: Colors.white,
-                            ),
-                            onPressed: () {
-                              // do something
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      child: Image.asset(
-                        "assets/images/Tree.webp",
-                        height: 300,
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    Container(
-                      child: Row(
-                        children: [
-                          IconButton(
-                            icon: Icon(
-                              Icons.favorite_border_rounded,
-                              color: Colors.white,
-                            ),
-                            onPressed: () {},
-                          ),
-                          IconButton(
-                            icon: Icon(
-                              Icons.comment_rounded,
-                              color: Colors.white,
-                            ),
-                            onPressed: () {},
-                          ),
-                          IconButton(
-                            icon: Icon(
-                              Icons.share,
-                              color: Colors.white,
-                            ),
-                            onPressed: () {},
-                          ),
-                          Expanded(
-                            child: IconButton(
-                              icon: Icon(
-                                Icons.save,
-                                color: Colors.white,
-                              ),
-                              onPressed: () {},
-                              alignment: Alignment.centerRight,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      child: Row(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/lake.png",
-                                ),
-                                fit: BoxFit.fill,
-                              ),
-                              shape: BoxShape.circle,
-                            ),
-                            height: 20,
-                            width: 30,
-                            margin: EdgeInsets.only(left: 5, right: 10),
-                          ),
-                          Text(
-                            "liked by piyush_123 and 1212 others",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      margin: EdgeInsets.all(5),
-                    ),
-                    Container(
-                      height: 20,
-                      child: Text(
-                        "View all 30 comments ",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      margin: EdgeInsets.only(left: 0, right: 250),
-                    ),
-                    Container(
-                      child: Row(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/lake.png",
-                                ),
-                                fit: BoxFit.fill,
-                              ),
-                              shape: BoxShape.circle,
-                            ),
-                            height: 20,
-                            width: 30,
-                            margin: EdgeInsets.all(5),
-                          ),
-                          Expanded(
-                            child: Text(
-                              "Add a comment... ",
-                              textAlign: TextAlign.left,
-                              style: TextStyle(color: Colors.grey),
-                            ),
-                          ),
-                          Icon(
-                            Icons.favorite,
-                            color: Colors.red,
-                            size: 20,
-                          ),
-                          Container(
-                            child: Image.asset(
-                              "assets/images/hands.jpg",
-                              fit: BoxFit.fill,
-                            ),
-                            height: 20,
-                            width: 20,
-                            margin: EdgeInsets.only(left: 5, right: 5),
-                          ),
-                          Icon(
-                            Icons.add_box_outlined,
-                            color: Colors.white,
-                            size: 20,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      child: Text(
-                        "20 minutes ago",
-                        style: TextStyle(color: Colors.grey, fontSize: 10),
-                        textAlign: TextAlign.left,
-                      ),
-                      margin: EdgeInsets.only(left: 0, right: 300),
-                    ),
-                    Container(
-                      child: Row(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/lake.png",
-                                ),
-                                fit: BoxFit.fill,
-                              ),
-                              border: Border.all(color: Colors.red, width: 1),
-                              shape: BoxShape.circle,
-                            ),
-                            height: 45,
-                            width: 30,
-                            margin: EdgeInsets.all(5),
-                          ),
-                          Expanded(
-                            child: Container(
-                              margin: EdgeInsets.all(10),
-                              child: Text(
-                                'vaghasiya890',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
-                          ),
-                          IconButton(
-                            icon: Icon(
-                              Icons.info,
-                              color: Colors.white,
-                            ),
-                            onPressed: () {
-                              // do something
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      child: Image.asset(
-                        "assets/images/taj.jpeg",
-                        height: 300,
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    Container(
-                      child: Row(
-                        children: [
-                          IconButton(
-                            icon: Icon(
-                              Icons.favorite_border_rounded,
-                              color: Colors.white,
-                            ),
-                            onPressed: () {},
-                          ),
-                          IconButton(
-                            icon: Icon(
-                              Icons.comment_rounded,
-                              color: Colors.white,
-                            ),
-                            onPressed: () {},
-                          ),
-                          IconButton(
-                            icon: Icon(
-                              Icons.share,
-                              color: Colors.white,
-                            ),
-                            onPressed: () {},
-                          ),
-                          Expanded(
-                            child: IconButton(
-                              icon: Icon(
-                                Icons.save,
-                                color: Colors.white,
-                              ),
-                              onPressed: () {},
-                              alignment: Alignment.centerRight,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      child: Row(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/lake.png",
-                                ),
-                                fit: BoxFit.fill,
-                              ),
-                              shape: BoxShape.circle,
-                            ),
-                            height: 20,
-                            width: 30,
-                            margin: EdgeInsets.only(left: 5, right: 10),
-                          ),
-                          Text(
-                            "liked by piyush_123 and 1212 others",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      margin: EdgeInsets.all(5),
-                    ),
-                    Container(
-                      height: 20,
-                      child: Text(
-                        "View all 30 comments ",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      margin: EdgeInsets.only(left: 0, right: 250),
-                    ),
-                    Container(
-                      child: Row(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/lake.png",
-                                ),
-                                fit: BoxFit.fill,
-                              ),
-                              shape: BoxShape.circle,
-                            ),
-                            height: 20,
-                            width: 30,
-                            margin: EdgeInsets.all(5),
-                          ),
-                          Expanded(
-                            child: Text(
-                              "Add a comment... ",
-                              textAlign: TextAlign.left,
-                              style: TextStyle(color: Colors.grey),
-                            ),
-                          ),
-                          Icon(
-                            Icons.favorite,
-                            color: Colors.red,
-                            size: 20,
-                          ),
-                          Container(
-                            child: Image.asset(
-                              "assets/images/hands.jpg",
-                              fit: BoxFit.fill,
-                            ),
-                            height: 20,
-                            width: 20,
-                            margin: EdgeInsets.only(left: 5, right: 5),
-                          ),
-                          Icon(
-                            Icons.add_box_outlined,
-                            color: Colors.white,
-                            size: 20,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      child: Text(
-                        "25 minutes ago",
-                        style: TextStyle(color: Colors.grey, fontSize: 10),
-                        textAlign: TextAlign.left,
-                      ),
-                      margin: EdgeInsets.only(left: 0, right: 300),
-                    ),
-                  ],
-                ),
-              ),
-            )
           ],
         ),
       ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   selectedItemColor: Colors.white,
+      //   unselectedItemColor: Colors.white.withOpacity(.60),
+      //   onTap: (value) {},
+      //   items: [
+      //     BottomNavigationBarItem(
+      //         backgroundColor: Colors.black,
+      //         icon: Icon(Icons.home),
+      //         label: "Home"),
+      //     BottomNavigationBarItem(
+      //         backgroundColor: Colors.red,
+      //         icon: Icon(Icons.search),
+      //         label: ""),
+      //     BottomNavigationBarItem(
+      //         backgroundColor: Colors.red,
+      //         icon: Icon(Icons.play_circle_outline),
+      //         label: "reels"),
+      //     BottomNavigationBarItem(
+      //         backgroundColor: Colors.green,
+      //         icon: Icon(Icons.favorite_border),
+      //         label: "likes"),
+      //     BottomNavigationBarItem(
+      //         backgroundColor: Colors.blue,
+      //         icon: Icon(Icons.play_circle_outline),
+      //         label: "Profile"),
+      //   ],
+      // ),
     );
   }
 }
