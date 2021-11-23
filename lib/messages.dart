@@ -74,17 +74,43 @@ class _MsgState extends State<Msg> with SingleTickerProviderStateMixin {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text(
-                    "Chats",
-                    style: TextStyle(color: Colors.white),
+                  Expanded(
+                    child: Container(
+                      height: 30,
+                      decoration: BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(
+                            color: Colors.white,
+                            width: 1,
+                          ),
+                        ),
+                      ),
+                      child: Text(
+                        "Chats",
+                        style: TextStyle(color: Colors.white),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
                   ),
-                  Text(
-                    "Rooms",
-                    style: TextStyle(color: Colors.grey),
+                  Expanded(
+                    child: Container(
+                      height: 30,
+                      child: Text(
+                        "Rooms",
+                        style: TextStyle(color: Colors.grey),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
                   ),
-                  Text(
-                    "Requests",
-                    style: TextStyle(color: Colors.grey),
+                  Expanded(
+                    child: Container(
+                      height: 30,
+                      child: Text(
+                        "Requests",
+                        style: TextStyle(color: Colors.grey),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -92,493 +118,501 @@ class _MsgState extends State<Msg> with SingleTickerProviderStateMixin {
             Expanded(
               child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
-                  child: Column(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(top: 5),
-                        child: Row(
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 10),
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage("assets/images/taj.jpeg"),
-                                  fit: BoxFit.fill,
+                  child: Container(
+                    margin: EdgeInsets.only(left: 10, right: 10),
+                    child: Column(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(top: 5),
+                          child: Row(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(top: 10),
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage("assets/images/taj.jpeg"),
+                                    fit: BoxFit.fill,
+                                  ),
+                                  shape: BoxShape.circle,
                                 ),
-                                shape: BoxShape.circle,
+                                height: 50,
+                                width: 50,
                               ),
-                              height: 50,
-                              width: 50,
-                            ),
-                            Expanded(
-                              child: Container(
-                                alignment: Alignment.centerLeft,
-                                margin: EdgeInsets.only(left: 20),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      "rakesh_10_",
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(top: 5),
-                                      child: Text(
-                                        "seen 1h ago",
-                                        style: TextStyle(color: Colors.grey),
+                              Expanded(
+                                child: Container(
+                                  alignment: Alignment.centerLeft,
+                                  margin: EdgeInsets.only(left: 20),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        "rakesh_10_",
+                                        style: TextStyle(color: Colors.white),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Icon(
-                              Icons.camera_alt_outlined,
-                              color: Colors.grey,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 5),
-                        child: Row(
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 10),
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage("assets/images/Tree.webp"),
-                                  fit: BoxFit.fill,
-                                ),
-                                shape: BoxShape.circle,
-                              ),
-                              height: 50,
-                              width: 50,
-                            ),
-                            Expanded(
-                              child: Container(
-                                alignment: Alignment.centerLeft,
-                                margin: EdgeInsets.only(left: 20),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      "rakesh_10_",
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(top: 5),
-                                      child: Text(
-                                        "seen 1h ago",
-                                        style: TextStyle(color: Colors.grey),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 5),
+                                        child: Text(
+                                          "seen 1h ago",
+                                          style: TextStyle(color: Colors.grey),
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                            Icon(
-                              Icons.camera_alt_outlined,
-                              color: Colors.grey,
-                            ),
-                          ],
+                              Icon(
+                                Icons.camera_alt_outlined,
+                                color: Colors.grey,
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 5),
-                        child: Row(
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 10),
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage("assets/images/taj.jpeg"),
-                                  fit: BoxFit.fill,
+                        Container(
+                          margin: EdgeInsets.only(top: 5),
+                          child: Row(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(top: 10),
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image:
+                                        AssetImage("assets/images/Tree.webp"),
+                                    fit: BoxFit.fill,
+                                  ),
+                                  shape: BoxShape.circle,
                                 ),
-                                shape: BoxShape.circle,
+                                height: 50,
+                                width: 50,
                               ),
-                              height: 50,
-                              width: 50,
-                            ),
-                            Expanded(
-                              child: Container(
-                                alignment: Alignment.centerLeft,
-                                margin: EdgeInsets.only(left: 20),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      "rakesh_10_",
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(top: 5),
-                                      child: Text(
-                                        "seen 1h ago",
-                                        style: TextStyle(color: Colors.grey),
+                              Expanded(
+                                child: Container(
+                                  alignment: Alignment.centerLeft,
+                                  margin: EdgeInsets.only(left: 20),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        "rakesh_10_",
+                                        style: TextStyle(color: Colors.white),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Icon(
-                              Icons.camera_alt_outlined,
-                              color: Colors.grey,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 5),
-                        child: Row(
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 10),
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage("assets/images/Tree.webp"),
-                                  fit: BoxFit.fill,
-                                ),
-                                shape: BoxShape.circle,
-                              ),
-                              height: 50,
-                              width: 50,
-                            ),
-                            Expanded(
-                              child: Container(
-                                alignment: Alignment.centerLeft,
-                                margin: EdgeInsets.only(left: 20),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      "rakesh_10_",
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(top: 5),
-                                      child: Text(
-                                        "seen 1h ago",
-                                        style: TextStyle(color: Colors.grey),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 5),
+                                        child: Text(
+                                          "seen 1h ago",
+                                          style: TextStyle(color: Colors.grey),
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                            Icon(
-                              Icons.camera_alt_outlined,
-                              color: Colors.grey,
-                            ),
-                          ],
+                              Icon(
+                                Icons.camera_alt_outlined,
+                                color: Colors.grey,
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 5),
-                        child: Row(
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 10),
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage("assets/images/taj.jpeg"),
-                                  fit: BoxFit.fill,
+                        Container(
+                          margin: EdgeInsets.only(top: 5),
+                          child: Row(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(top: 10),
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage("assets/images/taj.jpeg"),
+                                    fit: BoxFit.fill,
+                                  ),
+                                  shape: BoxShape.circle,
                                 ),
-                                shape: BoxShape.circle,
+                                height: 50,
+                                width: 50,
                               ),
-                              height: 50,
-                              width: 50,
-                            ),
-                            Expanded(
-                              child: Container(
-                                alignment: Alignment.centerLeft,
-                                margin: EdgeInsets.only(left: 20),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      "rakesh_10_",
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(top: 5),
-                                      child: Text(
-                                        "seen 1h ago",
-                                        style: TextStyle(color: Colors.grey),
+                              Expanded(
+                                child: Container(
+                                  alignment: Alignment.centerLeft,
+                                  margin: EdgeInsets.only(left: 20),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        "rakesh_10_",
+                                        style: TextStyle(color: Colors.white),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Icon(
-                              Icons.camera_alt_outlined,
-                              color: Colors.grey,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 5),
-                        child: Row(
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 10),
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage("assets/images/Tree.webp"),
-                                  fit: BoxFit.fill,
-                                ),
-                                shape: BoxShape.circle,
-                              ),
-                              height: 50,
-                              width: 50,
-                            ),
-                            Expanded(
-                              child: Container(
-                                alignment: Alignment.centerLeft,
-                                margin: EdgeInsets.only(left: 20),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      "rakesh_10_",
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(top: 5),
-                                      child: Text(
-                                        "seen 1h ago",
-                                        style: TextStyle(color: Colors.grey),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 5),
+                                        child: Text(
+                                          "seen 1h ago",
+                                          style: TextStyle(color: Colors.grey),
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                            Icon(
-                              Icons.camera_alt_outlined,
-                              color: Colors.grey,
-                            ),
-                          ],
+                              Icon(
+                                Icons.camera_alt_outlined,
+                                color: Colors.grey,
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 5),
-                        child: Row(
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 10),
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage("assets/images/taj.jpeg"),
-                                  fit: BoxFit.fill,
+                        Container(
+                          margin: EdgeInsets.only(top: 5),
+                          child: Row(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(top: 10),
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image:
+                                        AssetImage("assets/images/Tree.webp"),
+                                    fit: BoxFit.fill,
+                                  ),
+                                  shape: BoxShape.circle,
                                 ),
-                                shape: BoxShape.circle,
+                                height: 50,
+                                width: 50,
                               ),
-                              height: 50,
-                              width: 50,
-                            ),
-                            Expanded(
-                              child: Container(
-                                alignment: Alignment.centerLeft,
-                                margin: EdgeInsets.only(left: 20),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      "rakesh_10_",
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(top: 5),
-                                      child: Text(
-                                        "seen 1h ago",
-                                        style: TextStyle(color: Colors.grey),
+                              Expanded(
+                                child: Container(
+                                  alignment: Alignment.centerLeft,
+                                  margin: EdgeInsets.only(left: 20),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        "rakesh_10_",
+                                        style: TextStyle(color: Colors.white),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Icon(
-                              Icons.camera_alt_outlined,
-                              color: Colors.grey,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 5),
-                        child: Row(
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 10),
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage("assets/images/Tree.webp"),
-                                  fit: BoxFit.fill,
-                                ),
-                                shape: BoxShape.circle,
-                              ),
-                              height: 50,
-                              width: 50,
-                            ),
-                            Expanded(
-                              child: Container(
-                                alignment: Alignment.centerLeft,
-                                margin: EdgeInsets.only(left: 20),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      "rakesh_10_",
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(top: 5),
-                                      child: Text(
-                                        "seen 1h ago",
-                                        style: TextStyle(color: Colors.grey),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 5),
+                                        child: Text(
+                                          "seen 1h ago",
+                                          style: TextStyle(color: Colors.grey),
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                            Icon(
-                              Icons.camera_alt_outlined,
-                              color: Colors.grey,
-                            ),
-                          ],
+                              Icon(
+                                Icons.camera_alt_outlined,
+                                color: Colors.grey,
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 5),
-                        child: Row(
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 10),
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage("assets/images/taj.jpeg"),
-                                  fit: BoxFit.fill,
+                        Container(
+                          margin: EdgeInsets.only(top: 5),
+                          child: Row(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(top: 10),
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage("assets/images/taj.jpeg"),
+                                    fit: BoxFit.fill,
+                                  ),
+                                  shape: BoxShape.circle,
                                 ),
-                                shape: BoxShape.circle,
+                                height: 50,
+                                width: 50,
                               ),
-                              height: 50,
-                              width: 50,
-                            ),
-                            Expanded(
-                              child: Container(
-                                alignment: Alignment.centerLeft,
-                                margin: EdgeInsets.only(left: 20),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      "rakesh_10_",
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(top: 5),
-                                      child: Text(
-                                        "seen 1h ago",
-                                        style: TextStyle(color: Colors.grey),
+                              Expanded(
+                                child: Container(
+                                  alignment: Alignment.centerLeft,
+                                  margin: EdgeInsets.only(left: 20),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        "rakesh_10_",
+                                        style: TextStyle(color: Colors.white),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Icon(
-                              Icons.camera_alt_outlined,
-                              color: Colors.grey,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 5),
-                        child: Row(
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 10),
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage("assets/images/Tree.webp"),
-                                  fit: BoxFit.fill,
-                                ),
-                                shape: BoxShape.circle,
-                              ),
-                              height: 50,
-                              width: 50,
-                            ),
-                            Expanded(
-                              child: Container(
-                                alignment: Alignment.centerLeft,
-                                margin: EdgeInsets.only(left: 20),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      "rakesh_10_",
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(top: 5),
-                                      child: Text(
-                                        "seen 1h ago",
-                                        style: TextStyle(color: Colors.grey),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 5),
+                                        child: Text(
+                                          "seen 1h ago",
+                                          style: TextStyle(color: Colors.grey),
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                            Icon(
-                              Icons.camera_alt_outlined,
-                              color: Colors.grey,
-                            ),
-                          ],
+                              Icon(
+                                Icons.camera_alt_outlined,
+                                color: Colors.grey,
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 5),
-                        child: Row(
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 10),
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage("assets/images/taj.jpeg"),
-                                  fit: BoxFit.fill,
+                        Container(
+                          margin: EdgeInsets.only(top: 5),
+                          child: Row(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(top: 10),
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image:
+                                        AssetImage("assets/images/Tree.webp"),
+                                    fit: BoxFit.fill,
+                                  ),
+                                  shape: BoxShape.circle,
                                 ),
-                                shape: BoxShape.circle,
+                                height: 50,
+                                width: 50,
                               ),
-                              height: 50,
-                              width: 50,
-                            ),
-                            Expanded(
-                              child: Container(
-                                alignment: Alignment.centerLeft,
-                                margin: EdgeInsets.only(left: 20),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      "rakesh_10_",
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(top: 5),
-                                      child: Text(
-                                        "seen 1h ago",
-                                        style: TextStyle(color: Colors.grey),
+                              Expanded(
+                                child: Container(
+                                  alignment: Alignment.centerLeft,
+                                  margin: EdgeInsets.only(left: 20),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        "rakesh_10_",
+                                        style: TextStyle(color: Colors.white),
                                       ),
-                                    ),
-                                  ],
+                                      Container(
+                                        margin: EdgeInsets.only(top: 5),
+                                        child: Text(
+                                          "seen 1h ago",
+                                          style: TextStyle(color: Colors.grey),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                            Icon(
-                              Icons.camera_alt_outlined,
-                              color: Colors.grey,
-                            ),
-                          ],
+                              Icon(
+                                Icons.camera_alt_outlined,
+                                color: Colors.grey,
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                        Container(
+                          margin: EdgeInsets.only(top: 5),
+                          child: Row(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(top: 10),
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage("assets/images/taj.jpeg"),
+                                    fit: BoxFit.fill,
+                                  ),
+                                  shape: BoxShape.circle,
+                                ),
+                                height: 50,
+                                width: 50,
+                              ),
+                              Expanded(
+                                child: Container(
+                                  alignment: Alignment.centerLeft,
+                                  margin: EdgeInsets.only(left: 20),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        "rakesh_10_",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 5),
+                                        child: Text(
+                                          "seen 1h ago",
+                                          style: TextStyle(color: Colors.grey),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Icon(
+                                Icons.camera_alt_outlined,
+                                color: Colors.grey,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 5),
+                          child: Row(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(top: 10),
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image:
+                                        AssetImage("assets/images/Tree.webp"),
+                                    fit: BoxFit.fill,
+                                  ),
+                                  shape: BoxShape.circle,
+                                ),
+                                height: 50,
+                                width: 50,
+                              ),
+                              Expanded(
+                                child: Container(
+                                  alignment: Alignment.centerLeft,
+                                  margin: EdgeInsets.only(left: 20),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        "rakesh_10_",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 5),
+                                        child: Text(
+                                          "seen 1h ago",
+                                          style: TextStyle(color: Colors.grey),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Icon(
+                                Icons.camera_alt_outlined,
+                                color: Colors.grey,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 5),
+                          child: Row(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(top: 10),
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage("assets/images/taj.jpeg"),
+                                    fit: BoxFit.fill,
+                                  ),
+                                  shape: BoxShape.circle,
+                                ),
+                                height: 50,
+                                width: 50,
+                              ),
+                              Expanded(
+                                child: Container(
+                                  alignment: Alignment.centerLeft,
+                                  margin: EdgeInsets.only(left: 20),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        "rakesh_10_",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 5),
+                                        child: Text(
+                                          "seen 1h ago",
+                                          style: TextStyle(color: Colors.grey),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Icon(
+                                Icons.camera_alt_outlined,
+                                color: Colors.grey,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 5),
+                          child: Row(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(top: 10),
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image:
+                                        AssetImage("assets/images/Tree.webp"),
+                                    fit: BoxFit.fill,
+                                  ),
+                                  shape: BoxShape.circle,
+                                ),
+                                height: 50,
+                                width: 50,
+                              ),
+                              Expanded(
+                                child: Container(
+                                  alignment: Alignment.centerLeft,
+                                  margin: EdgeInsets.only(left: 20),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        "rakesh_10_",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 5),
+                                        child: Text(
+                                          "seen 1h ago",
+                                          style: TextStyle(color: Colors.grey),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Icon(
+                                Icons.camera_alt_outlined,
+                                color: Colors.grey,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 5),
+                          child: Row(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(top: 10),
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage("assets/images/taj.jpeg"),
+                                    fit: BoxFit.fill,
+                                  ),
+                                  shape: BoxShape.circle,
+                                ),
+                                height: 50,
+                                width: 50,
+                              ),
+                              Expanded(
+                                child: Container(
+                                  alignment: Alignment.centerLeft,
+                                  margin: EdgeInsets.only(left: 20),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        "rakesh_10_",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 5),
+                                        child: Text(
+                                          "seen 1h ago",
+                                          style: TextStyle(color: Colors.grey),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Icon(
+                                Icons.camera_alt_outlined,
+                                color: Colors.grey,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   )),
             ),
           ],

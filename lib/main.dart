@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:untitled/Activity.dart';
 import 'package:untitled/messages.dart';
 import 'package:untitled/profile.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       home: Chat(),
     );
   }
@@ -78,7 +79,6 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
         color: Colors.black,
         child: Column(
           children: [
-
             Expanded(
               child: Column(
                 children: [
@@ -102,7 +102,8 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                                       ),
                                       fit: BoxFit.fill,
                                     ),
-                                    border: Border.all(color: Colors.red, width: 3),
+                                    border:
+                                        Border.all(color: Colors.red, width: 3),
                                     shape: BoxShape.circle,
                                   ),
                                   height: 80,
@@ -126,7 +127,8 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                                       ),
                                       fit: BoxFit.fill,
                                     ),
-                                    border: Border.all(color: Colors.red, width: 3),
+                                    border:
+                                        Border.all(color: Colors.red, width: 3),
                                     shape: BoxShape.circle,
                                   ),
                                   height: 80,
@@ -150,7 +152,8 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                                       ),
                                       fit: BoxFit.fill,
                                     ),
-                                    border: Border.all(color: Colors.red, width: 3),
+                                    border:
+                                        Border.all(color: Colors.red, width: 3),
                                     shape: BoxShape.circle,
                                   ),
                                   height: 80,
@@ -174,7 +177,8 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                                       ),
                                       fit: BoxFit.fill,
                                     ),
-                                    border: Border.all(color: Colors.red, width: 3),
+                                    border:
+                                        Border.all(color: Colors.red, width: 3),
                                     shape: BoxShape.circle,
                                   ),
                                   height: 80,
@@ -198,7 +202,8 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                                       ),
                                       fit: BoxFit.fill,
                                     ),
-                                    border: Border.all(color: Colors.red, width: 3),
+                                    border:
+                                        Border.all(color: Colors.red, width: 3),
                                     shape: BoxShape.circle,
                                   ),
                                   height: 80,
@@ -231,7 +236,8 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                                       ),
                                       fit: BoxFit.fill,
                                     ),
-                                    border: Border.all(color: Colors.red, width: 1),
+                                    border:
+                                        Border.all(color: Colors.red, width: 1),
                                     shape: BoxShape.circle,
                                   ),
                                   height: 45,
@@ -386,7 +392,8 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                           Container(
                             child: Text(
                               "20 minutes ago",
-                              style: TextStyle(color: Colors.grey, fontSize: 10),
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 10),
                               textAlign: TextAlign.left,
                             ),
                             margin: EdgeInsets.only(left: 0, right: 300),
@@ -402,7 +409,8 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                                       ),
                                       fit: BoxFit.fill,
                                     ),
-                                    border: Border.all(color: Colors.red, width: 1),
+                                    border:
+                                        Border.all(color: Colors.red, width: 1),
                                     shape: BoxShape.circle,
                                   ),
                                   height: 45,
@@ -557,7 +565,8 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                           Container(
                             child: Text(
                               "25 minutes ago",
-                              style: TextStyle(color: Colors.grey, fontSize: 10),
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 10),
                               textAlign: TextAlign.left,
                             ),
                             margin: EdgeInsets.only(left: 0, right: 300),
@@ -596,66 +605,44 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                             Icons.favorite_border_rounded,
                             color: Colors.white,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Activity()));
+                          },
                         ),
                         InkWell(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/lake.png",
+                            child: Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                    "assets/images/lake.png",
+                                  ),
+                                  fit: BoxFit.fill,
                                 ),
-                                fit: BoxFit.fill,
+                                border: Border.all(color: Colors.red, width: 1),
+                                shape: BoxShape.circle,
                               ),
-                              border: Border.all(color: Colors.red, width: 1),
-                              shape: BoxShape.circle,
+                              height: 45,
+                              width: 30,
+                              margin: EdgeInsets.all(5),
                             ),
-                            height: 45,
-                            width: 30,
-                            margin: EdgeInsets.all(5),
-
-                          ),
-                          onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => Profile()));
-                          }
-                        ),
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Profile()));
+                            }),
                       ],
                     ),
                   ),
-
                 ],
               ),
             ),
           ],
         ),
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   selectedItemColor: Colors.white,
-      //   unselectedItemColor: Colors.white.withOpacity(.60),
-      //   onTap: (value) {},
-      //   items: [
-      //     BottomNavigationBarItem(
-      //         backgroundColor: Colors.black,
-      //         icon: Icon(Icons.home),
-      //         label: "Home"),
-      //     BottomNavigationBarItem(
-      //         backgroundColor: Colors.red,
-      //         icon: Icon(Icons.search),
-      //         label: ""),
-      //     BottomNavigationBarItem(
-      //         backgroundColor: Colors.red,
-      //         icon: Icon(Icons.play_circle_outline),
-      //         label: "reels"),
-      //     BottomNavigationBarItem(
-      //         backgroundColor: Colors.green,
-      //         icon: Icon(Icons.favorite_border),
-      //         label: "likes"),
-      //     BottomNavigationBarItem(
-      //         backgroundColor: Colors.blue,
-      //         icon: Icon(Icons.play_circle_outline),
-      //         label: "Profile"),
-      //   ],
-      // ),
     );
   }
 }
