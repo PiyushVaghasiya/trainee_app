@@ -133,7 +133,39 @@ class _ActivityState extends State<Activity>
                                 ),
                                 TextSpan(
                                   text:
-                                      " commented on a post that you're tagged in",
+                                      " commented on a post that you're tagged in :",
+                                ),
+                                WidgetSpan(
+                                  child: Icon(
+                                    Icons.local_fire_department,
+                                    color: Colors.yellow,
+                                    size: 20,
+                                  ),
+                                ),
+                                WidgetSpan(
+                                  child: Icon(
+                                    Icons.local_fire_department,
+                                    color: Colors.yellow,
+                                    size: 20,
+                                  ),
+                                ),
+                                WidgetSpan(
+                                  child: Icon(
+                                    Icons.favorite,
+                                    color: Colors.red,
+                                    size: 20,
+                                  ),
+                                ),
+                                WidgetSpan(
+                                  child: Icon(
+                                    Icons.favorite,
+                                    color: Colors.red,
+                                    size: 20,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text:
+                                  " 1d",style: TextStyle(color: Colors.grey),
                                 ),
                               ]),
                         ),
@@ -149,7 +181,7 @@ class _ActivityState extends State<Activity>
                     image: DecorationImage(
                         image: NetworkImage(
                             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR10hkHFV6UitNs7ArQUbAmJGZtn-NIzXPPLRgUq7K-4zt6DcgeSaUzgCaLh49iMx4MN4c&usqp=CAU")),
-                    ),
+                  ),
                 ),
               ],
             ),

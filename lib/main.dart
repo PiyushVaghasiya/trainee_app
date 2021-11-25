@@ -82,149 +82,150 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
             Expanded(
               child: Column(
                 children: [
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Container(
-                      color: Colors.black,
-                      height: 100,
-                      width: 450,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            children: [
-                              Expanded(
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                        "assets/images/lake.png",
-                                      ),
-                                      fit: BoxFit.fill,
-                                    ),
-                                    border:
-                                        Border.all(color: Colors.red, width: 3),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  height: 80,
-                                  width: 80,
-                                ),
-                              ),
-                              Text(
-                                "Your story",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Expanded(
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                        "assets/images/lake.png",
-                                      ),
-                                      fit: BoxFit.fill,
-                                    ),
-                                    border:
-                                        Border.all(color: Colors.red, width: 3),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  height: 80,
-                                  width: 80,
-                                ),
-                              ),
-                              Text(
-                                "piyush123",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Expanded(
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                        "assets/images/lake.png",
-                                      ),
-                                      fit: BoxFit.fill,
-                                    ),
-                                    border:
-                                        Border.all(color: Colors.red, width: 3),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  height: 80,
-                                  width: 80,
-                                ),
-                              ),
-                              Text(
-                                "piyush234",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Expanded(
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                        "assets/images/lake.png",
-                                      ),
-                                      fit: BoxFit.fill,
-                                    ),
-                                    border:
-                                        Border.all(color: Colors.red, width: 3),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  height: 80,
-                                  width: 80,
-                                ),
-                              ),
-                              Text(
-                                "piyush888",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Expanded(
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                        "assets/images/lake.png",
-                                      ),
-                                      fit: BoxFit.fill,
-                                    ),
-                                    border:
-                                        Border.all(color: Colors.red, width: 3),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  height: 80,
-                                  width: 80,
-                                ),
-                              ),
-                              Text(
-                                "piyush567",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
                   Expanded(
                     child: SingleChildScrollView(
                       scrollDirection: Axis.vertical,
                       child: Column(
                         children: [
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Container(
+                              color: Colors.black,
+                              height: 100,
+                              width: 450,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Column(
+                                    children: [
+                                      Expanded(
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: AssetImage(
+                                                "assets/images/lake.png",
+                                              ),
+                                              fit: BoxFit.fill,
+                                            ),
+                                            border: Border.all(
+                                                color: Colors.red, width: 3),
+                                            shape: BoxShape.circle,
+                                          ),
+                                          height: 80,
+                                          width: 80,
+                                        ),
+                                      ),
+                                      Text(
+                                        "Your story",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      Expanded(
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: AssetImage(
+                                                "assets/images/lake.png",
+                                              ),
+                                              fit: BoxFit.fill,
+                                            ),
+                                            border: Border.all(
+                                                color: Colors.red, width: 3),
+                                            shape: BoxShape.circle,
+                                          ),
+                                          height: 80,
+                                          width: 80,
+                                        ),
+                                      ),
+                                      Text(
+                                        "piyush123",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      Expanded(
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: AssetImage(
+                                                "assets/images/lake.png",
+                                              ),
+                                              fit: BoxFit.fill,
+                                            ),
+                                            border: Border.all(
+                                                color: Colors.red, width: 3),
+                                            shape: BoxShape.circle,
+                                          ),
+                                          height: 80,
+                                          width: 80,
+                                        ),
+                                      ),
+                                      Text(
+                                        "piyush234",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      Expanded(
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: AssetImage(
+                                                "assets/images/lake.png",
+                                              ),
+                                              fit: BoxFit.fill,
+                                            ),
+                                            border: Border.all(
+                                                color: Colors.red, width: 3),
+                                            shape: BoxShape.circle,
+                                          ),
+                                          height: 80,
+                                          width: 80,
+                                        ),
+                                      ),
+                                      Text(
+                                        "piyush888",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      Expanded(
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: AssetImage(
+                                                "assets/images/lake.png",
+                                              ),
+                                              fit: BoxFit.fill,
+                                            ),
+                                            border: Border.all(
+                                                color: Colors.red, width: 3),
+                                            shape: BoxShape.circle,
+                                          ),
+                                          height: 80,
+                                          width: 80,
+                                        ),
+                                      ),
+                                      Text(
+                                        "piyush567",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                           Container(
                             child: Row(
                               children: [
