@@ -288,7 +288,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                               width: 1, color: Colors.white),
                                         )),
                                         height: 40,
-                                        width: 200,
+                                        width: 180,
                                         child: Icon(
                                           Icons.post_add_sharp,
                                           color: Colors.white,
@@ -297,7 +297,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                       ),
                                       Container(
                                         height: 40,
-                                        width: 200,
+                                        width: 170,
                                         child: Icon(
                                           Icons.people_rounded,
                                           color: Colors.white38,
@@ -313,7 +313,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                       Container(
 
                                         height: 110,
-                                        width: 135,
+                                        width: 118,
                                         decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 1),
                                           image: DecorationImage(
                                             image: NetworkImage(
@@ -326,7 +326,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                       Container(
 
                                         height: 110,
-                                        width: 135,
+                                        width: 118,
                                         decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 1),
                                           image: DecorationImage(
                                             image: NetworkImage(
@@ -339,7 +339,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                       Container(
 
                                         height: 110,
-                                        width: 135,
+                                        width: 118,
                                         decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 1),
                                           image: DecorationImage(
                                             image: NetworkImage(
@@ -357,7 +357,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                     children: [
                                       Container(
                                         height: 110,
-                                        width: 135,
+                                        width: 118,
                                         decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 1),
                                           image: DecorationImage(
                                             image: NetworkImage(
@@ -369,7 +369,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                       ),
                                       Container(
                                         height: 110,
-                                        width: 135,
+                                        width: 118,
                                         decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 1),
                                           image: DecorationImage(
                                             image: NetworkImage(
@@ -381,7 +381,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                       ),
                                       Container(
                                         height: 110,
-                                        width: 135,
+                                        width: 118,
                                         decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 1),
                                           image: DecorationImage(
                                             image: NetworkImage(
@@ -399,7 +399,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                     children: [
                                       Container(
                                         height: 110,
-                                        width: 135,
+                                        width: 118,
                                         decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 1),
                                           image: DecorationImage(
                                             image: NetworkImage(
@@ -411,7 +411,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                       ),
                                       Container(
                                         height: 110,
-                                        width: 135,
+                                        width: 118,
                                         decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 1),
                                           image: DecorationImage(
                                             image: NetworkImage(
@@ -423,7 +423,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                       ),
                                       Container(
                                         height: 110,
-                                        width: 135,
+                                        width: 118,
                                         decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 1),
                                           image: DecorationImage(
                                             image: NetworkImage(
