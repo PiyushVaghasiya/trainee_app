@@ -44,7 +44,7 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(automaticallyImplyLeading: false,
         backgroundColor: Colors.black,
         title: const Text(
           ' Instagram',
@@ -269,7 +269,7 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                           Container(
                             child: Image.asset(
                               "assets/images/Tree.webp",
-                              height: 300,
+                              height: 400,
                               fit: BoxFit.fill,
                             ),
                           ),
