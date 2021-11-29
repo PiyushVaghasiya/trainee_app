@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:untitled/Activity.dart';
+import 'package:untitled/Reels.dart';
 import 'package:untitled/messages.dart';
 import 'package:untitled/profile.dart';
 
@@ -44,7 +45,8 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(automaticallyImplyLeading: false,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.black,
         title: const Text(
           ' Instagram',
@@ -442,7 +444,7 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                           Container(
                             child: Image.asset(
                               "assets/images/taj.jpeg",
-                              height: 300,
+                              height: 400,
                               fit: BoxFit.fill,
                             ),
                           ),
@@ -599,7 +601,12 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                             Icons.play_circle_outline,
                             color: Colors.white,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Reels()));
+                          },
                         ),
                         IconButton(
                           icon: Icon(
