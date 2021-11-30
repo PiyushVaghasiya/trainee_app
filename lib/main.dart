@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:untitled/Activity.dart';
+import 'package:untitled/Demo/radio_button_demo.dart';
 import 'package:untitled/Reels.dart';
 import 'package:untitled/messages.dart';
 import 'package:untitled/profile.dart';
+import 'package:untitled/search.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Chat(),
+      home: RadioButtonDemo(),
     );
   }
 }
@@ -602,7 +604,12 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                             size: 30,
                             color: Colors.white,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => search()));
+                          },
                         ),
                         IconButton(
                           icon: Icon(
