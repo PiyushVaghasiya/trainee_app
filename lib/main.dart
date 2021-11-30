@@ -45,6 +45,7 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.black,
@@ -78,6 +79,7 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
         ],
       ),
       body: Container(
+        margin: EdgeInsets.only(left: 5),
         color: Colors.black,
         child: Column(
           children: [
@@ -271,7 +273,7 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                           Container(
                             child: Image.asset(
                               "assets/images/Tree.webp",
-                              height: 400,
+                              height: 380,
                               fit: BoxFit.fill,
                             ),
                           ),
@@ -338,13 +340,14 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                             margin: EdgeInsets.all(5),
                           ),
                           Container(
+                            alignment: Alignment.centerLeft,
                             height: 20,
+                            width: double.infinity,
                             child: Text(
                               "View all 30 comments ",
                               textAlign: TextAlign.left,
                               style: TextStyle(color: Colors.grey),
                             ),
-                            margin: EdgeInsets.only(left: 0, right: 250),
                           ),
                           Container(
                             child: Row(
@@ -393,13 +396,15 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                             ),
                           ),
                           Container(
+                            height: 30,
+                            width: double.infinity,
+                            alignment: Alignment.centerLeft,
                             child: Text(
                               "20 minutes ago",
                               style:
                                   TextStyle(color: Colors.grey, fontSize: 10),
                               textAlign: TextAlign.left,
                             ),
-                            margin: EdgeInsets.only(left: 0, right: 300),
                           ),
                           Container(
                             child: Row(
@@ -511,13 +516,13 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                             margin: EdgeInsets.all(5),
                           ),
                           Container(
+                            alignment: Alignment.centerLeft,
                             height: 20,
                             child: Text(
                               "View all 30 comments ",
                               textAlign: TextAlign.left,
                               style: TextStyle(color: Colors.grey),
                             ),
-                            margin: EdgeInsets.only(left: 0, right: 250),
                           ),
                           Container(
                             child: Row(
@@ -566,25 +571,27 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                             ),
                           ),
                           Container(
+                            alignment: Alignment.centerLeft,
                             child: Text(
                               "25 minutes ago",
                               style:
                                   TextStyle(color: Colors.grey, fontSize: 10),
                               textAlign: TextAlign.left,
                             ),
-                            margin: EdgeInsets.only(left: 0, right: 300),
                           ),
                         ],
                       ),
                     ),
                   ),
                   Container(
+                    margin: EdgeInsets.only(bottom: 35),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         IconButton(
                           icon: Icon(
-                            Icons.home,
+                            Icons.home_outlined,
+                            size: 30,
                             color: Colors.white,
                           ),
                           onPressed: () {},
@@ -592,6 +599,7 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                         IconButton(
                           icon: Icon(
                             Icons.search,
+                            size: 30,
                             color: Colors.white,
                           ),
                           onPressed: () {},
@@ -599,6 +607,7 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                         IconButton(
                           icon: Icon(
                             Icons.play_circle_outline,
+                            size: 30,
                             color: Colors.white,
                           ),
                           onPressed: () {
@@ -611,6 +620,7 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                         IconButton(
                           icon: Icon(
                             Icons.favorite_border_rounded,
+                            size: 30,
                             color: Colors.white,
                           ),
                           onPressed: () {
