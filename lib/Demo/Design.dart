@@ -22,6 +22,8 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
     super.dispose();
   }
 
+  final barColor = const Color(0xFF232121);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -83,7 +85,7 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                 ],
               ),
               Container(
-                  margin: EdgeInsets.only(left: 10, top: 20),
+                  margin: EdgeInsets.only(left: 10, top: 15),
                   child: Text(
                     "Dynamic Warmup",
                     style: TextStyle(
@@ -92,7 +94,7 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                         fontWeight: FontWeight.bold),
                   )),
               Container(
-                  margin: EdgeInsets.only(left: 20, top: 20),
+                  margin: EdgeInsets.only(left: 20, top: 15),
                   child: Text(
                     "Don't rush these exercises. Warmups improve performance,reduce risk of injury,and prepare you mentally",
                     style: TextStyle(
@@ -109,10 +111,10 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                         Row(
                           children: [
                             Container(
-                              margin: EdgeInsets.only(left: 10, top: 20),
+                              margin: EdgeInsets.only(left: 10, top: 10),
                               transformAlignment: Alignment.center,
-                              height: 230,
-                              width: 300,
+                              height: 240,
+                              width: 280,
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
@@ -123,10 +125,10 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.only(left: 10, top: 20),
+                              margin: EdgeInsets.only(left: 10, top: 10),
                               transformAlignment: Alignment.center,
-                              height: 230,
-                              width: 300,
+                              height: 240,
+                              width: 280,
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
@@ -142,7 +144,7 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                     ),
                   ),
                   Container(
-                    color: Colors.black,
+                    margin: EdgeInsets.only(top: 200),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -151,22 +153,25 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                           children: [
                             Container(
                               decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10)),
-                              margin: EdgeInsets.only(left: 50, bottom: 5),
+                                  color: barColor,
+                                  borderRadius: BorderRadius.circular(20)),
+                              margin: EdgeInsets.only(left: 60, bottom: 5),
                               alignment: Alignment.center,
-                              height: 100,
-                              width: 100,
+                              height: 80,
+                              width: 90,
                               child: Text(
                                 "start",
                                 style: TextStyle(color: Colors.red),
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.only(right: 90, bottom: 5),
+                              margin: EdgeInsets.only(right: 100, bottom: 5),
                               alignment: Alignment.center,
-                              color: Colors.blue,
-                              height: 100,
-                              width: 100,
+                              decoration: BoxDecoration(
+                                  color: barColor,
+                                  borderRadius: BorderRadius.circular(20)),
+                              height: 80,
+                              width: 90,
                               child: Text(
                                 "start",
                                 style: TextStyle(color: Colors.red),
@@ -178,26 +183,47 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Container(
-                              // decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-                              margin: EdgeInsets.only(left: 50),
+                              decoration: BoxDecoration(
+                                  color: barColor,
+                                  borderRadius: BorderRadius.circular(20)),
+                              margin: EdgeInsets.only(left: 60),
                               alignment: Alignment.center,
-                              color: Colors.black,
-                              height: 100,
-                              width: 100,
-                              child: Text(
-                                "start",
-                                style: TextStyle(color: Colors.red),
+                              height: 80,
+                              width: 90,
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.watch_later_outlined,
+                                    size: 35,
+                                    color: Colors.white,
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(bottom: 10),
+                                    child: Text(
+                                      "4-5 min",
+                                      style: TextStyle(
+                                          color: Colors.grey, fontSize: 10),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.only(right: 90),
+                              margin: EdgeInsets.only(right: 100),
                               alignment: Alignment.center,
-                              color: Colors.blue,
-                              height: 100,
-                              width: 100,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(20)),
+                              height: 80,
+                              width: 90,
                               child: Text(
-                                "start",
-                                style: TextStyle(color: Colors.red),
+                                "Start",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
                               ),
                             ),
                           ],
