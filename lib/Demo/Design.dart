@@ -113,7 +113,7 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                             Container(
                               margin: EdgeInsets.only(left: 10, top: 10),
                               transformAlignment: Alignment.center,
-                              height: 240,
+                              height: 220,
                               width: 280,
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
@@ -127,7 +127,7 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                             Container(
                               margin: EdgeInsets.only(left: 10, top: 10),
                               transformAlignment: Alignment.center,
-                              height: 240,
+                              height: 220,
                               width: 280,
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
@@ -144,7 +144,7 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 200),
+                    margin: EdgeInsets.only(top: 180),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -152,18 +152,22 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Container(
-                              decoration: BoxDecoration(
-                                  color: barColor,
-                                  borderRadius: BorderRadius.circular(20)),
-                              margin: EdgeInsets.only(left: 60, bottom: 5),
-                              alignment: Alignment.center,
-                              height: 80,
-                              width: 90,
-                              child: Text(
-                                "start",
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
+                                decoration: BoxDecoration(
+                                    color: barColor,
+                                    borderRadius: BorderRadius.circular(20)),
+                                margin: EdgeInsets.only(left: 60, bottom: 5),
+                                alignment: Alignment.center,
+                                height: 80,
+                                width: 90,
+                                child: Column(
+                                  children: [
+                                    Icon(
+                                      Icons.menu,
+                                      color: Colors.white,
+                                      size: 40,
+                                    )
+                                  ],
+                                )),
                             Container(
                               margin: EdgeInsets.only(right: 100, bottom: 5),
                               alignment: Alignment.center,
@@ -233,6 +237,16 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                   ),
                 ],
               ),
+              Container(
+                margin: EdgeInsets.only(left: 10),
+                child: Text(
+                  "Summary",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18),
+                ),
+              )
             ],
           ),
         ),
