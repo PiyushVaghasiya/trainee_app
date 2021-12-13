@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class Design extends StatefulWidget {
@@ -9,11 +11,17 @@ class Design extends StatefulWidget {
 
 class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
+  bool isvisible = false;
 
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(vsync: this);
+    Timer(Duration(seconds: 5), () {
+      setState(() {
+        isvisible = true;
+      });
+    });
   }
 
   @override
@@ -110,8 +118,25 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                       children: [
                         Row(
                           children: [
+                            Visibility(
+                              visible: isvisible,
+                              child: Container(
+                                margin: EdgeInsets.only(left: 10, top: 10),
+                                transformAlignment: Alignment.center,
+                                height: 220,
+                                width: 290,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          "assets/images/trainer.png"),
+                                      fit: BoxFit.fill),
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                              ),
+                            ),
                             Container(
-                              margin: EdgeInsets.only(left: 10, top: 10),
+                              margin: EdgeInsets.only(left: 10, top: 5),
                               transformAlignment: Alignment.center,
                               height: 220,
                               width: 290,
@@ -130,13 +155,18 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                               height: 220,
                               width: 290,
                               alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image:
-                                        AssetImage("assets/images/trainer.png"),
-                                    fit: BoxFit.fill),
-                                borderRadius: BorderRadius.circular(30),
+                              child: AspectRatio(aspectRatio:3/2,
+                                child: Image(
+                                  image: AssetImage("assets/images/taj.jpeg"),
+                                ),
                               ),
+                              // decoration: BoxDecoration(
+                              //   image: DecorationImage(
+                              //       image:
+                              //       AssetImage("assets/images/trainer.png"),
+                              //       fit: BoxFit.fill),
+                              //   borderRadius: BorderRadius.circular(30),
+                              // ),
                             ),
                           ],
                         ),
