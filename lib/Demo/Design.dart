@@ -40,7 +40,7 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                 children: [
                   Container(
                     width: 45,
-                    height: 50,
+                    height: 40,
                     margin: EdgeInsets.only(left: 10),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
@@ -67,7 +67,7 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                   ),
                   Container(
                     width: 70,
-                    height: 50,
+                    height: 40,
                     margin: EdgeInsets.only(right: 10),
                     child: IconButton(
                       alignment: Alignment.topCenter,
@@ -75,7 +75,7 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                       icon: Icon(
                         Icons.add_circle_outlined,
                         color: Colors.white,
-                        size: 50,
+                        size: 45,
                       ),
                       onPressed: () {
                         // do something
@@ -85,7 +85,7 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                 ],
               ),
               Container(
-                  margin: EdgeInsets.only(left: 10, top: 15),
+                  margin: EdgeInsets.only(left: 10, top: 10),
                   child: Text(
                     "Dynamic Warmup",
                     style: TextStyle(
@@ -94,7 +94,7 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                         fontWeight: FontWeight.bold),
                   )),
               Container(
-                  margin: EdgeInsets.only(left: 20, top: 15),
+                  margin: EdgeInsets.only(left: 20, top: 5),
                   child: Text(
                     "Don't rush these exercises. Warmups improve performance,reduce risk of injury,and prepare you mentally",
                     style: TextStyle(
@@ -114,7 +114,7 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                               margin: EdgeInsets.only(left: 10, top: 10),
                               transformAlignment: Alignment.center,
                               height: 220,
-                              width: 280,
+                              width: 290,
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
@@ -125,10 +125,10 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.only(left: 10, top: 10),
+                              margin: EdgeInsets.only(left: 10, top: 5),
                               transformAlignment: Alignment.center,
                               height: 220,
-                              width: 280,
+                              width: 290,
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
@@ -157,15 +157,21 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                                     borderRadius: BorderRadius.circular(20)),
                                 margin: EdgeInsets.only(left: 60, bottom: 5),
                                 alignment: Alignment.center,
-                                height: 80,
-                                width: 90,
+                                height: 70,
+                                width: 80,
                                 child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Icon(
                                       Icons.menu,
                                       color: Colors.white,
-                                      size: 40,
-                                    )
+                                      size: 35,
+                                    ),
+                                    Text(
+                                      "No Equipment",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 10),
+                                    ),
                                   ],
                                 )),
                             Container(
@@ -174,11 +180,23 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                               decoration: BoxDecoration(
                                   color: barColor,
                                   borderRadius: BorderRadius.circular(20)),
-                              height: 80,
-                              width: 90,
-                              child: Text(
-                                "start",
-                                style: TextStyle(color: Colors.red),
+                              height: 70,
+                              width: 80,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.menu,
+                                    color: Colors.white,
+                                    size: 35,
+                                  ),
+                                  Text(
+                                    "Comfortable Pace",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 10),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
@@ -192,11 +210,10 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                                   borderRadius: BorderRadius.circular(20)),
                               margin: EdgeInsets.only(left: 60),
                               alignment: Alignment.center,
-                              height: 80,
-                              width: 90,
+                              height: 70,
+                              width: 80,
                               child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Icon(
@@ -204,13 +221,10 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                                     size: 35,
                                     color: Colors.white,
                                   ),
-                                  Container(
-                                    margin: EdgeInsets.only(bottom: 10),
-                                    child: Text(
-                                      "4-5 min",
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 10),
-                                    ),
+                                  Text(
+                                    "4-5 min",
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 10),
                                   ),
                                 ],
                               ),
@@ -221,8 +235,8 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(20)),
-                              height: 80,
-                              width: 90,
+                              height: 70,
+                              width: 80,
                               child: Text(
                                 "Start",
                                 style: TextStyle(
@@ -238,7 +252,7 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                 ],
               ),
               Container(
-                margin: EdgeInsets.only(left: 10),
+                margin: EdgeInsets.only(left: 10, bottom: 10),
                 child: Text(
                   "Summary",
                   style: TextStyle(
@@ -246,7 +260,119 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                       fontWeight: FontWeight.bold,
                       fontSize: 18),
                 ),
-              )
+              ),
+              Container(
+                width: 300,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(right: 20, bottom: 10),
+                      height: 50,
+                      width: 50,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("assets/images/trainer.png"),
+                            fit: BoxFit.fill),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        "Lunge Rotate",
+                        style: TextStyle(color: Colors.white, fontSize: 15),
+                      ),
+                    ),
+                    Text(
+                      "12 x",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                width: 300,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(right: 20, bottom: 10),
+                      height: 50,
+                      width: 50,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("assets/images/trainer.png"),
+                            fit: BoxFit.fill),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        "Deep Squat Hold",
+                        style: TextStyle(color: Colors.white, fontSize: 15),
+                      ),
+                    ),
+                    Text(
+                      "30 x",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                width: 300,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(right: 20, bottom: 10),
+                      height: 50,
+                      width: 50,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("assets/images/trainer.png"),
+                            fit: BoxFit.fill),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        "Knee Lifts",
+                        style: TextStyle(color: Colors.white, fontSize: 15),
+                      ),
+                    ),
+                    Text(
+                      "12 x",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    color: Colors.yellow,
+                    borderRadius: BorderRadius.circular(10)),
+                width: 300,
+                height: 45,
+                child: Text(
+                  "START YOUR JOURNEY",
+                  style: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold),
+                ),
+              ),
             ],
           ),
         ),
