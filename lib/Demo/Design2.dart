@@ -23,50 +23,88 @@ class _Design2State extends State<Design2> with SingleTickerProviderStateMixin {
     _controller.dispose();
     super.dispose();
   }
+  final gcolor = const Color(0xFAE9E9EE);
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.black,
-        body: Transform.rotate(angle: pi/10,
-          child: Stack(
-            children: [
-              Positioned(
-                child: Container(height: 200,width: 200,
-                  margin: EdgeInsets.all(20),
-                  color: Colors.blue,
-                ),
+    return Scaffold(
+      body: Container(
+        margin: EdgeInsets.only(left: 20),
+        child: Column(
+          children: [
+            Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.only(right: 20, top: 35, bottom: 30),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Icon(
+                    Icons.menu,
+                    color: Colors.black,
+                  ),
+                  Icon(
+                    Icons.search,
+                    color: Colors.black,
+                  ),
+                ],
               ),
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.white,
-                margin: EdgeInsets.all(50),
-                child: Column(
-                  children: [
-                    Container(
-                      alignment: Alignment.center,
-                      margin: EdgeInsets.only(left: 20, right: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Icon(
-                            Icons.menu,
-                            color: Colors.black,
-                          ),
-                          Icon(
-                            Icons.search,
-                            color: Colors.black,
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+            ),
+            Container(
+              alignment: Alignment.topLeft,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Delicious Salads",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  ),
+                  Text(
+                    "We made fresh and Healthy food",
+                    style: TextStyle(color: Colors.black, fontSize: 10),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(width:60,height: 30,alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Text(
+                    "Salads",
+                    style: TextStyle(color: Colors.white, fontSize: 10),
+                  ),
+                ),
+                Container(width:60,height: 30,alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      color: Colors.grey,
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Text(
+                    "Soups",
+                    style: TextStyle(color: Colors.black, fontSize: 10),
+                  ),
+                ),
+                Container(width:60,height: 30,alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      color: Colors.grey,
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Text(
+                    "Grilled",
+                    style: TextStyle(color: Colors.black, fontSize: 10),
+                  ),
+                ),
+                Icon(
+                  Icons.sort,
+                  color: Colors.black,
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );
