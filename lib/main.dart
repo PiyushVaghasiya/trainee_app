@@ -4,6 +4,8 @@ import 'package:untitled/Activity.dart';
 import 'package:untitled/Demo/Design.dart';
 import 'package:untitled/Demo/Design2.dart';
 import 'package:untitled/Demo/Textformfield.dart';
+import 'package:untitled/Demo/Textformfield.dart';
+import 'package:untitled/Demo/radio_button_demo.dart';
 import 'package:untitled/Reels.dart';
 import 'package:untitled/messages.dart';
 import 'package:untitled/profile.dart';
@@ -75,7 +77,7 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Msg()),
+                MaterialPageRoute(builder: (context) => Messages()),
               );
               // do something
             },

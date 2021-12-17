@@ -1,15 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled/main.dart';
 
-class Msg extends StatefulWidget {
-  const Msg({Key? key}) : super(key: key);
+class Messages extends StatefulWidget {
+  const Messages({Key? key}) : super(key: key);
 
   @override
-  _MsgState createState() => _MsgState();
+  _MessagesState createState() => _MessagesState();
 }
 
-class _MsgState extends State<Msg> with SingleTickerProviderStateMixin {
+class _MessagesState extends State<Messages> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
   @override
@@ -175,7 +174,7 @@ class _MsgState extends State<Msg> with SingleTickerProviderStateMixin {
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                     image:
-                                        AssetImage("assets/images/Tree.webp"),
+                                    AssetImage("assets/images/Tree.webp"),
                                     fit: BoxFit.fill,
                                   ),
                                   shape: BoxShape.circle,
@@ -264,7 +263,7 @@ class _MsgState extends State<Msg> with SingleTickerProviderStateMixin {
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                     image:
-                                        AssetImage("assets/images/Tree.webp"),
+                                    AssetImage("assets/images/Tree.webp"),
                                     fit: BoxFit.fill,
                                   ),
                                   shape: BoxShape.circle,
@@ -353,7 +352,7 @@ class _MsgState extends State<Msg> with SingleTickerProviderStateMixin {
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                     image:
-                                        AssetImage("assets/images/Tree.webp"),
+                                    AssetImage("assets/images/Tree.webp"),
                                     fit: BoxFit.fill,
                                   ),
                                   shape: BoxShape.circle,
@@ -442,7 +441,7 @@ class _MsgState extends State<Msg> with SingleTickerProviderStateMixin {
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                     image:
-                                        AssetImage("assets/images/Tree.webp"),
+                                    AssetImage("assets/images/Tree.webp"),
                                     fit: BoxFit.fill,
                                   ),
                                   shape: BoxShape.circle,
@@ -531,7 +530,7 @@ class _MsgState extends State<Msg> with SingleTickerProviderStateMixin {
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                     image:
-                                        AssetImage("assets/images/Tree.webp"),
+                                    AssetImage("assets/images/Tree.webp"),
                                     fit: BoxFit.fill,
                                   ),
                                   shape: BoxShape.circle,
