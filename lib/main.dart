@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:untitled/Activity.dart';
-import 'package:untitled/Demo/radio_button_demo.dart';
+import 'package:untitled/Demo/Design.dart';
+import 'package:untitled/Demo/Design2.dart';
+import 'package:untitled/Demo/Textformfield.dart';
 import 'package:untitled/Reels.dart';
 import 'package:untitled/messages.dart';
 import 'package:untitled/profile.dart';
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: RadioButtonDemo(),
+      home: Textformfield_demo(),
     );
   }
 }
@@ -596,7 +598,12 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                             size: 30,
                             color: Colors.white,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Chat()));
+                          },
                         ),
                         IconButton(
                           icon: Icon(
@@ -608,7 +615,7 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => search()));
+                                    builder: (context) => Search()));
                           },
                         ),
                         IconButton(
@@ -646,7 +653,6 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                                   ),
                                   fit: BoxFit.fill,
                                 ),
-                                border: Border.all(color: Colors.red, width: 1),
                                 shape: BoxShape.circle,
                               ),
                               height: 45,

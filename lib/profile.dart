@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled/Activity.dart';
+import 'package:untitled/Reels.dart';
 import 'package:untitled/main.dart';
+import 'package:untitled/search.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -26,9 +29,9 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(backgroundColor: Colors.black,
       body: Container(
-        margin: EdgeInsets.only(top: 20),
+        margin: EdgeInsets.only(top: 25),
         color: Colors.black,
         child: Column(
           children: [
@@ -447,57 +450,84 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
               ),
             ),
             Container(
+              margin: EdgeInsets.only(bottom: 35),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  InkWell(
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.home,
-                        color: Colors.white,
-                      ),
-                      onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Chat()));
-                      },
+                  IconButton(
+                    icon: Icon(
+                      Icons.home_outlined,
+                      size: 30,
+                      color: Colors.white,
                     ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Chat()));
+                    },
                   ),
                   IconButton(
                     icon: Icon(
                       Icons.search,
+                      size: 30,
                       color: Colors.white,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Search()));
+                    },
                   ),
                   IconButton(
                     icon: Icon(
                       Icons.play_circle_outline,
+                      size: 30,
                       color: Colors.white,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Reels()));
+                    },
                   ),
                   IconButton(
                     icon: Icon(
                       Icons.favorite_border_rounded,
+                      size: 30,
                       color: Colors.white,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Activity()));
+                    },
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                          "assets/images/lake.png",
+                  InkWell(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                              "assets/images/lake.png",
+                            ),
+                            fit: BoxFit.fill,
+                          ),
+
+                          shape: BoxShape.circle,
                         ),
-                        fit: BoxFit.fill,
+                        height: 45,
+                        width: 30,
+                        margin: EdgeInsets.all(5),
                       ),
-                      border: Border.all(color: Colors.red, width: 1),
-                      shape: BoxShape.circle,
-                    ),
-                    height: 45,
-                    width: 30,
-                    margin: EdgeInsets.all(5),
-                  ),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Profile()));
+                      }),
                 ],
               ),
             ),

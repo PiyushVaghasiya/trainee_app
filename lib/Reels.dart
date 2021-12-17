@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:untitled/Activity.dart';
+import 'package:untitled/main.dart';
 import 'package:untitled/profile.dart';
+import 'package:untitled/search.dart';
 
 class Reels extends StatefulWidget {
   const Reels({Key? key}) : super(key: key);
@@ -151,21 +153,30 @@ class _ReelsState extends State<Reels> with SingleTickerProviderStateMixin {
                 children: [
                   IconButton(
                     icon: Icon(
-                      Icons.home,
+                      Icons.home_outlined,
+                      size: 30,
                       color: Colors.white,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Chat()));
+                    },
                   ),
                   IconButton(
                     icon: Icon(
                       Icons.search,
+                      size: 30,
                       color: Colors.white,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Search()));
+                    },
                   ),
                   IconButton(
                     icon: Icon(
                       Icons.play_circle_outline,
+                      size: 30,
                       color: Colors.white,
                     ),
                     onPressed: () {
@@ -176,6 +187,7 @@ class _ReelsState extends State<Reels> with SingleTickerProviderStateMixin {
                   IconButton(
                     icon: Icon(
                       Icons.favorite_border_rounded,
+                      size: 30,
                       color: Colors.white,
                     ),
                     onPressed: () {
