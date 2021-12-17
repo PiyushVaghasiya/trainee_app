@@ -26,6 +26,8 @@ class _SearchState extends State<Search> with SingleTickerProviderStateMixin {
     super.dispose();
   }
 
+  final barColor = const Color(0xFF232121);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,38 +42,38 @@ class _SearchState extends State<Search> with SingleTickerProviderStateMixin {
                   child: Column(
                     children: [
                       Container(
-                        height: 60,
-                        color: Colors.black,
-                        child: Container(
-                            decoration: BoxDecoration(
+                        margin: EdgeInsets.only(top: 10, bottom: 10),
+                        height: 40,
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 20, right: 20),
+                          child: TextFormField(
+                            keyboardType: TextInputType.multiline,
+                            textInputAction: TextInputAction.search,
+                            decoration: InputDecoration(
+                              fillColor: barColor,
+                              filled: true,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              hintText: "Search",
+                              hintStyle:
+                                  TextStyle(color: Colors.grey, fontSize: 15),
+                              contentPadding: EdgeInsets.only(top: 3),
+                              prefixIcon: Icon(
+                                Icons.search,
                                 color: Colors.grey,
-                                border:
-                                    Border.all(color: Colors.black, width: 10),
-                                borderRadius: BorderRadius.circular(20)),
-                            width: double.infinity,
-                            margin:
-                                EdgeInsets.only(left: 10, right: 15, top: 5),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  margin: EdgeInsets.only(left: 10),
-                                  child: Icon(
-                                    Icons.search,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Container(
-                                    margin: EdgeInsets.only(left: 10),
-                                    child: Text(
-                                      'Search',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            )),
+                                size: 25,
+                              ),
+                            ),
+                            style: TextStyle(color: Colors.white, fontSize: 15),
+                            // validator: (value) {
+                            //   if (value.isEmpty) {
+                            //     return 'Please enter some text';
+                            //   }
+                            //   return null;
+                            // },
+                          ),
+                        ),
                       ),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -380,7 +382,6 @@ class _SearchState extends State<Search> with SingleTickerProviderStateMixin {
                             ),
                             fit: BoxFit.fill,
                           ),
-
                           shape: BoxShape.circle,
                         ),
                         height: 45,
