@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 
 class Edit_profile extends StatefulWidget {
   const Edit_profile({Key? key}) : super(key: key);
@@ -88,13 +89,34 @@ class _Edit_profileState extends State<Edit_profile>
                   ],
                 ),
               ),
-              TextFormField(style: TextStyle(color: Colors.white),
-                keyboardType: TextInputType.name,
-                decoration: InputDecoration(
-                  labelText: "Name",
-                  labelStyle: TextStyle(color: Colors.grey, fontSize: 12),
-                ),
-              ),
+              Form(
+                  child: Column(
+                children: [
+                  TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    decoration: InputDecoration(
+                      labelText: "Name",
+                      labelStyle: TextStyle(color: Colors.yellow),
+                    ),
+                    validator: RequiredValidator(errorText: "is required"),
+                  ),
+                  TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    style: TextStyle(color: Colors.white),
+                    validator: EmailValidator(errorText: "enter valid email"),
+                    decoration: InputDecoration(
+                      labelText: "Name",
+                      labelStyle: TextStyle(color: Colors.grey, fontSize: 12),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ],
+              ))
             ],
           ),
         ),

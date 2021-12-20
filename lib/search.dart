@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import 'package:untitled/Activity.dart';
 import 'package:untitled/Reels.dart';
 import 'package:untitled/main.dart';
@@ -27,6 +28,7 @@ class _SearchState extends State<Search> with SingleTickerProviderStateMixin {
   }
 
   final barColor = const Color(0xFF232121);
+  String val = "";
 
   @override
   Widget build(BuildContext context) {
@@ -66,12 +68,13 @@ class _SearchState extends State<Search> with SingleTickerProviderStateMixin {
                               ),
                             ),
                             style: TextStyle(color: Colors.white, fontSize: 15),
-                            // validator: (value) {
-                            //   if (value.isEmpty) {
-                            //     return 'Please enter some text';
-                            //   }
-                            //   return null;
-                            // },
+                            validator: RequiredValidator(errorText: "required"),
+                            onChanged: (value) {
+                              setState(() {
+                                val = value;
+                                print(val);
+                              });
+                            },
                           ),
                         ),
                       ),

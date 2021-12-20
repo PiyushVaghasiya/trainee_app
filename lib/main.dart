@@ -7,6 +7,7 @@ import 'package:untitled/Demo/Textformfield.dart';
 import 'package:untitled/Demo/Textformfield.dart';
 import 'package:untitled/Demo/radio_button_demo.dart';
 import 'package:untitled/Reels.dart';
+import 'package:untitled/edit_profile.dart';
 import 'package:untitled/messages.dart';
 import 'package:untitled/profile.dart';
 import 'package:untitled/search.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Chat(),
+      home:Edit_profile(),
     );
   }
 }

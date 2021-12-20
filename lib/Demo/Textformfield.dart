@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 
 class Textformfield_demo extends StatefulWidget {
   const Textformfield_demo({Key? key}) : super(key: key);
@@ -39,7 +40,7 @@ class _Textformfield_demoState extends State<Textformfield_demo>
               key: formkey,
               child: Column(
                 children: [
-                  TextFormField(
+                  TextFormField(autovalidateMode: AutovalidateMode.always,
                     controller: emailController,
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.search,
@@ -51,20 +52,31 @@ class _Textformfield_demoState extends State<Textformfield_demo>
                         labelText: "search",
                         hintStyle:
                             TextStyle(color: Colors.green, fontSize: 15)),
-                    validator: (value) {
-                      bool emailValid = RegExp(
-                              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                          .hasMatch(value ?? "");
-                      if (!emailValid) {
-                        return "invalid email";
-                      }
-                    },
+                    // validator: (value) {
+                    //   bool emailValid = RegExp(
+                    //           r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                    //       .hasMatch(value ?? "");
+                    //   if (!emailValid) {
+                    //     return "invalid email";
+                    //   }
+                    // },
+                    validator: MultiValidator([
+                      RequiredValidator(errorText: "required"),
+                      EmailValidator(errorText: "enter valid email"),
+                    ]),
                     onChanged: (value) {
                       setState(() {
                         val = value;
                         print(val);
                       });
                     },
+                  ),
+                  TextFormField(validator: RequiredValidator(errorText: "required",),
+                    autovalidateMode: AutovalidateMode.always,
+                    decoration: InputDecoration(
+                      labelText: "enter --------",
+                      labelStyle: TextStyle(color: Colors.yellow)
+                    ),
                   ),
                   ElevatedButton(
                       onPressed: () {
