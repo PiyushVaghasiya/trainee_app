@@ -29,7 +29,8 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Colors.black,
+    return Scaffold(
+      backgroundColor: Colors.black,
       body: Container(
         margin: EdgeInsets.only(top: 25),
         color: Colors.black,
@@ -219,20 +220,22 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Expanded(
-                                        child: Container(
-                                          alignment: Alignment.center,
-                                          margin: EdgeInsets.only(top: 10),
-                                          height: 30,
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: Colors.white30)),
-                                          child: Text(
-                                            "Edit Profile",
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 15,
+                                        child: InkWell(
+                                          child: Container(
+                                            alignment: Alignment.center,
+                                            margin: EdgeInsets.only(top: 10),
+                                            height: 30,
+                                            decoration: BoxDecoration(
+                                                border: Border.all(
+                                                    color: Colors.white30)),
+                                            child: Text(
+                                              "Edit Profile",
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 15,
+                                              ),
+                                              textAlign: TextAlign.center,
                                             ),
-                                            textAlign: TextAlign.center,
                                           ),
                                         ),
                                       ),
@@ -314,10 +317,11 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                         MainAxisAlignment.spaceAround,
                                     children: [
                                       Container(
-
                                         height: 110,
                                         width: 118,
-                                        decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 1),
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Colors.black, width: 1),
                                           image: DecorationImage(
                                             image: NetworkImage(
                                               "https://cdn.pixabay.com/photo/2014/11/30/10/58/twilight-551440__340.jpg",
@@ -327,10 +331,11 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                         ),
                                       ),
                                       Container(
-
                                         height: 110,
                                         width: 118,
-                                        decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 1),
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Colors.black, width: 1),
                                           image: DecorationImage(
                                             image: NetworkImage(
                                               "https://cdn.pixabay.com/photo/2016/12/06/14/33/sunrise-1886619__340.jpg",
@@ -340,10 +345,11 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                         ),
                                       ),
                                       Container(
-
                                         height: 110,
                                         width: 118,
-                                        decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 1),
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Colors.black, width: 1),
                                           image: DecorationImage(
                                             image: NetworkImage(
                                               "https://cdn.pixabay.com/photo/2017/01/12/02/20/massachusetts-1973530__340.jpg",
@@ -361,7 +367,9 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                       Container(
                                         height: 110,
                                         width: 118,
-                                        decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 1),
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Colors.black, width: 1),
                                           image: DecorationImage(
                                             image: NetworkImage(
                                               "https://cdn.pixabay.com/photo/2020/04/05/02/53/dawn-5004385__340.jpg",
@@ -373,7 +381,9 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                       Container(
                                         height: 110,
                                         width: 118,
-                                        decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 1),
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Colors.black, width: 1),
                                           image: DecorationImage(
                                             image: NetworkImage(
                                               "https://images.unsplash.com/photo-1619834548857-946ca6c24b83?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHw%3D&w=1000&q=80",
@@ -385,7 +395,9 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                       Container(
                                         height: 110,
                                         width: 118,
-                                        decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 1),
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Colors.black, width: 1),
                                           image: DecorationImage(
                                             image: NetworkImage(
                                               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM5iEj1qbLA8v0RsIuKWCxEN5Jo54thBUeDA&usqp=CAU",
@@ -398,12 +410,14 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                   ),
                                   Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
+                                        MainAxisAlignment.spaceAround,
                                     children: [
                                       Container(
                                         height: 110,
                                         width: 118,
-                                        decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 1),
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Colors.black, width: 1),
                                           image: DecorationImage(
                                             image: NetworkImage(
                                               "https://cdn.theatlantic.com/media/img/photo/2018/10/images-of-the-season-fall-is-in-the/f02_RTX6EJJJ-1/original.jpg",
@@ -415,7 +429,9 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                       Container(
                                         height: 110,
                                         width: 118,
-                                        decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 1),
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Colors.black, width: 1),
                                           image: DecorationImage(
                                             image: NetworkImage(
                                               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1uyg_lF8i4l6OVU-l6FGdy8UT_9i49QmI48YEfYtFnDTdsEzG-xhp9Hha4XZWG2Ey4go&usqp=CAU",
@@ -427,7 +443,9 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                       Container(
                                         height: 110,
                                         width: 118,
-                                        decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 1),
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Colors.black, width: 1),
                                           image: DecorationImage(
                                             image: NetworkImage(
                                               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4pXI-CGjzgaJR6Qdp2x-NtRkolIOqMVtyXw&usqp=CAU",
@@ -461,10 +479,8 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Chat()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Chat()));
                     },
                   ),
                   IconButton(
@@ -474,10 +490,8 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Search()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Search()));
                     },
                   ),
                   IconButton(
@@ -487,10 +501,8 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Reels()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Reels()));
                     },
                   ),
                   IconButton(
@@ -500,10 +512,8 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Activity()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Activity()));
                     },
                   ),
                   InkWell(
@@ -515,7 +525,6 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                             ),
                             fit: BoxFit.fill,
                           ),
-
                           shape: BoxShape.circle,
                         ),
                         height: 45,
@@ -523,10 +532,8 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                         margin: EdgeInsets.all(5),
                       ),
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Profile()));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Profile()));
                       }),
                 ],
               ),
