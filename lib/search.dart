@@ -33,6 +33,7 @@ class _SearchState extends State<Search> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.black,
         body: Column(
           children: [

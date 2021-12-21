@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled/Activity.dart';
 import 'package:untitled/Reels.dart';
+import 'package:untitled/edit_profile.dart';
 import 'package:untitled/main.dart';
 import 'package:untitled/search.dart';
 
@@ -221,6 +222,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                     children: [
                                       Expanded(
                                         child: InkWell(
+
                                           child: Container(
                                             alignment: Alignment.center,
                                             margin: EdgeInsets.only(top: 10),
@@ -237,6 +239,12 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                               textAlign: TextAlign.center,
                                             ),
                                           ),
+                                          onTap: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) => Edit_profile()));
+                                          },
                                         ),
                                       ),
                                       Container(

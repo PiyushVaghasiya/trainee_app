@@ -3,6 +3,7 @@ import 'package:flutter/painting.dart';
 import 'package:untitled/Activity.dart';
 import 'package:untitled/Demo/Design.dart';
 import 'package:untitled/Demo/Design2.dart';
+import 'package:untitled/Demo/Slider.dart';
 import 'package:untitled/Demo/Textformfield.dart';
 import 'package:untitled/Demo/Textformfield.dart';
 import 'package:untitled/Demo/radio_button_demo.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:Edit_profile(),
+      home:SliderScreen(),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:untitled/profile.dart';
 
 class Edit_profile extends StatefulWidget {
   const Edit_profile({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class _Edit_profileState extends State<Edit_profile>
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
+      child: Scaffold(resizeToAvoidBottomInset: false,
         backgroundColor: Colors.black,
         body: Container(
           margin: EdgeInsets.only(left: 10, right: 10),
@@ -38,7 +39,10 @@ class _Edit_profileState extends State<Edit_profile>
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Profile()));
+                      },
                       icon: const Icon(
                         Icons.cancel_outlined,
                         color: Colors.white,
@@ -94,29 +98,107 @@ class _Edit_profileState extends State<Edit_profile>
                 children: [
                   TextFormField(
                     autovalidateMode: AutovalidateMode.onUserInteraction,
-                    decoration: InputDecoration(
-                      labelText: "Name",
-                      labelStyle: TextStyle(color: Colors.yellow),
-                    ),
-                    validator: RequiredValidator(errorText: "is required"),
-                  ),
-                  TextFormField(
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     style: TextStyle(color: Colors.white),
-                    validator: EmailValidator(errorText: "enter valid email"),
+                    validator: RequiredValidator(errorText: "required"),
                     decoration: InputDecoration(
                       labelText: "Name",
                       labelStyle: TextStyle(color: Colors.grey, fontSize: 12),
-                      enabledBorder: OutlineInputBorder(
+                      enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: Colors.white),
                       ),
                       border: UnderlineInputBorder(
                         borderSide: BorderSide(color: Colors.white),
                       ),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                  TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    style: TextStyle(color: Colors.white),
+                    validator: RequiredValidator(errorText: "required"),
+                    decoration: InputDecoration(
+                      labelText: "User Name",
+                      labelStyle: TextStyle(color: Colors.grey, fontSize: 12),
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                  TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    style: TextStyle(color: Colors.white),
+                    validator: RequiredValidator(errorText: "required"),
+                    decoration: InputDecoration(
+                      labelText: "Website",
+                      labelStyle: TextStyle(color: Colors.grey, fontSize: 12),
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                  TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    style: TextStyle(color: Colors.white),
+                    validator: RequiredValidator(errorText: "required"),
+                    decoration: InputDecoration(
+                      labelText: "Bio",
+                      labelStyle: TextStyle(color: Colors.grey, fontSize: 12),
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
                     ),
                   ),
                 ],
-              ))
+              )),
+              Container(
+                height: 50,
+                decoration: BoxDecoration(
+                  border: Border(
+                      top: BorderSide(color: Colors.grey, width: 0.2),
+                      bottom: BorderSide(color: Colors.grey, width: 0.2)),
+                ),
+                alignment: Alignment.centerLeft,
+                margin: EdgeInsets.only(top: 30, bottom: 30),
+                child: Text(
+                  "Switch to Professional account",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.blue, fontSize: 17),
+                ),
+              ),
+              Container(
+                height: 50,
+                decoration: BoxDecoration(
+                  border: Border(
+                      top: BorderSide(color: Colors.grey, width: 0.2),
+                      bottom: BorderSide(color: Colors.grey, width: 0.2)),
+                ),
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Personal information settings",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.blue, fontSize: 17),
+                ),
+              ),
             ],
           ),
         ),
