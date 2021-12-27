@@ -31,21 +31,34 @@ class _SliderScreenState extends State<SliderScreen>
         child: Scaffold(
       body: Container(
         child: Center(
-          child: Slider(
-            mouseCursor: MaterialStateMouseCursor.textable,
-            activeColor: Colors.black,
-            inactiveColor: Colors.yellow,
-            label: currentSliderval.round().toString(),
-            divisions: 4,
-            autofocus: false,
-            min: 0,
-            max: 100,
-            value: currentSliderval,
-            onChanged: (double value) {
-              setState(() {
-                currentSliderval = value;
-              });
-            },
+          child: SliderTheme(
+            data: SliderThemeData(
+              activeTrackColor: Colors.orange,
+              inactiveTrackColor: Colors.black,
+              thumbColor: Colors.yellow,
+              thumbShape: RoundSliderThumbShape(enabledThumbRadius: 10.0),
+              overlayColor: Colors.green.withOpacity(0.18),
+              activeTickMarkColor: Colors.transparent,
+              inactiveTickMarkColor: Colors.white,
+              trackHeight: 11.0,
+            ),
+            child: SizedBox(
+              width: 200,
+              child: Slider(
+                mouseCursor: MaterialStateMouseCursor.textable,
+                label: currentSliderval.round().toString(),
+                divisions: 10,
+                autofocus: false,
+                min: 0,
+                max: 100,
+                value: currentSliderval,
+                onChanged: (double value) {
+                  setState(() {
+                    currentSliderval = value;
+                  });
+                },
+              ),
+            ),
           ),
         ),
       ),
