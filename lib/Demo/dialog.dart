@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:untitled/search.dart';
 
 class Dialogdemo extends StatefulWidget {
   const Dialogdemo({Key? key}) : super(key: key);
@@ -39,17 +42,18 @@ class _DialogdemoState extends State<Dialogdemo>
                 context: context,
                 builder: (BuildContext context) {
                   return Dialog(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
+                    insetPadding: EdgeInsets.all(10),
+                    backgroundColor: Colors.black,
                     child: Container(
                       decoration: BoxDecoration(
                         color: barColor,
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      height: 200, width: 400,
-                      // width: MediaQuery.of(context).size.width,
+                      height: 200,
+                      // width: 600,
+                      width: double.infinity,
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Text(
                             "Create an album",
@@ -79,7 +83,7 @@ class _DialogdemoState extends State<Dialogdemo>
                               InkWell(
                                 child: Container(
                                   height: 40,
-                                  width: 100,
+                                  width: 120,
                                   alignment: Alignment.center,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(30),
@@ -90,12 +94,12 @@ class _DialogdemoState extends State<Dialogdemo>
                                         color: Colors.white, fontSize: 15),
                                   ),
                                 ),
-                                onTap: () => Navigator.pop(context, 'Cancel'),
+                                onTap: () => Navigator.pop(context),
                               ),
                               InkWell(
                                 child: Container(
                                   height: 40,
-                                  width: 100,
+                                  width: 120,
                                   alignment: Alignment.center,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(30),
@@ -106,7 +110,8 @@ class _DialogdemoState extends State<Dialogdemo>
                                         color: Colors.white, fontSize: 15),
                                   ),
                                 ),
-                                onTap: () => Navigator.pop(context, 'Ok'),
+                                // onTap: () => Navigator.pop(context),
+                                onTap: () => Navigator.pop(context),
                               ),
                             ],
                           )
