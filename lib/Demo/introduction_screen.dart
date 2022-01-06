@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
@@ -15,30 +17,70 @@ class _IntroScreenState extends State<IntroScreen>
   List<PageViewModel> getPages() {
     return [
       PageViewModel(
-          image: Image.network( "https://images.unsplash.com/photo-1620766165457-a8025baa82e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bmF0dXJlJTIwb2YlMjBpbmRpYXxlbnwwfHwwfHw%3D&w=1000&q=80"),
-          title: "Live Demo page 1",
-          body: "Welcome to Proto Coders Point",
-          footer: Text("Footer Text here "),
-          decoration: const PageDecoration(
-            pageColor: Colors.blue,
-          )),
-      PageViewModel(
-        image: Image.network("https://images.unsplash.com/photo-1420593248178-d88870618ca0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bmF0dXJhbHxlbnwwfHwwfHw%3D&w=1000&q=80"),
+        image: Center(
+          child: Image.network(
+            "https://i.stack.imgur.com/RHzvO.png",
+            fit: BoxFit.fill,
+            height: double.infinity,
+          ),
+        ),
         title: "Live Demo page 2 ",
-        body: "Live Demo Text",
-        footer: Text("Footer Text  here "),
+        body: "Introduction Screen",
+        footer: Text("Page1"),
+        decoration: const PageDecoration(
+          bodyAlignment: Alignment.bottomRight,
+          imageAlignment: Alignment.center,
+          fullScreen: true,
+        ),
       ),
       PageViewModel(
-        image: Image.asset("images/Tree.webp"),
+        image: Center(
+          child: Image.network(
+            "https://support.aspnetzero.com/QA/files/2359_ae4d287e49b0108e5571e33132b12e7a.jpg",
+            fit: BoxFit.fill,
+            height: double.infinity,
+          ),
+        ),
+        title: "Live Demo page 2 ",
+        body: "Introduction Screen",
+        footer: Text("Page2"),
+        decoration: const PageDecoration(
+          bodyAlignment: Alignment.center,
+          imageAlignment: Alignment.center,
+          fullScreen: true,
+        ),
+      ),
+      PageViewModel(
+        image: Center(
+          child: Image.network(
+            "https://i.pinimg.com/originals/4c/06/69/4c066948b8c672bb36839d0c416f779c.png",
+            height: double.infinity,
+            fit: BoxFit.fill,
+          ),
+        ),
         title: "Live Demo page 3",
-        body: "Welcome to Proto Coders Point",
-        footer: Text("Footer Text  here "),
+        body: "Introduction Screen",
+        footer: Text("Page3"),
+        decoration: const PageDecoration(
+          bodyAlignment: Alignment.center,
+          imageAlignment: Alignment.center,
+          fullScreen: true,
+        ),
       ),
       PageViewModel(
-        image: Image.asset("images/trainer.png"),
+        image: Image.network(
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6x3t0FIUdLhxExC66AzGXzPwNpOwIEn63daQQRdRrwyo-MSUiOyyXQSEhQuLxKL49mFU&usqp=CAU",
+          height: double.infinity,
+          fit: BoxFit.fill,
+        ),
         title: "Live Demo page 4 ",
-        body: "Live Demo Text",
-        footer: Text("Footer Text  here "),
+        body: "Introduction Screen",
+        footer: Text("Page4"),
+        decoration: const PageDecoration(
+          bodyAlignment: Alignment.center,
+          imageAlignment: Alignment.center,
+          fullScreen: true,
+        ),
       ),
     ];
   }
