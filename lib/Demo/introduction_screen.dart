@@ -51,23 +51,6 @@ class _IntroScreenState extends State<IntroScreen>
         ),
       ),
       PageViewModel(
-        image: Center(
-          child: Image.network(
-            "https://i.pinimg.com/originals/4c/06/69/4c066948b8c672bb36839d0c416f779c.png",
-            height: double.infinity,
-            fit: BoxFit.fill,
-          ),
-        ),
-        title: "Live Demo page 3",
-        body: "Introduction Screen",
-        footer: Text("Page3"),
-        decoration: const PageDecoration(
-          bodyAlignment: Alignment.center,
-          imageAlignment: Alignment.center,
-          fullScreen: true,
-        ),
-      ),
-      PageViewModel(
         image: Image.network(
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6x3t0FIUdLhxExC66AzGXzPwNpOwIEn63daQQRdRrwyo-MSUiOyyXQSEhQuLxKL49mFU&usqp=CAU",
           height: double.infinity,
