@@ -51,6 +51,23 @@ class _IntroScreenState extends State<IntroScreen>
         ),
       ),
       PageViewModel(
+        image: Center(
+          child: Image.network(
+            "https://support.aspnetzero.com/QA/files/2359_ae4d287e49b0108e5571e33132b12e7a.jpg",
+            fit: BoxFit.fill,
+            height: double.infinity,
+          ),
+        ),
+        title: "Live Demo page 2 ",
+        body: "Introduction Screen",
+        footer: Text("Page2"),
+        decoration: const PageDecoration(
+          bodyAlignment: Alignment.center,
+          imageAlignment: Alignment.center,
+          fullScreen: true,
+        ),
+      ),
+      PageViewModel(
         image: Image.network(
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6x3t0FIUdLhxExC66AzGXzPwNpOwIEn63daQQRdRrwyo-MSUiOyyXQSEhQuLxKL49mFU&usqp=CAU",
           height: double.infinity,
