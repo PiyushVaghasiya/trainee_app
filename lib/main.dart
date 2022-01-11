@@ -6,6 +6,7 @@ import 'package:untitled/Demo/Design2.dart';
 import 'package:untitled/Demo/Slider.dart';
 import 'package:untitled/Demo/Textformfield.dart';
 import 'package:untitled/Demo/Textformfield.dart';
+import 'package:untitled/Demo/model_demo.dart';
 import 'package:untitled/Demo/radio_button_demo.dart';
 import 'package:untitled/Reels.dart';
 import 'package:untitled/edit_profile.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:SliderScreen(),
+      home:ModelDemo(),
     );
   }
 }
