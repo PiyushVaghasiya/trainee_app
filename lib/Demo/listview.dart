@@ -26,7 +26,7 @@ class _ListviewDemoState extends State<ListviewDemo>
 
   @override
   Widget build(BuildContext context) {
-    // List<String> name = ["piyush", "dishant", "abc"];
+     List<String> name = ["piyush", "dishant", "abc"];
 
     List<Employee> employeelist = [
       Employee(name: "piyush", married: true, salary: 1000, age: 20),
@@ -41,37 +41,32 @@ class _ListviewDemoState extends State<ListviewDemo>
     return Scaffold(
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Expanded(
-              child: Container(
-                width: 300,
-                height: 100,
-                child: ListView(
-                  scrollDirection: Axis.vertical,
-                  children: List.generate(
-                    employeelist.length,
-                    (index) => Container(
-                        alignment: Alignment.center,
-                        height: 200,
-                        width: 200,
-                        margin:
-                            EdgeInsets.only(bottom: 10, left: 10, right: 10),
-                        color: Colors.blue.shade50,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(employeelist[index].name ?? ""),
-                            Text(employeelist[index].salary.toString()),
-                            Text("married :${employeelist[index].married}"),
-                            Text(employeelist[index].age.toString()),
-                            Text(studdata[index].name??""),
-                            Text(studdata[index].rollno.toString()),
-                            Text(studdata[index].marks.toString()),
-                          ],
-                        )),
-                  ),
-                ),
-              ),
+            Container(
+              height: 300,
+              alignment: Alignment.center,
+              child: ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: employeelist.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      width: 200,
+                      alignment: Alignment.center,
+                      margin: EdgeInsets.only(bottom: 10, left: 10, right: 10),
+                      color: Colors.blue.shade50,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(employeelist[index].name ?? ""),
+                          Text(employeelist[index].salary.toString()),
+                          Text("married :${employeelist[index].married}"),
+                          Text(employeelist[index].age.toString()),
+                        ],
+                      ),
+                    );
+                  }),
             ),
           ],
         ),

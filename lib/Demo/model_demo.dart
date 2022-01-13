@@ -58,6 +58,18 @@ class _ModelDemoState extends State<ModelDemo> {
                 },
                 child: Text("dishant"),
               ),
+              SizedBox(
+                height: 10,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    employee = Employee(
+                        name: "abc", salary: 100000, married: true);
+                  });
+                },
+                child: Text("abc"),
+              ),
             ],
           ),
         ),
