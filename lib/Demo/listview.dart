@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled/models/employee.dart';
+import 'package:untitled/models/insta.dart';
 
 class ListviewDemo extends StatefulWidget {
   const ListviewDemo({Key? key}) : super(key: key);
@@ -26,7 +28,8 @@ class _ListviewDemoState extends State<ListviewDemo>
 
   @override
   Widget build(BuildContext context) {
-     List<String> name = ["piyush", "dishant", "abc"];
+    Insta insta = Insta();
+    List<String> name = ["piyush", "dishant", "abc"];
 
     List<Employee> employeelist = [
       Employee(name: "piyush", married: true, salary: 1000, age: 20),
@@ -39,6 +42,7 @@ class _ListviewDemoState extends State<ListviewDemo>
     ];
 
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

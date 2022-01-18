@@ -11,6 +11,7 @@ import 'package:untitled/Demo/radio_button_demo.dart';
 import 'package:untitled/Reels.dart';
 import 'package:untitled/edit_profile.dart';
 import 'package:untitled/messages.dart';
+import 'package:untitled/models/insta.dart';
 import 'package:untitled/profile.dart';
 import 'package:untitled/search.dart';
 
@@ -103,156 +104,58 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                         scrollDirection: Axis.vertical,
                         child: Column(
                           children: [
-                            ListView.builder(
-                                itemCount: 7,
-                                itemBuilder: (context, index) {
-                                  return Container(
-
-                                  );
-                                }),
                             Container(
-
+                              height: 110,
+                              alignment: Alignment.center,
+                              child: ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: storyname.length,
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (context, index) {
+                                    return Column(
+                                      children: [
+                                        Container(
+                                          margin: EdgeInsets.all(5),
+                                          child: Container(
+                                            height: 70,
+                                            width: 70,
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                  width: 3,
+                                                  color: Colors.black),
+                                              shape: BoxShape.circle,
+                                              image: DecorationImage(
+                                                  image: NetworkImage(
+                                                    storyimages[index],
+                                                  ),
+                                                  fit: BoxFit.cover),
+                                            ),
+                                          ),
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            gradient: LinearGradient(
+                                                begin: Alignment.bottomLeft,
+                                                end: Alignment.topRight,
+                                                colors: [
+                                                  Colors.yellowAccent,
+                                                  Colors.orange,
+                                                  Colors.pink,
+                                                  Colors.red,
+                                                ]),
+                                            border: Border.all(
+                                                color: Colors.transparent,
+                                                width: 2),
+                                          ),
+                                        ),
+                                        Text(
+                                          storyname[index],
+                                          style: TextStyle(color: Colors.white),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ],
+                                    );
+                                  }),
                             ),
-
-                            // SingleChildScrollView(
-                            //   scrollDirection: Axis.horizontal,
-                            //   child: Container(
-                            //     color: Colors.black,
-                            //     height: 100,
-                            //     width: 450,
-                            //     child: Row(
-                            //       mainAxisAlignment:
-                            //           MainAxisAlignment.spaceBetween,
-                            //       children: [
-                            //         Column(
-                            //           children: [
-                            //             Expanded(
-                            //               child: Container(
-                            //                 decoration: BoxDecoration(
-                            //                   image: DecorationImage(
-                            //                     image: AssetImage(
-                            //                       "assets/images/lake.png",
-                            //                     ),
-                            //                     fit: BoxFit.fill,
-                            //                   ),
-                            //                   border: Border.all(
-                            //                       color: Colors.red, width: 3),
-                            //                   shape: BoxShape.circle,
-                            //                 ),
-                            //                 height: 80,
-                            //                 width: 80,
-                            //               ),
-                            //             ),
-                            //             Text(
-                            //               "Your story",
-                            //               style: TextStyle(color: Colors.white),
-                            //             ),
-                            //           ],
-                            //         ),
-                            //         Column(
-                            //           children: [
-                            //             Expanded(
-                            //               child: Container(
-                            //                 decoration: BoxDecoration(
-                            //                   image: DecorationImage(
-                            //                     image: AssetImage(
-                            //                       "assets/images/lake.png",
-                            //                     ),
-                            //                     fit: BoxFit.fill,
-                            //                   ),
-                            //                   border: Border.all(
-                            //                       color: Colors.red, width: 3),
-                            //                   shape: BoxShape.circle,
-                            //                 ),
-                            //                 height: 80,
-                            //                 width: 80,
-                            //               ),
-                            //             ),
-                            //             Text(
-                            //               "piyush123",
-                            //               style: TextStyle(color: Colors.white),
-                            //             ),
-                            //           ],
-                            //         ),
-                            //         Column(
-                            //           children: [
-                            //             Expanded(
-                            //               child: Container(
-                            //                 decoration: BoxDecoration(
-                            //                   image: DecorationImage(
-                            //                     image: AssetImage(
-                            //                       "assets/images/lake.png",
-                            //                     ),
-                            //                     fit: BoxFit.fill,
-                            //                   ),
-                            //                   border: Border.all(
-                            //                       color: Colors.red, width: 3),
-                            //                   shape: BoxShape.circle,
-                            //                 ),
-                            //                 height: 80,
-                            //                 width: 80,
-                            //               ),
-                            //             ),
-                            //             Text(
-                            //               "piyush234",
-                            //               style: TextStyle(color: Colors.white),
-                            //             ),
-                            //           ],
-                            //         ),
-                            //         Column(
-                            //           children: [
-                            //             Expanded(
-                            //               child: Container(
-                            //                 decoration: BoxDecoration(
-                            //                   image: DecorationImage(
-                            //                     image: AssetImage(
-                            //                       "assets/images/lake.png",
-                            //                     ),
-                            //                     fit: BoxFit.fill,
-                            //                   ),
-                            //                   border: Border.all(
-                            //                       color: Colors.red, width: 3),
-                            //                   shape: BoxShape.circle,
-                            //                 ),
-                            //                 height: 80,
-                            //                 width: 80,
-                            //               ),
-                            //             ),
-                            //             Text(
-                            //               "piyush888",
-                            //               style: TextStyle(color: Colors.white),
-                            //             ),
-                            //           ],
-                            //         ),
-                            //         Column(
-                            //           children: [
-                            //             Expanded(
-                            //               child: Container(
-                            //                 decoration: BoxDecoration(
-                            //                   image: DecorationImage(
-                            //                     image: AssetImage(
-                            //                       "assets/images/lake.png",
-                            //                     ),
-                            //                     fit: BoxFit.fill,
-                            //                   ),
-                            //                   border: Border.all(
-                            //                       color: Colors.red, width: 3),
-                            //                   shape: BoxShape.circle,
-                            //                 ),
-                            //                 height: 80,
-                            //                 width: 80,
-                            //               ),
-                            //             ),
-                            //             Text(
-                            //               "piyush567",
-                            //               style: TextStyle(color: Colors.white),
-                            //             ),
-                            //           ],
-                            //         ),
-                            //       ],
-                            //     ),
-                            //   ),
-                            // ),
                             Container(
                               child: Row(
                                 children: [
@@ -296,7 +199,7 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                             Container(
                               child: Image.asset(
                                 "assets/images/Tree.webp",
-                                height: 380,
+                                height: 360,
                                 fit: BoxFit.fill,
                               ),
                             ),
