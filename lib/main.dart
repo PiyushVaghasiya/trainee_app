@@ -11,7 +11,7 @@ import 'package:untitled/Demo/radio_button_demo.dart';
 import 'package:untitled/Reels.dart';
 import 'package:untitled/edit_profile.dart';
 import 'package:untitled/messages.dart';
-import 'package:untitled/models/insta.dart';
+import 'package:untitled/models/insta_story.dart';
 import 'package:untitled/profile.dart';
 import 'package:untitled/search.dart';
 
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Chat(),
+      home: ListviewDemo(),
     );
   }
 }
@@ -109,7 +109,7 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                               alignment: Alignment.center,
                               child: ListView.builder(
                                   shrinkWrap: true,
-                                  itemCount: storyname.length,
+                                  itemCount: storynm.length,
                                   scrollDirection: Axis.horizontal,
                                   itemBuilder: (context, index) {
                                     return Column(
@@ -126,7 +126,7 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                                               shape: BoxShape.circle,
                                               image: DecorationImage(
                                                   image: NetworkImage(
-                                                    storyimages[index],
+                                                    storyimg[index],
                                                   ),
                                                   fit: BoxFit.cover),
                                             ),
@@ -148,7 +148,7 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                                           ),
                                         ),
                                         Text(
-                                          storyname[index],
+                                          storynm[index],
                                           style: TextStyle(color: Colors.white),
                                           textAlign: TextAlign.center,
                                         ),
