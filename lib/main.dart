@@ -15,6 +15,7 @@ import 'package:untitled/models/insta_post.dart';
 import 'package:untitled/models/insta_story.dart';
 import 'package:untitled/profile.dart';
 import 'package:untitled/search.dart';
+import 'package:untitled/whatsapp.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Chat(),
+      home: Whatsapp(),
     );
   }
 }
