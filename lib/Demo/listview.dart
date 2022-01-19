@@ -177,20 +177,106 @@ class _ListviewDemoState extends State<ListviewDemo>
                                         fit: BoxFit.cover),
                                   ),
                                 ),
-                                Text(
-                                  "liked by piyush_123 and 1212 others",
-                                  style: TextStyle(color: Colors.white),
+                                RichText(
+                                  text: TextSpan(
+                                      text: "liked by ",
+                                      style: TextStyle(color: Colors.white),
+                                      children: [
+                                        TextSpan(
+                                            text: instapost[index]
+                                                .likeName
+                                                .toString(),
+                                            style:
+                                                TextStyle(color: Colors.white)),
+                                        TextSpan(
+                                            text: " and other 1221",
+                                            style:
+                                                TextStyle(color: Colors.white))
+                                      ]),
                                 ),
                               ],
                             ),
                             margin: EdgeInsets.all(5),
                           ),
-
+                          Container(
+                            margin: EdgeInsets.all(5),
+                            alignment: Alignment.centerLeft,
+                            height: 20,
+                            width: double.infinity,
+                            child: Text(
+                              "View all 30 comments ",
+                              textAlign: TextAlign.left,
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                          ),
+                          Container(
+                            child: Row(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        "assets/images/lake.png",
+                                      ),
+                                      fit: BoxFit.fill,
+                                    ),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  height: 20,
+                                  width: 30,
+                                  margin: EdgeInsets.all(5),
+                                ),
+                                Expanded(
+                                  child: Text(
+                                    "Add a comment... ",
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.favorite,
+                                  color: Colors.red,
+                                  size: 20,
+                                ),
+                                Container(
+                                  child: Image.asset(
+                                    "assets/images/hands.jpg",
+                                    fit: BoxFit.fill,
+                                  ),
+                                  height: 20,
+                                  width: 20,
+                                  margin: EdgeInsets.only(left: 5, right: 5),
+                                ),
+                                Icon(
+                                  Icons.add_box_outlined,
+                                  color: Colors.white,
+                                  size: 20,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(left: 5),
+                            height: 30,
+                            width: double.infinity,
+                            alignment: Alignment.centerLeft,
+                            child: RichText(
+                              text: TextSpan(
+                                  text: instapost[index].pTime.toString(),
+                                  style: TextStyle(
+                                      color: Colors.grey, fontSize: 10),
+                                  children: [
+                                    TextSpan(
+                                      text: "ago",
+                                    )
+                                  ]),
+                            ),
+                          ),
                         ],
                       ),
                     );
                   },
-                )
+                ),
                 // child: ListView.builder(
                 //     shrinkWrap: true,
                 //     scrollDirection: Axis.horizontal,

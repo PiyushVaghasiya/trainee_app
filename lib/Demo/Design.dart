@@ -403,6 +403,7 @@ class _DesignState extends State<Design> with SingleTickerProviderStateMixin {
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),
               ),
+
             ],
           ),
         ),
