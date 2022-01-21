@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/Constants/whatsapp_chats_list.dart';
+import 'package:untitled/models/whatsapp_chats.dart';
 
 class Whatsapp extends StatefulWidget {
   const Whatsapp({Key? key}) : super(key: key);
@@ -25,6 +27,7 @@ class _WhatsappState extends State<Whatsapp>
 
   @override
   Widget build(BuildContext context) {
+    WhatsappChats whatsappChats = WhatsappChats();
     return Scaffold(
       backgroundColor: Color(0xFF1F242B),
       appBar: AppBar(
@@ -113,11 +116,67 @@ class _WhatsappState extends State<Whatsapp>
                 ],
               ),
             ),
-            Row(
-              children: [
-
-              ],
-            )
+            ListView.builder(
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: WhatsappChatsList.whatsappchat.length,
+                itemBuilder: (context, index) {
+                  return Row(
+                    children: [
+                      Container(
+                        height: 70,
+                        width: 70,
+                        decoration: BoxDecoration(
+                          border: Border.all(width: 2, color: Colors.black),
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                WhatsappChatsList.whatsappchat[index].cImages
+                                    .toString(),
+                              ),
+                              fit: BoxFit.cover),
+                        ),
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        height: 50,
+                        width: 280,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  WhatsappChatsList.whatsappchat[index].cName
+                                      .toString(),
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 15),
+                                ),
+                                Text(
+                                  WhatsappChatsList.whatsappchat[index].cTime
+                                      .toString(),
+                                  style: TextStyle(
+                                      color: Colors.grey, fontSize: 10),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                WhatsappChatsList.whatsappchat[index].cTime
+                                    .toString(),
+                                textAlign: TextAlign.left,
+                                style:
+                                    TextStyle(color: Colors.grey, fontSize: 15),
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  );
+                })
           ],
         ),
       ),
