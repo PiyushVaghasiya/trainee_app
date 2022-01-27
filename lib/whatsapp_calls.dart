@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/Constants/whatsapp_status_list.dart';
+import 'package:untitled/Constants/whatsapp_calls_list.dart';
 import 'package:untitled/whatsapp.dart';
-import 'package:untitled/whatsapp_calls.dart';
+import 'package:untitled/whatsapp_status.dart';
 
-class Whatsapp_status extends StatefulWidget {
-  const Whatsapp_status({Key? key}) : super(key: key);
+class WhatsappCalls extends StatefulWidget {
+  const WhatsappCalls({Key? key}) : super(key: key);
 
   @override
-  _Whatsapp_statusState createState() => _Whatsapp_statusState();
+  _WhatsappCallsState createState() => _WhatsappCallsState();
 }
 
-class _Whatsapp_statusState extends State<Whatsapp_status> {
+num var1 = 12;
+
+class _WhatsappCallsState extends State<WhatsappCalls> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -125,61 +127,15 @@ class _Whatsapp_statusState extends State<Whatsapp_status> {
                 ],
               ),
             ),
-            Row(
-              children: [
-                Container(
-                  margin: EdgeInsets.all(10),
-                  height: 55,
-                  width: 55,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                        image: NetworkImage(
-                            "https://c.ndtvimg.com/2021-09/3a76mb38_cristiano-ronaldo-afp_625x300_11_September_21.jpg"),
-                        fit: BoxFit.cover),
-                  ),
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "My status",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 17,
-                        ),
-                      ),
-                      Text(
-                        "Tap to add status update",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(color: Colors.grey, fontSize: 15),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-            Container(
-              height: 30,
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Recent updates",
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 15, color: Colors.grey),
-              ),
-            ),
             Expanded(
               child: ListView.builder(
                   scrollDirection: Axis.vertical,
                   shrinkWrap: true,
-                  itemCount: WhatsappStatusList.whatsappstatus.length,
+                  itemCount: WhatsappCallsList.whatsappcalls.length,
                   itemBuilder: (context, index) {
-                    return Container(
+                    return Container(margin: EdgeInsets.only(top: 3),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Container(
                             margin: EdgeInsets.all(10),
@@ -187,48 +143,60 @@ class _Whatsapp_statusState extends State<Whatsapp_status> {
                               height: 55,
                               width: 55,
                               decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: Colors.black,
-                                    // color: Color(0xFF2F845C)
-                                    width: 2),
                                 shape: BoxShape.circle,
                                 image: DecorationImage(
-                                    image: NetworkImage(WhatsappStatusList
-                                        .whatsappstatus[index].sImages
+                                    image: NetworkImage(WhatsappCallsList
+                                        .whatsappcalls[index].cImages
                                         .toString()),
                                     fit: BoxFit.cover),
                               ),
                             ),
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                    color: Color(0xFF128C7E), width: 2)),
+                          ),
+                          Expanded(
+                            child: Container(
+                              margin: EdgeInsets.all(5),
+                              alignment: Alignment.center,
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    WhatsappCallsList.whatsappcalls[index].cName
+                                        .toString(),
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 17,
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.call_made,
+                                        color: Color(0xFF128C7E),
+                                      ),
+                                      Text(
+                                        WhatsappCallsList
+                                            .whatsappcalls[index].cTime
+                                            .toString(),
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                            color: Colors.grey, fontSize: 15),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                           Container(
-                            alignment: Alignment.center,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  WhatsappStatusList.whatsappstatus[index].sName
-                                      .toString(),
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 17,
-                                  ),
-                                ),
-                                Text(
-                                  WhatsappStatusList.whatsappstatus[index].sTime
-                                      .toString(),
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                      color: Colors.grey, fontSize: 15),
-                                ),
-                              ],
+                            child: Icon(
+                              Icons.video_call,
+                              color: Color(0xFF128C7E),
+                              size: 35,
                             ),
-                          )
+                          ),
                         ],
                       ),
                     );

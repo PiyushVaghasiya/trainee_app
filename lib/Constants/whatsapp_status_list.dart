@@ -1,4 +1,4 @@
-import 'package:untitled/models/whatsapp_status.dart';
+import 'package:untitled/models/whatsapp_status_model.dart';
 
 class WhatsappStatusList {
   static List<WhatsappStatus> whatsappstatus = [

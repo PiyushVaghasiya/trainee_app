@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/Constants/whatsapp_chats_list.dart';
-import 'package:untitled/models/whatsapp_chats.dart';
+import 'package:untitled/models/whatsapp_chats_model.dart';
+import 'package:untitled/whatsapp_calls.dart';
 import 'package:untitled/whatsapp_status.dart';
 
 class Whatsapp extends StatefulWidget {
@@ -116,15 +117,23 @@ class _WhatsappState extends State<Whatsapp>
                                     builder: (context) => Whatsapp_status()));
                           },
                         ),
-                        Container(
-                          child: Text(
-                            "CALLS",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold),
+                        InkWell(
+                          child: Container(
+                            child: Text(
+                              "CALLS",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => WhatsappCalls()));
+                          },
                         ),
                       ],
                     ),
