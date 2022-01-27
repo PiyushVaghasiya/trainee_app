@@ -6,16 +6,16 @@ class WhatsappStatusList {
         sImages:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnJ674oDerpv_o40CjAus6xnGGV3hDGpmkRQ&usqp=CAU",
         sName: "Dishant",
-        sTime: "Today 10:00 am"),
+        sTime: "Today 10:00 am",),
     WhatsappStatus(
         sImages:
         "https://qph.fs.quoracdn.net/main-qimg-c7a526dfad7e78f9062521efd0a3ea70-c",
-        sName: "Piyush",
+        sName: "Dharti",
         sTime: "Today 12:00 am"),
     WhatsappStatus(
         sImages:
         "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmVhdXRpZnVsJTIwcGVyc29ufGVufDB8fDB8fA%3D%3D&w=1000&q=80",
-        sName: "Mayur",
+        sName: "Hetvi",
         sTime: "Today 12:30 pm"),
     WhatsappStatus(
         sImages:

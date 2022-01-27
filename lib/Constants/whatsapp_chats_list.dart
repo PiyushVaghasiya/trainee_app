@@ -35,7 +35,7 @@ class WhatsappChatsList {
     WhatsappChats(
         cImages:
         "https://t3.ftcdn.net/jpg/02/94/62/14/360_F_294621430_9dwIpCeY1LqefWCcU23pP9i11BgzOS0N.jpg",
-        cName: "What Are you doing?",
+        cName: "Mihir",
         cMessage: "how are you",
         cTime: "yesterday"),
     WhatsappChats(

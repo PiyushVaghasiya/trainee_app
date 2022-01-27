@@ -18,6 +18,7 @@ import 'package:untitled/profile.dart';
 import 'package:untitled/search.dart';
 import 'package:untitled/whatsapp.dart';
 import 'package:untitled/whatsapp_calls.dart';
+import 'package:untitled/whatsapp_person_chat.dart';
 import 'package:untitled/whatsapp_status.dart';
 
 void main() {

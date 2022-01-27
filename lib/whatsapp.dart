@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:untitled/Constants/whatsapp_chats_list.dart';
 import 'package:untitled/models/whatsapp_chats_model.dart';
 import 'package:untitled/whatsapp_calls.dart';
+import 'package:untitled/whatsapp_person_chat.dart';
 import 'package:untitled/whatsapp_status.dart';
 
 class Whatsapp extends StatefulWidget {
@@ -167,45 +168,50 @@ class _WhatsappState extends State<Whatsapp>
                                   fit: BoxFit.cover),
                             ),
                           ),
-                          Container(
-                            margin: EdgeInsets.only(left: 10),
-                            alignment: Alignment.center,
-                            height: 45,
-                            width: 260,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      WhatsappChatsList
-                                          .whatsappchat[index].cName
-                                          .toString(),
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 15),
-                                    ),
-                                    Text(
-                                      WhatsappChatsList
-                                          .whatsappchat[index].cTime
-                                          .toString(),
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 10),
-                                    ),
-                                  ],
-                                ),
-                                Text(
-                                  WhatsappChatsList
-                                      .whatsappchat[index].cMessage
-                                      .toString(),
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                      color: Colors.grey, fontSize: 15),
-                                ),
-                              ],
+                          InkWell(
+                            child: Container(
+                              margin: EdgeInsets.only(left: 10),
+                              alignment: Alignment.center,
+                              height: 45,
+                              width: 260,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        WhatsappChatsList
+                                            .whatsappchat[index].cName
+                                            .toString(),
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 15),
+                                      ),
+                                      Text(
+                                        WhatsappChatsList
+                                            .whatsappchat[index].cTime
+                                            .toString(),
+                                        style: TextStyle(
+                                            color: Colors.grey, fontSize: 10),
+                                      ),
+                                    ],
+                                  ),
+                                  Text(
+                                    WhatsappChatsList
+                                        .whatsappchat[index].cMessage
+                                        .toString(),
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                        color: Colors.grey, fontSize: 15),
+                                  ),
+                                ],
+                              ),
                             ),
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Wppersonchat()));
+                            },
                           )
                         ],
                       ),

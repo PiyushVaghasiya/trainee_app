@@ -10,8 +10,6 @@ class WhatsappCalls extends StatefulWidget {
   _WhatsappCallsState createState() => _WhatsappCallsState();
 }
 
-num var1 = 12;
-
 class _WhatsappCallsState extends State<WhatsappCalls> {
   @override
   Widget build(BuildContext context) {
@@ -133,7 +131,8 @@ class _WhatsappCallsState extends State<WhatsappCalls> {
                   shrinkWrap: true,
                   itemCount: WhatsappCallsList.whatsappcalls.length,
                   itemBuilder: (context, index) {
-                    return Container(margin: EdgeInsets.only(top: 3),
+                    return Container(
+                      margin: EdgeInsets.only(top: 3),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -191,10 +190,11 @@ class _WhatsappCallsState extends State<WhatsappCalls> {
                             ),
                           ),
                           Container(
+                            margin: EdgeInsets.only(right: 5),
                             child: Icon(
-                              Icons.video_call,
+                              WhatsappCallsList.whatsappcalls[index].cIcon,
                               color: Color(0xFF128C7E),
-                              size: 35,
+                              size: 30,
                             ),
                           ),
                         ],
