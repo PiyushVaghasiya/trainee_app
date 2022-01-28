@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/models/whatsapp_calls_model.dart';
+import 'package:untitled/whatsapp_chats.dart';
+import 'package:untitled/whatsapp_status.dart';
 
 class PageviewDemo extends StatefulWidget {
   const PageviewDemo({Key? key}) : super(key: key);
@@ -14,20 +17,8 @@ class _PageviewDemoState extends State<PageviewDemo> {
       body: Center(
         child: PageView(
           children: [
-            Container(
-              height: 200,
-              width: 200,
-              alignment: Alignment.center,
-              color: Colors.red,
-              child: Text("abcd"),
-            ),
-            Container(
-              alignment: Alignment.center,
-              height: 200,
-              width: 200,
-              color: Colors.blue,
-              child: Text("abcd"),
-            ),
+            WhatsappChats(),
+            Whatsapp_status(),
           ],
         ),
       ),

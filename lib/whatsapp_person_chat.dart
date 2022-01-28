@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/Constants/wpperson_chat_list.dart';
-import 'package:untitled/whatsapp.dart';
+import 'package:untitled/whatsapp_chats.dart';
 
 class Wppersonchat extends StatefulWidget {
   const Wppersonchat({Key? key}) : super(key: key);
@@ -42,7 +42,7 @@ class _WppersonchatState extends State<Wppersonchat> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Whatsapp()));
+                                  builder: (context) => WhatsappChats()));
                         },
                       ),
                       Container(
