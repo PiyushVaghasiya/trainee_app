@@ -32,60 +32,32 @@ class _PageviewDemo2State extends State<PageviewDemo2> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Expanded(
-                        child: PageView.builder(
-                            onPageChanged: (value) {
-                              setState(() {
-                                pageindex = value;
-                              });
-                            },
-                            controller: pageController,
-                            itemCount: PageviewdemoList.pageviewdemo.length,
-                            itemBuilder: (context, index) {
-                              return Container(
-                                height: 300,
-                                width: 300,
-                                margin: EdgeInsets.all(10),
-                                color: Colors.red.shade200,
-                                alignment: Alignment.center,
-                                child: Icon(
-                                  PageviewdemoList.pageviewdemo[index].pIcon,
-                                  size: 100,
-                                  color: Colors.black,
-                                ),
-                              );
-                            }),
-
-                      ),
-
-                      Expanded(
-                        child: PageView.builder(
-                            onPageChanged: (value) {
-                              setState(() {
-                                pageindex = value;
-                              });
-                            },
-                            controller: pageController,
-                            itemCount: PageviewdemoList.pageviewdemo.length,
-                            itemBuilder: (context, index) {
-                              return Container(
-                                height: 300,
-                                width: 300,
-                                margin: EdgeInsets.all(10),
-                                color: Colors.blue.shade200,
-                                alignment: Alignment.center,
-                                child: Text(
-                                  PageviewdemoList.pageviewdemo[index].pName
-                                      .toString(),
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                  ),
-                                ),
-                              );
-                            },
+                        child: Container(
+                          margin: EdgeInsets.all(10),
+                          color: Colors.red.shade200,
+                          alignment: Alignment.center,
+                          child: Icon(
+                            PageviewdemoList.pageviewdemo[index].pIcon,
+                            size: 100,
+                            color: Colors.black,
+                          ),
                         ),
-
+                      ),
+                      Expanded(
+                        child: Container(
+                          alignment: Alignment.center,
+                          margin: EdgeInsets.all(10),
+                          color: Colors.blue.shade200,
+                          child: Text(
+                            PageviewdemoList.pageviewdemo[index].pName
+                                .toString(),
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
                       ),
                     ],
                   );
@@ -114,7 +86,7 @@ class _PageviewDemo2State extends State<PageviewDemo2> {
                     child: Text("next")),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

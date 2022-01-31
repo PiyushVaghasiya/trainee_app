@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 class Dropdown_button extends StatefulWidget {
@@ -25,56 +23,47 @@ class _Dropdown_buttonState extends State<Dropdown_button>
     super.dispose();
   }
 
-  String dropdownvalue = 'One';
-  int dv = 1;
+  List<String> personList = ["piyush", "dishant", "rakesh", "ayushi"];
+
+  String? selectedValue;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: Center(
-          child: Container(
-            color: Colors.blue.shade100,
-            alignment: Alignment.center,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                DropdownButton(
-                  onTap: () {
-                    return print('111111');
-                  },
-                  iconSize: 20,
-                  iconDisabledColor: Colors.blue.shade50,
-                  itemHeight: 50,
-                  iconEnabledColor: Colors.orange,
-                  icon: Icon(Icons.arrow_downward_sharp),
-                  dropdownColor: Colors.yellow.shade50,
-                  style: TextStyle(
-                    color: Colors.redAccent,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  focusColor: Colors.red,
-                  autofocus: true,
-                  underline: Container(
-                    height: 2,
-                    color: Colors.deepPurpleAccent,
-                  ),
-                  value: dropdownvalue,
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      dropdownvalue = newValue!;
-                    });
-                  },
-                  items: <String>['One', 'Two', 'Free', 'Four']
-                      .map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                ),
-              ],
+          child: DropdownButton(
+            iconEnabledColor: Colors.black,
+            icon: Icon(Icons.arrow_downward_sharp),
+            dropdownColor: Colors.blue.shade50,
+            style: TextStyle(
+              color: Colors.red,
+              fontWeight: FontWeight.bold,
             ),
+            autofocus: true,
+            underline: Container(
+              height: 2,
+              color: Colors.deepPurpleAccent,
+            ),
+            value: selectedValue,
+            items: personList
+                .map(
+                  (String e) => DropdownMenuItem(
+                    child: Text(e),
+                    value: e,
+                  ),
+                )
+                .toList(),
+            onChanged: (value) {
+              setState(() {
+                selectedValue = value as String;
+              });
+            },
+            hint: Text(
+              "select anyone",
+              style: TextStyle(color: Colors.green),
+            ),
+            focusColor: Colors.greenAccent,
           ),
         ),
       ),
