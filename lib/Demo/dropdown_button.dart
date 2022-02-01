@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Dropdown_button extends StatefulWidget {
@@ -32,38 +33,52 @@ class _Dropdown_buttonState extends State<Dropdown_button>
     return SafeArea(
       child: Scaffold(
         body: Center(
-          child: DropdownButton(
-            iconEnabledColor: Colors.black,
-            icon: Icon(Icons.arrow_downward_sharp),
-            dropdownColor: Colors.blue.shade50,
-            style: TextStyle(
-              color: Colors.red,
-              fontWeight: FontWeight.bold,
+          child: Container(
+            margin: EdgeInsets.all(10),
+            padding: EdgeInsets.all(5),
+            decoration: BoxDecoration(border: Border.all(color: Colors.black)),
+            child: DropdownButtonHideUnderline(
+              child: DropdownButtonFormField(
+                decoration: InputDecoration(
+                    suffixIcon: Icon(
+                  Icons.tab_unselected,
+                  color: Colors.black,
+                )),
+                iconEnabledColor: Colors.black,
+                icon: Icon(Icons.arrow_downward_sharp),
+                dropdownColor: Colors.blue.shade50,
+                style: TextStyle(
+                  color: Colors.red,
+                  fontWeight: FontWeight.bold,
+                ),
+                autofocus: true,
+
+                value: selectedValue,
+                items: personList
+                    .map(
+                      (String e) => DropdownMenuItem(
+                        child: Text(e),
+                        value: e,
+                      ),
+                    )
+                    .toList(),
+                onChanged: (value) {
+                  setState(() {
+                    selectedValue = value as String;
+                  });
+                },
+                hint: Text(
+                  "select anyone",
+                  style: TextStyle(color: Colors.green),
+                ),
+                focusColor: Colors.greenAccent,
+                // selectedItemBuilder: (BuildContext context) {
+                //   return personList.map<Widget>((String item) {
+                //     return Text(item);
+                //   }).toList();
+                // },
+              ),
             ),
-            autofocus: true,
-            underline: Container(
-              height: 2,
-              color: Colors.deepPurpleAccent,
-            ),
-            value: selectedValue,
-            items: personList
-                .map(
-                  (String e) => DropdownMenuItem(
-                    child: Text(e),
-                    value: e,
-                  ),
-                )
-                .toList(),
-            onChanged: (value) {
-              setState(() {
-                selectedValue = value as String;
-              });
-            },
-            hint: Text(
-              "select anyone",
-              style: TextStyle(color: Colors.green),
-            ),
-            focusColor: Colors.greenAccent,
           ),
         ),
       ),
