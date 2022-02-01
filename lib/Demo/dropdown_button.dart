@@ -1,3 +1,4 @@
+import 'package:cool_dropdown/cool_dropdown.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -24,9 +25,19 @@ class _Dropdown_buttonState extends State<Dropdown_button>
     super.dispose();
   }
 
-  List<String> personList = ["piyush", "dishant", "rakesh", "ayushi"];
+  List<String> personList = ["Piyush", "Dishant", "Rakesh", "Ayushi"];
 
   String? selectedValue;
+
+  List dropdownItemList = [
+    {'label': 'apple', 'value': 'apple','icon':Icon(Icons.settings_applications),}, // label is required and unique
+    {'label': 'banana', 'value': 'banana','Icon':Icon(Icons.clear),},
+    {'label': 'grape', 'value': 'grape','icon':Icon(Icons.umbrella_outlined),},
+    {'label': 'pineapple', 'value': 'pineapple','icon':Icon(Icons.umbrella_outlined),},
+    {'label': 'grape fruit', 'value': 'grape fruit','icon':Icon(Icons.umbrella_outlined),},
+    {'label': 'kiwi', 'value': 'kiwi','icon':Icon(Icons.umbrella_outlined),},
+
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -34,50 +45,77 @@ class _Dropdown_buttonState extends State<Dropdown_button>
       child: Scaffold(
         body: Center(
           child: Container(
-            margin: EdgeInsets.all(10),
+            width: double.infinity,
+            height: 150,
             padding: EdgeInsets.all(5),
-            decoration: BoxDecoration(border: Border.all(color: Colors.black)),
-            child: DropdownButtonHideUnderline(
-              child: DropdownButtonFormField(
-                decoration: InputDecoration(
-                    suffixIcon: Icon(
-                  Icons.tab_unselected,
-                  color: Colors.black,
-                )),
-                iconEnabledColor: Colors.black,
-                icon: Icon(Icons.arrow_downward_sharp),
-                dropdownColor: Colors.blue.shade50,
-                style: TextStyle(
-                  color: Colors.red,
-                  fontWeight: FontWeight.bold,
+            margin: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                border: Border.all(color: Colors.black),
+                color: Colors.orange.shade200),
+            child: Column(
+              children: [
+                DropdownButtonHideUnderline(
+                  child: DropdownButton(
+                    iconEnabledColor: Colors.black,
+                    icon: Icon(
+                      Icons.arrow_downward_sharp,
+                      size: 30,
+                    ),
+                    dropdownColor: Colors.blue.shade50,
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    autofocus: true,
+                    value: selectedValue,
+                    items: personList
+                        .map(
+                          (String e) => DropdownMenuItem(
+                            value: e,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(e),
+                                e == selectedValue
+                                    ? Icon(
+                                        Icons.clear,
+                                        color: Colors.green,
+                                      )
+                                    : Container(),
+                              ],
+                            ),
+                          ),
+                        )
+                        .toList(),
+                    onChanged: (value) {
+                      setState(() {
+                        selectedValue = value as String;
+                      });
+                    },
+                    hint: Text(
+                      "Select anyone",
+                      style:
+                          TextStyle(color: Colors.purpleAccent, fontSize: 15),
+                    ),
+                    focusColor: Colors.greenAccent,
+                    selectedItemBuilder: (BuildContext context) {
+                      return personList.map((item) {
+                        return Text(
+                          item,
+                          style: TextStyle(fontSize: 15, color: Colors.black),
+                          textAlign: TextAlign.justify,
+                        );
+                      }).toList();
+                    },
+                  ),
                 ),
-                autofocus: true,
-
-                value: selectedValue,
-                items: personList
-                    .map(
-                      (String e) => DropdownMenuItem(
-                        child: Text(e),
-                        value: e,
-                      ),
-                    )
-                    .toList(),
-                onChanged: (value) {
-                  setState(() {
-                    selectedValue = value as String;
-                  });
-                },
-                hint: Text(
-                  "select anyone",
-                  style: TextStyle(color: Colors.green),
-                ),
-                focusColor: Colors.greenAccent,
-                // selectedItemBuilder: (BuildContext context) {
-                //   return personList.map<Widget>((String item) {
-                //     return Text(item);
-                //   }).toList();
-                // },
-              ),
+                CoolDropdown(
+                  dropdownList: dropdownItemList,
+                  onChange: (_) {},
+                  defaultValue: dropdownItemList[3],
+                )
+              ],
             ),
           ),
         ),
