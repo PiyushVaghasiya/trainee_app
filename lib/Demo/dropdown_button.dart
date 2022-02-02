@@ -30,13 +30,36 @@ class _Dropdown_buttonState extends State<Dropdown_button>
   String? selectedValue;
 
   List dropdownItemList = [
-    {'label': 'apple', 'value': 'apple','icon':Icon(Icons.settings_applications),}, // label is required and unique
-    {'label': 'banana', 'value': 'banana','Icon':Icon(Icons.clear),},
-    {'label': 'grape', 'value': 'grape','icon':Icon(Icons.umbrella_outlined),},
-    {'label': 'pineapple', 'value': 'pineapple','icon':Icon(Icons.umbrella_outlined),},
-    {'label': 'grape fruit', 'value': 'grape fruit','icon':Icon(Icons.umbrella_outlined),},
-    {'label': 'kiwi', 'value': 'kiwi','icon':Icon(Icons.umbrella_outlined),},
-
+    {
+      'label': 'apple',
+      'value': 'apple',
+      'icon': Icon(Icons.settings_applications),
+    }, // label is required and unique
+    {
+      'label': 'grape',
+      'value': 'grape',
+      'icon': Icon(Icons.umbrella_outlined),
+    },
+    {
+      'label': 'pineapple',
+      'value': 'pineapple',
+      'icon': Icon(Icons.umbrella_outlined),
+    },
+    {
+      'label': 'grape fruit',
+      'value': 'grape fruit',
+      'icon': Icon(Icons.umbrella_outlined),
+    },
+    {
+      'label': 'kiwi',
+      'value': 'kiwi',
+      'icon': Icon(Icons.umbrella_outlined),
+    },
+    {
+      'label': 'banana',
+      'value': 'banana',
+      'icon': Icon(Icons.umbrella_outlined),
+    },
   ];
 
   @override
@@ -53,7 +76,7 @@ class _Dropdown_buttonState extends State<Dropdown_button>
                 borderRadius: BorderRadius.circular(5),
                 border: Border.all(color: Colors.black),
                 color: Colors.orange.shade200),
-            child: Column(
+            child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 DropdownButtonHideUnderline(
                   child: DropdownButton(

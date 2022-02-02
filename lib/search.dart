@@ -38,10 +38,10 @@ class _SearchState extends State<Search> with SingleTickerProviderStateMixin {
         body: Column(
           children: [
             Expanded(
-              child: Container(
-                margin: EdgeInsets.only(top: 25),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Container(
+                  margin: EdgeInsets.only(top: 25),
                   child: Column(
                     children: [
                       Container(
