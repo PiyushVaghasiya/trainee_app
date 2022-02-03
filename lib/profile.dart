@@ -28,6 +28,33 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
     super.dispose();
   }
 
+  List<String> netimg = [
+    "https://e0.365dm.com/21/11/768x432/skysports-cristiano-ronaldo_5569575.jpg",
+    "https://qph.fs.quoracdn.net/main-qimg-c7a526dfad7e78f9062521efd0a3ea70-c",
+    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmVhdXRpZnVsJTIwcGVyc29ufGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+    "https://st.depositphotos.com/1003697/4971/i/600/depositphotos_49719803-stock-photo-business-man-working-on-laptop.jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnJ674oDerpv_o40CjAus6xnGGV3hDGpmkRQ&usqp=CAU",
+    "https://www.nawpic.com/media/2020/cool-backgrounds-nawpic-500x931.jpg",
+    "https://qph.fs.quoracdn.net/main-qimg-c7a526dfad7e78f9062521efd0a3ea70-c",
+    "https://t3.ftcdn.net/jpg/02/94/62/14/360_F_294621430_9dwIpCeY1LqefWCcU23pP9i11BgzOS0N.jpg",
+    "https://e0.365dm.com/21/11/768x432/skysports-cristiano-ronaldo_5569575.jpg",
+    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmVhdXRpZnVsJTIwcGVyc29ufGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+    "https://qph.fs.quoracdn.net/main-qimg-c7a526dfad7e78f9062521efd0a3ea70-c",
+    "https://st.depositphotos.com/1003697/4971/i/600/depositphotos_49719803-stock-photo-business-man-working-on-laptop.jpg",
+    "https://e0.365dm.com/21/11/768x432/skysports-cristiano-ronaldo_5569575.jpg",
+    "https://qph.fs.quoracdn.net/main-qimg-c7a526dfad7e78f9062521efd0a3ea70-c",
+    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmVhdXRpZnVsJTIwcGVyc29ufGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+    "https://st.depositphotos.com/1003697/4971/i/600/depositphotos_49719803-stock-photo-business-man-working-on-laptop.jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnJ674oDerpv_o40CjAus6xnGGV3hDGpmkRQ&usqp=CAU",
+    "https://www.nawpic.com/media/2020/cool-backgrounds-nawpic-500x931.jpg",
+    "https://qph.fs.quoracdn.net/main-qimg-c7a526dfad7e78f9062521efd0a3ea70-c",
+    "https://t3.ftcdn.net/jpg/02/94/62/14/360_F_294621430_9dwIpCeY1LqefWCcU23pP9i11BgzOS0N.jpg",
+    "https://e0.365dm.com/21/11/768x432/skysports-cristiano-ronaldo_5569575.jpg",
+    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmVhdXRpZnVsJTIwcGVyc29ufGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+    "https://qph.fs.quoracdn.net/main-qimg-c7a526dfad7e78f9062521efd0a3ea70-c",
+    "https://st.depositphotos.com/1003697/4971/i/600/depositphotos_49719803-stock-photo-business-man-working-on-laptop.jpg",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -323,11 +350,32 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                 ],
                               ),
                             ),
+                            Container(height: 300,
+                              child: GridView.builder(padding: EdgeInsets.zero,
+                                  shrinkWrap: true,
+                                  itemCount: netimg.length,
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                          crossAxisCount: 3,
+                                          crossAxisSpacing: 2,
+                                          mainAxisSpacing: 2),
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return Container(
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                        image: NetworkImage(netimg[index]),
+                                        fit: BoxFit.cover,
+                                      )),
+                                    );
+                                  }),
+                            ),
                           ],
                         ),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
