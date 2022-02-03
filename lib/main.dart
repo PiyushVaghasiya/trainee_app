@@ -5,6 +5,7 @@ import 'package:untitled/Demo/Design.dart';
 import 'package:untitled/Demo/Design2.dart';
 import 'package:untitled/Demo/Slider.dart';
 import 'package:untitled/Demo/Textformfield.dart';
+import 'package:untitled/Demo/grid_view.dart';
 import 'package:untitled/Demo/listview.dart';
 import 'package:untitled/Demo/model_demo.dart';
 import 'package:untitled/Demo/page_view.dart';
@@ -12,6 +13,7 @@ import 'package:untitled/Demo/pageview_demo2.dart';
 import 'package:untitled/Demo/radio_button_demo.dart';
 import 'package:untitled/Reels.dart';
 import 'package:untitled/edit_profile.dart';
+import 'package:untitled/insta_Home.dart';
 import 'package:untitled/messages.dart';
 import 'package:untitled/models/insta_post.dart';
 import 'package:untitled/models/insta_story.dart';
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Profile(),
+      home: GridViewDemo(),
     );
   }
 }
