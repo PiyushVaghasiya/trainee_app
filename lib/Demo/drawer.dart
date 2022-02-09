@@ -9,10 +9,13 @@ class DrawerDemo extends StatefulWidget {
 }
 
 class _DrawerDemoState extends State<DrawerDemo> {
+  var scaffoldkey = new GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        key: scaffoldkey,
         appBar: AppBar(
           backgroundColor: Color(0xFF293749),
           title: Text("Drawer demo"),
@@ -98,6 +101,16 @@ class _DrawerDemoState extends State<DrawerDemo> {
               ),
             ),
           ],
+        ),
+        body: Center(
+          child: ListTile(
+            title: ElevatedButton(
+              onPressed: () {
+                scaffoldkey.currentState?.openDrawer();
+              },
+              child: Text("open drawer"),
+            ),
+          ),
         ),
       ),
     );

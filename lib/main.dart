@@ -6,6 +6,7 @@ import 'package:untitled/Demo/Design2.dart';
 import 'package:untitled/Demo/Slider.dart';
 import 'package:untitled/Demo/Textformfield.dart';
 import 'package:untitled/Demo/drawer.dart';
+import 'package:untitled/Demo/drawer_design.dart';
 import 'package:untitled/Demo/grid_view.dart';
 import 'package:untitled/Demo/listview.dart';
 import 'package:untitled/Demo/model_demo.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DrawerDemo(),
+      home: DrawerDesign(),
     );
   }
 }
