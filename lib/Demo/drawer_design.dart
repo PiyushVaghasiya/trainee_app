@@ -8,10 +8,78 @@ class DrawerDesign extends StatefulWidget {
 }
 
 class _DrawerDesignState extends State<DrawerDesign> {
+  var scaffoldkey = new GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldkey,
       backgroundColor: Color(0xFF454AAA),
+      drawer: SafeArea(
+        child: Container(
+          width: 270,
+          padding: EdgeInsets.all(20),
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(20),
+                  bottomRight: Radius.circular(20))),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 40,
+              ),
+              Container(
+                alignment: Alignment.centerLeft,
+                child: Icon(
+                  Icons.clear,
+                  color: Color(0xFF7B94B6),
+                  size: 27,
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                alignment: Alignment.centerLeft,
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                        image: NetworkImage(
+                            "https://st3.depositphotos.com/13193658/34355/i/1600/depositphotos_343554500-stock-photo-attentive-young-man-orange-shirt.jpg"),
+                        fit: BoxFit.cover),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              Container(
+                alignment: Alignment.centerLeft,
+                child: ListTile(
+                  leading: Icon(
+                    Icons.menu,
+                    color: Color(0xFF7B94B6),
+                  ),
+                  title: Transform.translate(
+                    offset: Offset(-16, 0),
+                    child: Text(
+                      'Menu Option',
+                      style: TextStyle(
+                        color:Colors.black38,
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
       body: SafeArea(
         child: Container(
           child: Column(
@@ -27,16 +95,21 @@ class _DrawerDesignState extends State<DrawerDesign> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Container(
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(5)),
-                          height: 50,
-                          width: 50,
-                          child: Icon(
-                            Icons.menu,
-                            color: Colors.purple,
+                        InkWell(
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(5)),
+                            height: 50,
+                            width: 50,
+                            child: Icon(
+                              Icons.menu,
+                              color: Colors.purple,
+                            ),
                           ),
+                          onTap: () {
+                            scaffoldkey.currentState?.openDrawer();
+                          },
                         ),
                         Row(
                           children: [
@@ -125,41 +198,238 @@ class _DrawerDesignState extends State<DrawerDesign> {
                               "Order item",
                               style: TextStyle(
                                   color: Colors.black54,
-                                  fontSize: 25,
+                                  fontSize: 22,
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
                           Container(
+                            margin: EdgeInsets.only(top: 10),
                             child: Row(
                               children: [
                                 Container(
-                                  height: 100,
-                                  width: 120,
+                                  height: 60,
+                                  width: 85,
                                   decoration: BoxDecoration(
-                                      color: Colors.red,
-                                      borderRadius: BorderRadius.circular(20),
+                                      borderRadius: BorderRadius.circular(10),
                                       image: DecorationImage(
                                           image: NetworkImage(
                                             "https://cdn.shopify.com/s/files/1/2690/0106/products/Eco-FriendlyStorageBasketSet7_402464df-646e-420a-8fea-da08f728dade_600x.jpg?v=1622564139",
                                           ),
                                           fit: BoxFit.cover)),
                                 ),
-                                Container(
-                                  child: Column(
-                                    children: [
-                                      Text(
-                                        "Basket Set",
-                                        style: TextStyle(
-                                            color: Colors.black38,
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    ],
+                                Expanded(
+                                  child: Container(
+                                    padding: EdgeInsets.all(5),
+                                    alignment: Alignment.centerLeft,
+                                    height: 70,
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "Basket Set",
+                                          textAlign: TextAlign.left,
+                                          style: TextStyle(
+                                              color: Color(0xFF6FA7D7),
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        Text(
+                                          "Seven stylish shower baskets with handle",
+                                          style: TextStyle(
+                                              color: Color(0xFF6FA7D7),
+                                              fontSize: 12),
+                                          overflow: TextOverflow.ellipsis,
+                                          textDirection: TextDirection.rtl,
+                                          textAlign: TextAlign.left,
+                                          maxLines: 2,
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                )
+                                ),
+                                Text(
+                                  "\$34",
+                                  style: TextStyle(
+                                      fontSize: 19, color: Colors.black45),
+                                ),
                               ],
                             ),
-                          )
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 10),
+                            child: Row(
+                              children: [
+                                Container(
+                                  height: 60,
+                                  width: 85,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      image: DecorationImage(
+                                          image: NetworkImage(
+                                            "https://www.chagrinvalleysoapandsalve.com/media/3412/citrus-garden-soap.jpg?anchor=center&mode=crop&width=769&height=769&rnd=1325573624600000009",
+                                          ),
+                                          fit: BoxFit.cover)),
+                                ),
+                                Expanded(
+                                  child: Container(
+                                    padding: EdgeInsets.all(5),
+                                    alignment: Alignment.centerLeft,
+                                    height: 70,
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "Bath Soaps",
+                                          textAlign: TextAlign.left,
+                                          style: TextStyle(
+                                              color: Color(0xFF6FA7D7),
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        Text(
+                                          "Set of natural bath soap with the samell of flower",
+                                          style: TextStyle(
+                                              color: Color(0xFF6FA7D7),
+                                              fontSize: 12),
+                                          overflow: TextOverflow.ellipsis,
+                                          textDirection: TextDirection.rtl,
+                                          textAlign: TextAlign.left,
+                                          maxLines: 2,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  "\$13",
+                                  style: TextStyle(
+                                      fontSize: 19, color: Colors.black45),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 10),
+                            child: Row(
+                              children: [
+                                Container(
+                                  height: 60,
+                                  width: 85,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      image: DecorationImage(
+                                          image: NetworkImage(
+                                            "https://media.istockphoto.com/photos/stack-of-clean-soft-colorful-towels-flowers-on-background-picture-id1139717201?k=20&m=1139717201&s=612x612&w=0&h=lszRCHRIYofCXFt66wSqGGQyH_d1iPJwHfT-rXBtXIQ=",
+                                          ),
+                                          fit: BoxFit.cover)),
+                                ),
+                                Expanded(
+                                  child: Container(
+                                    padding: EdgeInsets.all(5),
+                                    alignment: Alignment.centerLeft,
+                                    height: 70,
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "Bath towels",
+                                          textAlign: TextAlign.left,
+                                          style: TextStyle(
+                                              color: Color(0xFF6FA7D7),
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        Text(
+                                          "set of three medium - sized towels",
+                                          style: TextStyle(
+                                              color: Color(0xFF6FA7D7),
+                                              fontSize: 12),
+                                          overflow: TextOverflow.ellipsis,
+                                          textDirection: TextDirection.rtl,
+                                          textAlign: TextAlign.left,
+                                          maxLines: 2,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  "\$20",
+                                  style: TextStyle(
+                                      fontSize: 19, color: Colors.black45),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Container(
+                            alignment: Alignment.centerRight,
+                            height: 40,
+                            child: RichText(
+                              text: TextSpan(
+                                  text: "Subtotal (3 items)   ",
+                                  style: TextStyle(
+                                      color: Color(0xFF6FA7D7), fontSize: 12),
+                                  children: [
+                                    TextSpan(
+                                        text: "\$67",
+                                        style: TextStyle(
+                                            color: Colors.black87,
+                                            fontSize: 22))
+                                  ]),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 20,
+                            child: Text(
+                              "Club Member",
+                              style: TextStyle(
+                                  color: Color(0xFFE87E4D), fontSize: 14),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Container(
+                            height: 50,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFE87E4D),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            child: Text(
+                              "Check out",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 15),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            height: 20,
+                            child: Text(
+                              "Cancel",
+                              style: TextStyle(
+                                  color: Color(0xFFE87E4D), fontSize: 14),
+                            ),
+                          ),
                         ],
                       ),
                     ),
