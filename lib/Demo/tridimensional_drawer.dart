@@ -359,8 +359,50 @@ class _TridimensionalDrawerDemoState extends State<TridimensionalDrawerDemo> {
               ),
             ],
           ),
+
+        ),
+        drawer: CustomDrawer(),
+        backgroundPage: GestureDetector(
+          onTap: () => controller.close(),
+          child: Container(
+            color: Colors.white,
+          ),
         ),
       ),
     );
   }
 }
+
+class CustomDrawer extends StatefulWidget {
+  const CustomDrawer({Key? key}) : super(key: key);
+
+  @override
+  _CustomDrawerState createState() => _CustomDrawerState();
+}
+
+class _CustomDrawerState extends State<CustomDrawer> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Colors.blue.shade200,
+              Colors.blue.shade400,
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: Center(
+          child: Text(
+            'Drawer',
+            style: TextStyle(color: Colors.white, fontSize: 24.0),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
