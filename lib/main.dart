@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
@@ -6,6 +7,8 @@ import 'package:untitled/Demo/Design.dart';
 import 'package:untitled/Demo/Design2.dart';
 import 'package:untitled/Demo/Slider.dart';
 import 'package:untitled/Demo/Textformfield.dart';
+import 'package:untitled/Demo/advanced_drawer.dart';
+import 'package:untitled/Demo/download_image.dart';
 import 'package:untitled/Demo/drawer.dart';
 import 'package:untitled/Demo/drawer_design.dart';
 import 'package:untitled/Demo/grid_view.dart';
@@ -14,6 +17,7 @@ import 'package:untitled/Demo/model_demo.dart';
 import 'package:untitled/Demo/page_view.dart';
 import 'package:untitled/Demo/pageview_demo2.dart';
 import 'package:untitled/Demo/radio_button_demo.dart';
+import 'package:untitled/Demo/tridimensional_drawer.dart';
 import 'package:untitled/Reels.dart';
 import 'package:untitled/edit_profile.dart';
 import 'package:untitled/insta_Home.dart';
@@ -43,20 +47,20 @@ class MyApp extends StatelessWidget {
         SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DrawerDesign(),
+      home: AdvancedDrawerDemo(),
     );
   }
 }
 
 class Chat extends StatefulWidget {
-  const Chat({Key? key}) : super(key: key);
+  const Chat({Key key}) : super(key: key);
 
   @override
   _ChatState createState() => _ChatState();
 }
 
 class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
+  AnimationController _controller;
 
   @override
   void initState() {
@@ -224,9 +228,7 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                                           child: Container(
                                             margin: EdgeInsets.all(10),
                                             child: Text(
-                                              instapost[index]
-                                                  .pName
-                                                  .toString(),
+                                              instapost[index].pName.toString(),
                                               style: TextStyle(
                                                   color: Colors.white),
                                             ),
@@ -247,10 +249,9 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                                       height: 360,
                                       decoration: BoxDecoration(
                                         image: DecorationImage(
-                                            image: NetworkImage(
-                                                instapost[index]
-                                                    .postImage
-                                                    .toString()),
+                                            image: NetworkImage(instapost[index]
+                                                .postImage
+                                                .toString()),
                                             fit: BoxFit.cover),
                                       ),
                                     ),
@@ -285,8 +286,7 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                                                 color: Colors.white,
                                               ),
                                               onPressed: () {},
-                                              alignment:
-                                                  Alignment.centerRight,
+                                              alignment: Alignment.centerRight,
                                             ),
                                           ),
                                         ],
@@ -323,13 +323,11 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                                                           .likeName
                                                           .toString(),
                                                       style: TextStyle(
-                                                          color:
-                                                              Colors.white)),
+                                                          color: Colors.white)),
                                                   TextSpan(
                                                       text: " and other 1221",
                                                       style: TextStyle(
-                                                          color:
-                                                              Colors.white))
+                                                          color: Colors.white))
                                                 ]),
                                           ),
                                         ],
@@ -368,8 +366,8 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                                             child: Text(
                                               "Add a comment... ",
                                               textAlign: TextAlign.left,
-                                              style: TextStyle(
-                                                  color: Colors.grey),
+                                              style:
+                                                  TextStyle(color: Colors.grey),
                                             ),
                                           ),
                                           Icon(
