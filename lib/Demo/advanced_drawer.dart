@@ -38,7 +38,7 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
         appBar: AppBar(
           backgroundColor: Colors.red,
           title: Text(
-            'Hello',
+            'Home',
             textAlign: TextAlign.center,
             style: TextStyle(fontFamily: "Rye"),
           ),
@@ -58,7 +58,100 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
             ),
           ),
         ),
-        body: Container(),
+        body: Container(
+          padding: EdgeInsets.all(20),
+          child: Column(
+            children: [
+              Card(
+                margin: EdgeInsets.only(
+                  right: 50,
+                ),
+                elevation: 5,
+                child: Padding(
+                  padding: EdgeInsets.only(left: 5),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "Search",
+                      suffixIcon: Icon(Icons.search),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 10),
+              Expanded(
+                child: GridView.builder(
+                  itemCount: 4,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      mainAxisExtent: 230, crossAxisCount: 2),
+                  itemBuilder: (BuildContext cotext, int index) {
+                    return Card(
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 110,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  topRight: Radius.circular(10)),
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                      "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8N3x8fGVufDB8fHx8&w=1000&q=80"),
+                                  fit: BoxFit.cover),
+                            ),
+                          ),
+                          Container(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              children: [
+                                Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Pizza",
+                                      style: TextStyle(
+                                          fontFamily: "Rye",
+                                          color: Colors.black),
+                                    ),
+                                    Text(
+                                      "paskp aspas aspka asdkls dasjis doajdin sd adasd a f",
+                                      maxLines: 2,
+                                      style: TextStyle(
+                                          fontFamily: "Rye",
+                                          color: Colors.grey,
+                                          fontSize: 11),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            padding: EdgeInsets.only(left: 10),
+                            child: Text(
+                              "RM 129.0",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontFamily: "Rye",
+                                  color: Colors.black,
+                                  fontSize: 12),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
       drawer: SafeArea(
         child: Container(
