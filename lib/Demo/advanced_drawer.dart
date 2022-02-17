@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
+import 'package:untitled/Constants/advanced_drawer_list.dart';
+import 'package:untitled/models/advanced_drawer_model.dart';
 
 class AdvancedDrawerDemo extends StatefulWidget {
   const AdvancedDrawerDemo({Key? key}) : super(key: key);
@@ -9,8 +11,12 @@ class AdvancedDrawerDemo extends StatefulWidget {
   _AdvancedDrawerDemoState createState() => _AdvancedDrawerDemoState();
 }
 
+
 class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
   final _advancedDrawerController = AdvancedDrawerController();
+
+  List<AdvancedDrawerList> list=AdvancedDrawerList.advanceddrawer.cast<AdvancedDrawerList>();
+
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +65,7 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
           ),
         ),
         body: Container(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.all(15),
           child: Column(
             children: [
               Card(
@@ -81,9 +87,9 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
               SizedBox(height: 10),
               Expanded(
                 child: GridView.builder(
-                  itemCount: 4,
+                  itemCount: AdvancedDrawerList.advanceddrawer.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisExtent: 230, crossAxisCount: 2),
+                      mainAxisExtent: 210, crossAxisCount: 2),
                   itemBuilder: (BuildContext cotext, int index) {
                     return Card(
                       elevation: 5,
@@ -98,13 +104,15 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
                                   topLeft: Radius.circular(10),
                                   topRight: Radius.circular(10)),
                               image: DecorationImage(
-                                  image: NetworkImage(
-                                      "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8N3x8fGVufDB8fHx8&w=1000&q=80"),
+                                  image: NetworkImage(AdvancedDrawerList
+                                      .advanceddrawer[index].Image
+                                      .toString()),
                                   fit: BoxFit.cover),
                             ),
                           ),
                           Container(
-                            padding: EdgeInsets.all(10),
+                            padding: EdgeInsets.only(
+                                left: 10, right: 10, top: 10, bottom: 5),
                             child: Column(
                               children: [
                                 Column(
@@ -113,18 +121,23 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "Pizza",
+                                      AdvancedDrawerList
+                                          .advanceddrawer[index].Title
+                                          .toString(),
                                       style: TextStyle(
                                           fontFamily: "Rye",
-                                          color: Colors.black),
+                                          color: Colors.black,
+                                          fontSize: 13),
                                     ),
                                     Text(
-                                      "paskp aspas aspka asdkls dasjis doajdin sd adasd a f",
+                                      AdvancedDrawerList
+                                          .advanceddrawer[index].Descri
+                                          .toString(),
                                       maxLines: 2,
                                       style: TextStyle(
                                           fontFamily: "Rye",
                                           color: Colors.grey,
-                                          fontSize: 11),
+                                          fontSize: 10),
                                     ),
                                   ],
                                 ),
@@ -261,3 +274,5 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
     _advancedDrawerController.showDrawer();
   }
 }
+
+
