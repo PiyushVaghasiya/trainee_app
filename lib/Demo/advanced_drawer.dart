@@ -1,7 +1,8 @@
+import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
-import 'package:untitled/Constants/advanced_drawer_list.dart';
+import 'package:untitled/Constants/color.dart';
 import 'package:untitled/models/advanced_drawer_model.dart';
 
 class AdvancedDrawerDemo extends StatefulWidget {
@@ -11,12 +12,46 @@ class AdvancedDrawerDemo extends StatefulWidget {
   _AdvancedDrawerDemoState createState() => _AdvancedDrawerDemoState();
 }
 
-
 class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
   final _advancedDrawerController = AdvancedDrawerController();
 
-  List<AdvancedDrawerList> list=AdvancedDrawerList.advanceddrawer.cast<AdvancedDrawerList>();
+  List<AdvancedDrawerModel> item = [
+    AdvancedDrawerModel(
+        Image:
+            "https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395__480.jpg",
+        Title: "Pizza",
+        Descri:
+            "Pizza is a savory dish of italian origin consisting of all elements"),
+    AdvancedDrawerModel(
+        Image:
+            "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+        Title: "Burger",
+        Descri:
+            "Burger is a savory dish of italian origin consisting of all elements"),
+    AdvancedDrawerModel(
+        Image:
+            "https://st.depositphotos.com/1003814/5052/i/950/depositphotos_50523105-stock-photo-pizza-with-tomatoes.jpg",
+        Title: "Italian Pizza",
+        Descri:
+            "Pizza is a savory dish of italian origin consisting of all elements"),
+    AdvancedDrawerModel(
+        Image:
+            "https://img.freepik.com/free-photo/top-view-pepperoni-pizza-sliced-into-six-slices_141793-2157.jpg?size=626&ext=jpg",
+        Title: "Italian Pizza",
+        Descri:
+            "Pizza is a savory dish of italian origin consisting of all elements"),
+  ];
+  List<AdvancedDrawerModel> uitem = [];
+  String lowersearchtext = "";
+  String lowerOrgtext = "";
+  String lowerOrgStext = "";
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    uitem = item;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +77,7 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: Colors.red,
+          backgroundColor: Color(0xff36271c),
           title: Text(
             'Home',
             textAlign: TextAlign.center,
@@ -75,11 +110,32 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
                 elevation: 5,
                 child: Padding(
                   padding: EdgeInsets.only(left: 5),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: "Search",
-                      suffixIcon: Icon(Icons.search),
+                  child: GestureDetector(
+                    onTap: () {
+                      FocusScopeNode currentFocus = FocusScope.of(context);
+                      if (!currentFocus.hasPrimaryFocus) {
+                        currentFocus.unfocus();
+                      }
+
+
+                    },
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: "Search",
+                        suffixIcon: Icon(Icons.search),
+                      ),
+                      onChanged: (value) {
+                        setState(() {
+                          uitem = item.where((e) {
+                            lowersearchtext = value.toLowerCase();
+                            lowerOrgtext = e.Title!.toLowerCase();
+                            lowerOrgStext = e.Descri!.toLowerCase();
+                            return lowerOrgtext.contains(lowersearchtext) ||
+                                lowerOrgStext.contains(lowersearchtext);
+                          }).toList();
+                        });
+                      },
                     ),
                   ),
                 ),
@@ -87,7 +143,7 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
               SizedBox(height: 10),
               Expanded(
                 child: GridView.builder(
-                  itemCount: AdvancedDrawerList.advanceddrawer.length,
+                  itemCount: uitem.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       mainAxisExtent: 210, crossAxisCount: 2),
                   itemBuilder: (BuildContext cotext, int index) {
@@ -104,9 +160,8 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
                                   topLeft: Radius.circular(10),
                                   topRight: Radius.circular(10)),
                               image: DecorationImage(
-                                  image: NetworkImage(AdvancedDrawerList
-                                      .advanceddrawer[index].Image
-                                      .toString()),
+                                  image: NetworkImage(
+                                      uitem[index].Image.toString()),
                                   fit: BoxFit.cover),
                             ),
                           ),
@@ -121,18 +176,14 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      AdvancedDrawerList
-                                          .advanceddrawer[index].Title
-                                          .toString(),
+                                      uitem[index].Title.toString(),
                                       style: TextStyle(
                                           fontFamily: "Rye",
                                           color: Colors.black,
                                           fontSize: 13),
                                     ),
                                     Text(
-                                      AdvancedDrawerList
-                                          .advanceddrawer[index].Descri
-                                          .toString(),
+                                      uitem[index].Descri.toString(),
                                       maxLines: 2,
                                       style: TextStyle(
                                           fontFamily: "Rye",
@@ -208,16 +259,18 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ListTile(
-                    leading: Icon(
-                      Icons.person,
-                      color: Colors.black,
-                    ),
-                    title: Transform.translate(
-                      offset: Offset(-25, 0),
-                      child: Text(
-                        'Profile',
-                        style: TextStyle(fontFamily: "Rye", fontSize: 12),
+                  Container(
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.person,
+                        color: Colors.black,
+                      ),
+                      title: Transform.translate(
+                        offset: Offset(-25, 0),
+                        child: Text(
+                          'Profile',
+                          style: TextStyle(fontFamily: "Rye", fontSize: 12),
+                        ),
                       ),
                     ),
                   ),
@@ -274,5 +327,3 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
     _advancedDrawerController.showDrawer();
   }
 }
-
-
