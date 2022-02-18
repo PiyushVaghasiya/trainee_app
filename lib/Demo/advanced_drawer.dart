@@ -2,7 +2,6 @@ import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
-import 'package:untitled/Constants/color.dart';
 import 'package:untitled/models/advanced_drawer_model.dart';
 
 class AdvancedDrawerDemo extends StatefulWidget {
@@ -30,7 +29,7 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
             "Burger is a savory dish of italian origin consisting of all elements"),
     AdvancedDrawerModel(
         Image:
-            "https://st.depositphotos.com/1003814/5052/i/950/depositphotos_50523105-stock-photo-pizza-with-tomatoes.jpg",
+            "https://im1.dineout.co.in/images/uploads/restaurant/sharpen/6/x/p/p6816-15811593495e3e93b50466a.jpg?tr=tr:n-xlarge",
         Title: "Italian Pizza",
         Descri:
             "Pizza is a savory dish of italian origin consisting of all elements"),
@@ -293,7 +292,7 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
                                 color: Colors.grey.shade400, width: 0.5))),
                     child: ListTile(
                       leading: Icon(
-                        Icons.home,
+                        Icons.home,color: Colors.black,
                       ),
                       title: Transform.translate(
                         offset: Offset(-25, 0),
