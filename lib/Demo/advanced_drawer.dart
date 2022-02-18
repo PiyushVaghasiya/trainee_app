@@ -77,11 +77,12 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
+          centerTitle: true,
           backgroundColor: Color(0xff36271c),
           title: Text(
             'Home',
             textAlign: TextAlign.center,
-            style: TextStyle(fontFamily: "Rye"),
+            style: TextStyle(fontFamily: "Rye", fontSize: 22),
           ),
           leading: IconButton(
             onPressed: _handleMenuButtonPressed,
@@ -103,22 +104,18 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
           padding: EdgeInsets.all(15),
           child: Column(
             children: [
-              Card(
-                margin: EdgeInsets.only(
-                  right: 50,
-                ),
-                elevation: 5,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 5),
-                  child: GestureDetector(
-                    onTap: () {
-                      FocusScopeNode currentFocus = FocusScope.of(context);
-                      if (!currentFocus.hasPrimaryFocus) {
-                        currentFocus.unfocus();
-                      }
-
-
-                    },
+              Container(
+                height: 40,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  margin: EdgeInsets.only(
+                    right: 110,
+                    left: 5,
+                  ),
+                  elevation: 5,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 5),
                     child: TextField(
                       decoration: InputDecoration(
                         border: InputBorder.none,
@@ -147,67 +144,76 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       mainAxisExtent: 210, crossAxisCount: 2),
                   itemBuilder: (BuildContext cotext, int index) {
-                    return Card(
-                      elevation: 5,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 110,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  topRight: Radius.circular(10)),
-                              image: DecorationImage(
-                                  image: NetworkImage(
-                                      uitem[index].Image.toString()),
-                                  fit: BoxFit.cover),
+                    return Padding(
+                      padding: EdgeInsets.all(3),
+                      child: Card(
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 110,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(10),
+                                    topRight: Radius.circular(10)),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        uitem[index].Image.toString()),
+                                    fit: BoxFit.cover),
+                              ),
                             ),
-                          ),
-                          Container(
-                            padding: EdgeInsets.only(
-                                left: 10, right: 10, top: 10, bottom: 5),
-                            child: Column(
-                              children: [
-                                Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      uitem[index].Title.toString(),
-                                      style: TextStyle(
-                                          fontFamily: "Rye",
-                                          color: Colors.black,
-                                          fontSize: 13),
-                                    ),
-                                    Text(
-                                      uitem[index].Descri.toString(),
-                                      maxLines: 2,
-                                      style: TextStyle(
-                                          fontFamily: "Rye",
-                                          color: Colors.grey,
-                                          fontSize: 10),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                            Container(
+                              padding: EdgeInsets.only(
+                                  left: 10, right: 10, top: 10, bottom: 5),
+                              child: Column(
+                                children: [
+                                  Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.only(bottom: 3),
+                                        child: Text(
+                                          uitem[index].Title.toString(),
+                                          textAlign: TextAlign.start,
+                                          style: TextStyle(
+                                              fontFamily: "Rye",
+                                              color: Colors.black,
+                                              fontSize: 13),
+                                        ),
+                                      ),
+                                      Text(
+                                        uitem[index].Descri.toString(),
+                                        textAlign: TextAlign.start,
+                                        maxLines: 2,
+                                        style: TextStyle(
+                                            fontFamily: "Rye",
+                                            color: Colors.grey,
+                                            fontSize: 9),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            padding: EdgeInsets.only(left: 10),
-                            child: Text(
-                              "RM 129.0",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontFamily: "Rye",
-                                  color: Colors.black,
-                                  fontSize: 12),
+                            Container(
+                              alignment: Alignment.centerLeft,
+                              padding: EdgeInsets.only(left: 10),
+                              child: Text(
+                                "RM 129.0",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontFamily: "Rye",
+                                    color: Colors.black,
+                                    fontSize: 12),
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     );
                   },
@@ -260,6 +266,11 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
+                    height: 50,
+                    decoration: BoxDecoration(
+                        border: Border(
+                            bottom: BorderSide(
+                                color: Colors.grey.shade400, width: 0.5))),
                     child: ListTile(
                       leading: Icon(
                         Icons.person,
@@ -274,41 +285,62 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
                       ),
                     ),
                   ),
-                  ListTile(
-                    leading: Icon(
-                      Icons.home,
-                    ),
-                    title: Transform.translate(
-                      offset: Offset(-25, 0),
-                      child: Text(
-                        'Home',
-                        style: TextStyle(fontFamily: "Rye", fontSize: 12),
+                  Container(
+                    height: 50,
+                    decoration: BoxDecoration(
+                        border: Border(
+                            bottom: BorderSide(
+                                color: Colors.grey.shade400, width: 0.5))),
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.home,
+                      ),
+                      title: Transform.translate(
+                        offset: Offset(-25, 0),
+                        child: Text(
+                          'Home',
+                          style: TextStyle(fontFamily: "Rye", fontSize: 12),
+                        ),
                       ),
                     ),
                   ),
-                  ListTile(
-                    leading: Icon(
-                      Icons.shopping_cart,
-                      color: Colors.black,
-                    ),
-                    title: Transform.translate(
-                      offset: Offset(-25, 0),
-                      child: Text(
-                        'Cart',
-                        style: TextStyle(fontFamily: "Rye", fontSize: 12),
+                  Container(
+                    height: 50,
+                    decoration: BoxDecoration(
+                        border: Border(
+                            bottom: BorderSide(
+                                color: Colors.grey.shade400, width: 0.5))),
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.shopping_cart,
+                        color: Colors.black,
+                      ),
+                      title: Transform.translate(
+                        offset: Offset(-25, 0),
+                        child: Text(
+                          'Cart',
+                          style: TextStyle(fontFamily: "Rye", fontSize: 12),
+                        ),
                       ),
                     ),
                   ),
-                  ListTile(
-                    leading: Icon(
-                      Icons.logout,
-                      color: Colors.black,
-                    ),
-                    title: Transform.translate(
-                      offset: Offset(-25, 0),
-                      child: Text(
-                        'Logout',
-                        style: TextStyle(fontFamily: "Rye", fontSize: 12),
+                  Container(
+                    height: 50,
+                    decoration: BoxDecoration(
+                        border: Border(
+                            bottom: BorderSide(
+                                color: Colors.grey.shade400, width: 0.5))),
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.logout,
+                        color: Colors.black,
+                      ),
+                      title: Transform.translate(
+                        offset: Offset(-25, 0),
+                        child: Text(
+                          'Logout',
+                          style: TextStyle(fontFamily: "Rye", fontSize: 12),
+                        ),
                       ),
                     ),
                   ),
