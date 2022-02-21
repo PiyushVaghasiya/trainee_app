@@ -1,2 +1,11 @@
 # This is a generated file; do not edit or check into version control.
 image_gallery_saver=/home/sapl/workspace/flutter/.pub-cache/hosted/pub.dartlang.org/image_gallery_saver-1.7.1/
+path_provider_linux=/home/sapl/workspace/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.1.5/
+path_provider_windows=/home/sapl/workspace/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.5/
+shared_preferences=/home/sapl/workspace/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-2.0.13/
+shared_preferences_android=/home/sapl/workspace/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_android-2.0.11/
+shared_preferences_ios=/home/sapl/workspace/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_ios-2.1.0/
+shared_preferences_linux=/home/sapl/workspace/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_linux-2.1.0/
+shared_preferences_macos=/home/sapl/workspace/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_macos-2.0.3/
+shared_preferences_web=/home/sapl/workspace/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_web-2.0.3/
+shared_preferences_windows=/home/sapl/workspace/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_windows-2.1.0/

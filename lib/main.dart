@@ -28,6 +28,7 @@ import 'package:untitled/models/insta_story.dart';
 import 'package:untitled/models/whatsapp_status_model.dart';
 import 'package:untitled/profile.dart';
 import 'package:untitled/search.dart';
+import 'package:untitled/Shared%20Preferences/sharedpreferences_login.dart';
 import 'package:untitled/whatsapp_chats.dart';
 import 'package:untitled/whatsapp_calls.dart';
 import 'package:untitled/whatsapp_home.dart';
@@ -49,7 +50,7 @@ class MyApp extends StatelessWidget {
         SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AdvancedDrawerDemo(),
+      home: Sharedpreferences_login(),
     );
   }
 }
