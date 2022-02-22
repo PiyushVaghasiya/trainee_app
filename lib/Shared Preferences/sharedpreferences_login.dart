@@ -59,11 +59,16 @@ class _Sharedpreferences_loginState extends State<Sharedpreferences_login> {
                 ),
                 ElevatedButton(
                     onPressed: () async {
-                      final SharedPreferences sharedPreferences =
+                       SharedPreferences sharedPreferences =
                           await SharedPreferences.getInstance();
                       sharedPreferences.setString(
                           'email', emailController.text);
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => Sharedpreferences_home()));
                       Get.to(Sharedpreferences_home());
+
                     },
                     child: Text("submit")),
               ],

@@ -19,14 +19,19 @@ String? finalEmail;
 
 class _Sharedpreferences_splashscreenState
     extends State<Sharedpreferences_splashscreen> {
+  late Timer timer;
+
   @override
   void initState() {
     // TODO: implement initState
     getvalidationData().whenComplete(() async {
       Timer(
         Duration(seconds: 2),
-        () => Get.to(Sharedpreferences_login()),
+        () => Get.to(finalEmail == null
+            ? Sharedpreferences_login()
+            : Sharedpreferences_home()),
       );
+      timer.cancel();
     });
 
     super.initState();

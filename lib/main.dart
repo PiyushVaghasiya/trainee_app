@@ -37,6 +37,7 @@ import 'package:untitled/whatsapp_person_chat.dart';
 import 'package:untitled/whatsapp_status.dart';
 
 import 'Demo/dropdown_button.dart';
+import 'gallary_pageview.dart';
 import 'hero_widget.dart';
 
 void main() {
@@ -51,7 +52,7 @@ class MyApp extends StatelessWidget {
         SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Sharedpreferences_login(),
+      home:Gallery_pageview(),
     );
   }
 }
