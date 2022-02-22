@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:untitled/Shared%20Preferences/sharedpreferences_home.dart';
 import 'package:untitled/Shared%20Preferences/sharedpreferences_login.dart';
 
 class Sharedpreferences_splashscreen extends StatefulWidget {
@@ -13,22 +14,55 @@ class Sharedpreferences_splashscreen extends StatefulWidget {
   _Sharedpreferences_splashscreenState createState() =>
       _Sharedpreferences_splashscreenState();
 }
-String ? finalEmail;
+
+String? finalEmail;
+
 class _Sharedpreferences_splashscreenState
     extends State<Sharedpreferences_splashscreen> {
   @override
   void initState() {
     // TODO: implement initState
-    Timer(Duration(seconds: 2), () => Get.to(Sharedpreferences_login()));
+    getvalidationData().whenComplete(() async {
+      Timer(
+        Duration(seconds: 2),
+        () => Get.to(Sharedpreferences_login()),
+      );
+    });
+
     super.initState();
   }
-  Future getvalidationData() async{
-    final SharedPreferences sharedPreferences=await SharedPreferences.getInstance();
-    var obtainedEmail=sharedPreferences.getString('email');
+
+  Future getvalidationData() async {
+    final SharedPreferences sharedPreferences =
+        await SharedPreferences.getInstance();
+    var obtainedEmail = sharedPreferences.getString('email');
+    setState(() {
+      finalEmail = obtainedEmail;
+    });
+    print(finalEmail);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              child: Icon(Icons.local_activity),
+              radius: 50.0,
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 8),
+              child: CircularProgressIndicator(
+                backgroundColor: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

@@ -20,6 +20,7 @@ import 'package:untitled/Demo/pageview_demo2.dart';
 import 'package:untitled/Demo/radio_button_demo.dart';
 import 'package:untitled/Demo/tridimensional_drawer.dart';
 import 'package:untitled/Reels.dart';
+import 'package:untitled/Shared%20Preferences/sharedpreferences_splashScreen.dart';
 import 'package:untitled/edit_profile.dart';
 import 'package:untitled/insta_Home.dart';
 import 'package:untitled/messages.dart';
