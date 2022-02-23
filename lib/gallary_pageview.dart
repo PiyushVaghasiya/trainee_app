@@ -14,6 +14,7 @@ class _Gallery_pageviewState extends State<Gallery_pageview> {
     "https://images-na.ssl-images-amazon.com/images/I/816iZ-Y9ynL.jpg"
   ];
   PageController pagecontroller = PageController();
+  int curindex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -31,25 +32,32 @@ class _Gallery_pageviewState extends State<Gallery_pageview> {
         body: Column(
           children: [
             Container(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.all(10),
               height: 500,
               width: double.infinity,
               child: PinchZoom(
                 resetDuration: const Duration(milliseconds: 100),
                 maxScale: 2.5,
                 child: PageView.builder(
-                    controller: pagecontroller,
-                    itemCount: img.length,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        height: 500,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: NetworkImage(img[index].toString()),
-                              fit: BoxFit.cover),
-                        ),
-                      );
-                    }),
+                  itemCount: img.length,
+                  onPageChanged: (index) {
+                    setState(() {
+                      curindex = index;
+                    });
+                    print(curindex);
+                  },
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: EdgeInsets.only(left: 10, right: 10),
+                      height: 500,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: NetworkImage(img[curindex].toString()),
+                            fit: BoxFit.cover),
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
             Container(
@@ -57,13 +65,14 @@ class _Gallery_pageviewState extends State<Gallery_pageview> {
               height: 80,
               width: double.infinity,
               child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  itemCount: img.length,
-                  itemBuilder: (context, index) {
-                    return Container(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                itemCount: img.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    child: Container(
                       margin: EdgeInsets.only(left: 5, right: 5),
-                      width: 60,
+                      width: curindex == index ? 70 : 60,
                       decoration: BoxDecoration(
                         color: Colors.blue,
                         borderRadius: BorderRadius.circular(10),
@@ -71,8 +80,16 @@ class _Gallery_pageviewState extends State<Gallery_pageview> {
                             image: NetworkImage(img[index].toString()),
                             fit: BoxFit.cover),
                       ),
-                    );
-                  }),
+                    ),
+                    onTap: () {
+                      setState(() {
+                        curindex = index;
+                      });
+                      print(curindex);
+                    },
+                  );
+                },
+              ),
             ),
           ],
         ),
