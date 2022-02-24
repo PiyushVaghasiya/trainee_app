@@ -13,10 +13,19 @@ class Sharedpreferences_login extends StatefulWidget {
       _Sharedpreferences_loginState();
 }
 
-TextEditingController emailController = TextEditingController();
-TextEditingController passwordController = TextEditingController();
-
 class _Sharedpreferences_loginState extends State<Sharedpreferences_login> {
+  TextEditingController username_controller = TextEditingController();
+  TextEditingController password_Controller = TextEditingController();
+  late SharedPreferences logindata;
+  late bool newuser;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    check();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -29,7 +38,7 @@ class _Sharedpreferences_loginState extends State<Sharedpreferences_login> {
               children: [
                 TextFormField(
                   autovalidateMode: AutovalidateMode.always,
-                  controller: emailController,
+                  controller: username_controller,
                   keyboardType: TextInputType.emailAddress,
                   textInputAction: TextInputAction.search,
                   decoration: InputDecoration(
@@ -46,7 +55,7 @@ class _Sharedpreferences_loginState extends State<Sharedpreferences_login> {
                 TextFormField(
                   autovalidateMode: AutovalidateMode.always,
                   textInputAction: TextInputAction.search,
-                  controller: passwordController,
+                  controller: password_Controller,
                   decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -58,17 +67,18 @@ class _Sharedpreferences_loginState extends State<Sharedpreferences_login> {
                   ]),
                 ),
                 ElevatedButton(
-                    onPressed: () async {
-                       SharedPreferences sharedPreferences =
-                          await SharedPreferences.getInstance();
-                      sharedPreferences.setString(
-                          'email', emailController.text);
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => Sharedpreferences_home()));
-                      Get.to(Sharedpreferences_home());
+                    onPressed: () {
+                      String username = username_controller.text;
+                      String password = password_Controller.text;
+                      if (username != '' && password != '') {
+                        logindata.setBool('login', false);
+                        logindata.setString('username', username);
+                      }
 
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Sharedpreferences_home()));
                     },
                     child: Text("submit")),
               ],
@@ -77,5 +87,22 @@ class _Sharedpreferences_loginState extends State<Sharedpreferences_login> {
         ),
       ),
     );
+  }
+
+  void check() async {
+    logindata = await SharedPreferences.getInstance();
+    newuser = (logindata.getBool('login') ?? true);
+
+    print(newuser);
+    if (newuser == false) {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => Sharedpreferences_home()));
+    }
+  }
+
+  void dispose() {
+    username_controller.dispose();
+    password_Controller.dispose();
+    super.dispose();
   }
 }

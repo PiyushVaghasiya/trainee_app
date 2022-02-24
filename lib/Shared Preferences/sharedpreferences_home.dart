@@ -12,6 +12,23 @@ class Sharedpreferences_home extends StatefulWidget {
 }
 
 class _Sharedpreferences_homeState extends State<Sharedpreferences_home> {
+  late SharedPreferences logindata;
+  String? username;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    initial();
+  }
+
+  void initial() async {
+    logindata = await SharedPreferences.getInstance();
+    setState(() {
+      username = logindata.getString('username');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,15 +36,13 @@ class _Sharedpreferences_homeState extends State<Sharedpreferences_home> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Hello"),
+            Text("Hello $username"),
             MaterialButton(
-
-              child: Text("remove "),
+              child: Text("logout "),
               color: Colors.lightBlue,
-              onPressed: () async{
-                final  SharedPreferences sharedPreferences =
-                await SharedPreferences.getInstance();
-                sharedPreferences.remove('email');
+              onPressed: () async {
+                logindata.setBool('login', true);
+
                 Get.to(Sharedpreferences_login());
               },
             ),

@@ -39,69 +39,69 @@ class _Gallery_pageviewState extends State<Gallery_pageview> {
             style: TextStyle(color: Colors.white),
           ),
         ),
-        // body: Column(
-        //   children: [
-        //     Container(
-        //       padding: EdgeInsets.all(10),
-        //       height: 500,
-        //       width: double.infinity,
-        //       child: ZoomOverlay(
-        //         minScale: 0.5, // Optional
-        //         maxScale: 3.0, // Optional
-        //         twoTouchOnly: true,
-        //         child: PageView.builder(
-        //           itemCount: img.length,
-        //           onPageChanged: (index) {
-        //             setState(() {
-        //               curindex = index;
-        //             });
-        //           },
-        //           itemBuilder: (context, index) {
-        //             return Container(
-        //               margin: EdgeInsets.only(left: 10, right: 10),
-        //               height: 500,
-        //               decoration: BoxDecoration(
-        //                 image: DecorationImage(
-        //                     image: NetworkImage(img[curindex].toString()),
-        //                     fit: BoxFit.cover),
-        //               ),
-        //             );
-        //           },
-        //         ),
-        //       ),
-        //     ),
-        //     Container(
-        //       padding: EdgeInsets.all(10),
-        //       height: 80,
-        //       width: double.infinity,
-        //       child: ListView.builder(
-        //         scrollDirection: Axis.horizontal,
-        //         shrinkWrap: true,
-        //         itemCount: img.length,
-        //         itemBuilder: (context, index) {
-        //           return InkWell(
-        //             child: Container(
-        //               margin: EdgeInsets.only(left: 5, right: 5),
-        //               width: curindex == index ? 70 : 60,
-        //               decoration: BoxDecoration(
-        //                 color: Colors.blue,
-        //                 borderRadius: BorderRadius.circular(10),
-        //                 image: DecorationImage(
-        //                     image: NetworkImage(img[index].toString()),
-        //                     fit: BoxFit.cover),
-        //               ),
-        //             ),
-        //             onTap: () {
-        //               setState(() {
-        //                 curindex = index;
-        //               });
-        //             },
-        //           );
-        //         },
-        //       ),
-        //     ),
-        //   ],
-        // ),
+        body: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.all(10),
+              height: 500,
+              width: double.infinity,
+              child: ZoomOverlay(
+                minScale: 0.5, // Optional
+                maxScale: 3.0, // Optional
+                twoTouchOnly: true,
+                child: PageView.builder(
+                  itemCount: img.length,
+                  onPageChanged: (index) {
+                    setState(() {
+                      curindex = index;
+                    });
+                  },
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: EdgeInsets.only(left: 10, right: 10),
+                      height: 500,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: NetworkImage(img[curindex].toString()),
+                            fit: BoxFit.cover),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(10),
+              height: 80,
+              width: double.infinity,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                itemCount: img.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    child: Container(
+                      margin: EdgeInsets.only(left: 5, right: 5),
+                      width: curindex == index ? 70 : 60,
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
+                            image: NetworkImage(img[index].toString()),
+                            fit: BoxFit.cover),
+                      ),
+                    ),
+                    onTap: () {
+                      setState(() {
+                        curindex = index;
+                      });
+                    },
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
         // body: Column(
         //   mainAxisAlignment: MainAxisAlignment.center,
         //   children: [
@@ -114,18 +114,18 @@ class _Gallery_pageviewState extends State<Gallery_pageview> {
         //         }),
         //   ],
         // ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            GestureZoomBox(
-              maxScale: 5.0,
-              doubleTapScale: 2.0,
-              duration: Duration(milliseconds: 200),
-              child: Image.network(
-                  "https://m.media-amazon.com/images/I/51I3+UiA8bL.jpg"),
-            ),
-          ],
-        ),
+        // body: Column(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: [
+        //     GestureZoomBox(
+        //       maxScale: 5.0,
+        //       doubleTapScale: 2.0,
+        //       duration: Duration(milliseconds: 200),
+        //       child: Image.network(
+        //           "https://m.media-amazon.com/images/I/51I3+UiA8bL.jpg"),
+        //     ),
+        //   ],
+        // ),
       ),
     );
   }
