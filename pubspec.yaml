@@ -39,6 +39,7 @@ dependencies:
   easy_image_viewer: ^1.0.3
   gesture_zoom_box: ^0.0.3
   gallery_view: ^1.0.0+1
+  image_picker: ^0.8.4+9
 
 
 

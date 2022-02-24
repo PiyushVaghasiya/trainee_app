@@ -38,6 +38,8 @@ import 'package:untitled/whatsapp_status.dart';
 import 'Demo/dropdown_button.dart';
 import 'gallary_pageview.dart';
 import 'hero_widget.dart';
+import 'image_picker_demo.dart';
+import 'imagepicker_design.dart';
 
 void main() {
   runApp(MyApp());
@@ -51,7 +53,7 @@ class MyApp extends StatelessWidget {
         SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Sharedpreferences_login(),
+      home: Dialogdemo(),
     );
   }
 }
