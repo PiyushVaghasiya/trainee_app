@@ -1,59 +1,24 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:untitled/Constants/color.dart';
 
-import 'imagepicker_design_page2.dart';
-import 'models/imagepicker_design_model.dart';
+import 'Constants/color.dart';
 
-class ImagePickerDesign extends StatefulWidget {
-  const ImagePickerDesign({Key? key}) : super(key: key);
+class ImagePickerUpdate extends StatefulWidget {
+  const ImagePickerUpdate({Key? key}) : super(key: key);
 
   @override
-  _ImagePickerDesignState createState() => _ImagePickerDesignState();
+  _ImagePickerUpdateState createState() => _ImagePickerUpdateState();
 }
 
-class _ImagePickerDesignState extends State<ImagePickerDesign> {
-  late SharedPreferences sharedPreferences;
-
+class _ImagePickerUpdateState extends State<ImagePickerUpdate> {
   TextEditingController fname = TextEditingController();
   TextEditingController lname = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController mobile = TextEditingController();
-
   String? image;
   ImagePicker pickimage = ImagePicker();
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    GetSavedData();
-  }
-
-  void GetSavedData() async {
-    sharedPreferences = await SharedPreferences.getInstance();
-    Map<String, dynamic> jsondatais =
-        jsonDecode(sharedPreferences.getString('userdata')!);
-    User user = User.fromJson(jsondatais);
-    if(jsondatais.isNotEmpty){
-      fname.value=TextEditingValue(text: user.Fname.toString());
-      lname.value=TextEditingValue(text: user.Lname.toString());
-      email.value=TextEditingValue(text: user.Email.toString());
-      mobile.value=TextEditingValue(text: user.Mobile.toString());
-    }
-
-  }
-
-
-  void storedata() {
-    User user = User(fname.text, lname.text, email.text, mobile.text);
-    String userdata = jsonEncode(user);
-    sharedPreferences.setString('userdata', userdata);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +79,7 @@ class _ImagePickerDesignState extends State<ImagePickerDesign> {
                         Text(
                           "John Cena",
                           style: TextStyle(
-                              color: Ccolor.black, fontWeight: FontWeight.bold),
+                              color: Colors.black, fontWeight: FontWeight.bold),
                         ),
                         IconButton(
                           onPressed: () {
@@ -238,7 +203,7 @@ class _ImagePickerDesignState extends State<ImagePickerDesign> {
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -291,7 +256,7 @@ class _ImagePickerDesignState extends State<ImagePickerDesign> {
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: 20,
               ),
               Container(
                 alignment: Alignment.centerLeft,
@@ -310,32 +275,103 @@ class _ImagePickerDesignState extends State<ImagePickerDesign> {
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: 20,
+              ),
+              Container(
+                alignment: Alignment.center,
+                height: 60,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    border: Border(
+                        bottom: BorderSide(width: 0.8, color: Ccolor.grey),
+                        top: BorderSide(width: 0.8, color: Ccolor.grey))),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Terms of Service",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                          color: Ccolor.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16),
+                    ),
+                    Icon(
+                      Icons.chevron_right,
+                      color: Ccolor.black,
+                      size: 30,
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                alignment: Alignment.center,
+                height: 60,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    border: Border(
+                  bottom: BorderSide(width: 0.8, color: Ccolor.grey),
+                )),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "App Support",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                          color: Ccolor.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16),
+                    ),
+                    Icon(
+                      Icons.chevron_right,
+                      color: Ccolor.black,
+                      size: 30,
+                    ),
+                  ],
+                ),
               ),
               SizedBox(
                 height: 40,
               ),
-              InkWell(
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 50,
-                  width: 200,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      border: Border.all(color: Colors.black, width: 2)),
-                  child: Text(
-                    "Login",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  InkWell(
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: 50,
+                      width: 150,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          border: Border.all(color: Colors.black, width: 2)),
+                      child: Text(
+                        "Loout",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 17),
+                      ),
+                    ),
+                    onTap: () {},
                   ),
-                ),
-                onTap: () {
-                  storedata();
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ImagePickerUpdate()));
-                },
+                  InkWell(
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: 50,
+                      width: 150,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          border: Border.all(color: Colors.black, width: 2)),
+                      child: Text(
+                        "Update",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 17),
+                      ),
+                    ),
+                    onTap: () {},
+                  ),
+                ],
               )
             ],
           ),
