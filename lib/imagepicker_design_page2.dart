@@ -1,9 +1,11 @@
+import 'dart:convert';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:untitled/imagepicker_design.dart';
 import 'Constants/color.dart';
+import 'models/imagepicker_design_model.dart';
 
 class ImagePickerUpdate extends StatefulWidget {
   const ImagePickerUpdate({Key? key}) : super(key: key);
@@ -13,12 +15,35 @@ class ImagePickerUpdate extends StatefulWidget {
 }
 
 class _ImagePickerUpdateState extends State<ImagePickerUpdate> {
+  late SharedPreferences sharedPreferences;
+
   TextEditingController fname = TextEditingController();
   TextEditingController lname = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController mobile = TextEditingController();
   String? image;
+  String? images;
   ImagePicker pickimage = ImagePicker();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getSavedData();
+  }
+
+  getSavedData() async {
+    sharedPreferences = await SharedPreferences.getInstance();
+    Map<String, dynamic> jsondatais =
+        jsonDecode(sharedPreferences.getString('userdata')!);
+    User user = User.fromJson(jsondatais);
+    fname.value = TextEditingValue(text: user.Fname.toString());
+    lname.value = TextEditingValue(text: user.Lname.toString());
+    email.value = TextEditingValue(text: user.Email.toString());
+    mobile.value = TextEditingValue(text: user.Mobile.toString());
+    image = user.Images;
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -131,6 +156,7 @@ class _ImagePickerUpdateState extends State<ImagePickerUpdate> {
                                                                 .gallery);
                                                     setState(() {
                                                       image = fileImage?.path;
+                                                      images = fileImage?.path;
                                                     });
                                                     Navigator.pop(context);
                                                   },
@@ -352,7 +378,13 @@ class _ImagePickerUpdateState extends State<ImagePickerUpdate> {
                             fontWeight: FontWeight.bold, fontSize: 17),
                       ),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      sharedPreferences.remove('userdata');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ImagePickerDesign()));
+                    },
                   ),
                   InkWell(
                     child: Container(
@@ -369,7 +401,13 @@ class _ImagePickerUpdateState extends State<ImagePickerUpdate> {
                             fontWeight: FontWeight.bold, fontSize: 17),
                       ),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      storedata();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ImagePickerDesign()));
+                    },
                   ),
                 ],
               )
@@ -378,5 +416,11 @@ class _ImagePickerUpdateState extends State<ImagePickerUpdate> {
         ),
       ),
     );
+  }
+
+  void storedata() {
+    User user = User(fname.text, lname.text, email.text, mobile.text, images);
+    String userdata = jsonEncode(user);
+    sharedPreferences.setString('userdata', userdata);
   }
 }

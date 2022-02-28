@@ -26,33 +26,21 @@ class _ImagePickerDesignState extends State<ImagePickerDesign> {
 
   String? image;
   ImagePicker pickimage = ImagePicker();
+  String? images;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    GetSavedData();
-  }
-
-  void GetSavedData() async {
-    sharedPreferences = await SharedPreferences.getInstance();
-    Map<String, dynamic> jsondatais =
-        jsonDecode(sharedPreferences.getString('userdata')!);
-    User user = User.fromJson(jsondatais);
-    if(jsondatais.isNotEmpty){
-      fname.value=TextEditingValue(text: user.Fname.toString());
-      lname.value=TextEditingValue(text: user.Lname.toString());
-      email.value=TextEditingValue(text: user.Email.toString());
-      mobile.value=TextEditingValue(text: user.Mobile.toString());
-    }
-
   }
 
 
-  void storedata() {
-    User user = User(fname.text, lname.text, email.text, mobile.text);
+  Future<void> storedata() async {
+    User user = User(fname.text, lname.text, email.text, mobile.text, image);
     String userdata = jsonEncode(user);
-    sharedPreferences.setString('userdata', userdata);
+    await sharedPreferences.setString('userdata', userdata);
+    print(image);
+    print(userdata);
   }
 
   @override
@@ -191,6 +179,7 @@ class _ImagePickerDesignState extends State<ImagePickerDesign> {
                                                                         .camera);
                                                     setState(() {
                                                       image = fileImage?.path;
+                                                      images = fileImage?.path;
                                                     });
                                                     Navigator.pop(context);
                                                   },
@@ -329,8 +318,8 @@ class _ImagePickerDesignState extends State<ImagePickerDesign> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                   ),
                 ),
-                onTap: () {
-                  storedata();
+                onTap: () async {
+                   storedata();
                   Navigator.push(
                       context,
                       MaterialPageRoute(
