@@ -28,13 +28,6 @@ class _ImagePickerDesignState extends State<ImagePickerDesign> {
   ImagePicker pickimage = ImagePicker();
   String? images;
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
-
-
   Future<void> storedata() async {
     User user = User(fname.text, lname.text, email.text, mobile.text, image);
     String userdata = jsonEncode(user);
@@ -319,7 +312,7 @@ class _ImagePickerDesignState extends State<ImagePickerDesign> {
                   ),
                 ),
                 onTap: () async {
-                   storedata();
+                  storedata();
                   Navigator.push(
                       context,
                       MaterialPageRoute(

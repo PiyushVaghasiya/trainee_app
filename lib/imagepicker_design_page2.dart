@@ -42,7 +42,6 @@ class _ImagePickerUpdateState extends State<ImagePickerUpdate> {
     email.value = TextEditingValue(text: user.Email.toString());
     mobile.value = TextEditingValue(text: user.Mobile.toString());
     image = user.Images;
-    setState(() {});
   }
 
   @override
@@ -156,7 +155,6 @@ class _ImagePickerUpdateState extends State<ImagePickerUpdate> {
                                                                 .gallery);
                                                     setState(() {
                                                       image = fileImage?.path;
-                                                      images = fileImage?.path;
                                                     });
                                                     Navigator.pop(context);
                                                   },
@@ -372,7 +370,7 @@ class _ImagePickerUpdateState extends State<ImagePickerUpdate> {
                           borderRadius: BorderRadius.circular(30),
                           border: Border.all(color: Colors.black, width: 2)),
                       child: Text(
-                        "Loout",
+                        "Logout",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 17),
@@ -406,7 +404,7 @@ class _ImagePickerUpdateState extends State<ImagePickerUpdate> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ImagePickerDesign()));
+                              builder: (context) => ImagePickerUpdate()));
                     },
                   ),
                 ],
