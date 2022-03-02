@@ -1,11 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:untitled/Constants/color.dart';
-
 import 'imagepicker_design_page2.dart';
 import 'models/imagepicker_design_model.dart';
 
@@ -28,11 +26,29 @@ class _ImagePickerDesignState extends State<ImagePickerDesign> {
   ImagePicker pickimage = ImagePicker();
   String? images;
 
-  Future<void> storedata() async {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getSavedData();
+  }
+
+  getSavedData() async {
+    sharedPreferences = await SharedPreferences.getInstance();
+    Map<String, dynamic> jsondatais =
+        jsonDecode(sharedPreferences.getString('user')!);
+    User user = User.fromJson(jsondatais);
+    fname.value = TextEditingValue(text: user.Fname.toString());
+    lname.value = TextEditingValue(text: user.Lname.toString());
+    email.value = TextEditingValue(text: user.Email.toString());
+    mobile.value = TextEditingValue(text: user.Mobile.toString());
+    image = user.Images;
+  }
+
+  void storedata() {
     User user = User(fname.text, lname.text, email.text, mobile.text, image);
     String userdata = jsonEncode(user);
-    await sharedPreferences.setString('userdata', userdata);
-    print(image);
+    sharedPreferences.setString('userdata', userdata);
     print(userdata);
   }
 
@@ -52,7 +68,7 @@ class _ImagePickerDesignState extends State<ImagePickerDesign> {
               color: Colors.grey,
               size: 30,
             ),
-          )
+          ),
         ],
       ),
       body: SafeArea(

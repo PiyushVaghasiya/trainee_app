@@ -42,7 +42,7 @@ class _ImagePickerSplashScreenState extends State<ImagePickerSplashScreen> {
         jsonDecode(sharedPreferences.getString('userdata')!);
     User user = User.fromJson(jsondatais);
     setState(() {
-       jsondatais = logindata as Map<String, dynamic>;
+       user = logindata as User;
     });
   }
 
