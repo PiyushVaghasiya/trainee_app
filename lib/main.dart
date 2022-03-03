@@ -40,6 +40,7 @@ import 'gallary_pageview.dart';
 import 'hero_widget.dart';
 import 'image_picker_demo.dart';
 import 'imagepicker_design.dart';
+import 'imagepicker_splashscreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -53,7 +54,7 @@ class MyApp extends StatelessWidget {
         SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ImagePickerDesign(),
+      home: ImagePickerSplashScreen(),
     );
   }
 }

@@ -19,6 +19,7 @@ class ImagePickerSplashScreen extends StatefulWidget {
 class _ImagePickerSplashScreenState extends State<ImagePickerSplashScreen> {
   late Timer timer;
   String? logindata;
+  late SharedPreferences sharedPreferences;
 
   @override
   void initState() {
@@ -36,19 +37,18 @@ class _ImagePickerSplashScreenState extends State<ImagePickerSplashScreen> {
     );
   }
 
-  void GetSavedData() async {
-    var sharedPreferences = await SharedPreferences.getInstance();
-    Map<String, dynamic> jsondatais =
-        jsonDecode(sharedPreferences.getString('userdata')!);
-    User user = User.fromJson(jsondatais);
-    setState(() {
-       user = logindata as User;
-    });
-  }
-
   void dispose() {
     timer.cancel();
     super.dispose();
+  }
+
+  Future check() async {
+    sharedPreferences = await SharedPreferences.getInstance();
+    Map<String, dynamic> jsondatais =
+        jsonDecode(sharedPreferences.getString('userdata')!);
+    setState(() {
+      logindata = jsondatais as String?;
+    });
   }
 
   @override

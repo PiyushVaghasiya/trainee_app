@@ -36,13 +36,15 @@ class _ImagePickerDesignState extends State<ImagePickerDesign> {
   getSavedData() async {
     sharedPreferences = await SharedPreferences.getInstance();
     Map<String, dynamic> jsondatais =
-        jsonDecode(sharedPreferences.getString('user')!);
+        jsonDecode(sharedPreferences.getString('userdata')!);
     User user = User.fromJson(jsondatais);
     fname.value = TextEditingValue(text: user.Fname.toString());
     lname.value = TextEditingValue(text: user.Lname.toString());
     email.value = TextEditingValue(text: user.Email.toString());
     mobile.value = TextEditingValue(text: user.Mobile.toString());
-    image = user.Images;
+    setState(() {
+      image = user.Images;
+    });
   }
 
   void storedata() {
@@ -188,7 +190,6 @@ class _ImagePickerDesignState extends State<ImagePickerDesign> {
                                                                         .camera);
                                                     setState(() {
                                                       image = fileImage?.path;
-                                                      images = fileImage?.path;
                                                     });
                                                     Navigator.pop(context);
                                                   },
@@ -329,6 +330,7 @@ class _ImagePickerDesignState extends State<ImagePickerDesign> {
                 ),
                 onTap: () async {
                   storedata();
+
                   Navigator.push(
                       context,
                       MaterialPageRoute(

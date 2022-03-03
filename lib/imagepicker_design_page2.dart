@@ -35,16 +35,16 @@ class _ImagePickerUpdateState extends State<ImagePickerUpdate> {
   getSavedData() async {
     sharedPreferences = await SharedPreferences.getInstance();
     Map<String, dynamic> jsondatais =
-    jsonDecode(sharedPreferences.getString('user')!);
+        jsonDecode(sharedPreferences.getString('userdata')!);
     User user = User.fromJson(jsondatais);
     fname.value = TextEditingValue(text: user.Fname.toString());
     lname.value = TextEditingValue(text: user.Lname.toString());
     email.value = TextEditingValue(text: user.Email.toString());
     mobile.value = TextEditingValue(text: user.Mobile.toString());
-    image = user.Images;
+    setState(() {
+      image = user.Images;
+    });
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -419,7 +419,7 @@ class _ImagePickerUpdateState extends State<ImagePickerUpdate> {
   }
 
   void storedata() {
-    User user = User(fname.text, lname.text, email.text, mobile.text, images);
+    User user = User(fname.text, lname.text, email.text, mobile.text, image);
     String userdata = jsonEncode(user);
     sharedPreferences.setString('userdata', userdata);
   }
