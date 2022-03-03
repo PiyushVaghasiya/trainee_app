@@ -1,12 +1,8 @@
 import 'dart:async';
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'imagepicker_design.dart';
 import 'imagepicker_design_page2.dart';
-import 'models/imagepicker_design_model.dart';
 
 class ImagePickerSplashScreen extends StatefulWidget {
   const ImagePickerSplashScreen({Key? key}) : super(key: key);
@@ -18,20 +14,21 @@ class ImagePickerSplashScreen extends StatefulWidget {
 
 class _ImagePickerSplashScreenState extends State<ImagePickerSplashScreen> {
   late Timer timer;
-  String? logindata;
-  late SharedPreferences sharedPreferences;
+  late bool newuser;
+  late SharedPreferences logindata;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    check();
     Timer(
       Duration(seconds: 2),
       () => Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) =>
-              (logindata == null ? ImagePickerDesign() : ImagePickerUpdate()),
+              (newuser == true ? ImagePickerDesign():ImagePickerUpdate()),
         ),
       ),
     );
@@ -42,13 +39,10 @@ class _ImagePickerSplashScreenState extends State<ImagePickerSplashScreen> {
     super.dispose();
   }
 
-  Future check() async {
-    sharedPreferences = await SharedPreferences.getInstance();
-    Map<String, dynamic> jsondatais =
-        jsonDecode(sharedPreferences.getString('userdata')!);
-    setState(() {
-      logindata = jsondatais as String?;
-    });
+  void check() async {
+    logindata = await SharedPreferences.getInstance();
+    newuser = (logindata.getBool('login') ?? true);
+    print(newuser);
   }
 
   @override

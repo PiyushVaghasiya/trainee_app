@@ -15,8 +15,7 @@ class ImagePickerDesign extends StatefulWidget {
 }
 
 class _ImagePickerDesignState extends State<ImagePickerDesign> {
-  late SharedPreferences sharedPreferences;
-
+  late SharedPreferences logindata;
   TextEditingController fname = TextEditingController();
   TextEditingController lname = TextEditingController();
   TextEditingController email = TextEditingController();
@@ -24,34 +23,24 @@ class _ImagePickerDesignState extends State<ImagePickerDesign> {
 
   String? image;
   ImagePicker pickimage = ImagePicker();
-  String? images;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    getSavedData();
+    initial();
   }
 
-  getSavedData() async {
-    sharedPreferences = await SharedPreferences.getInstance();
-    Map<String, dynamic> jsondatais =
-        jsonDecode(sharedPreferences.getString('userdata')!);
-    User user = User.fromJson(jsondatais);
-    fname.value = TextEditingValue(text: user.Fname.toString());
-    lname.value = TextEditingValue(text: user.Lname.toString());
-    email.value = TextEditingValue(text: user.Email.toString());
-    mobile.value = TextEditingValue(text: user.Mobile.toString());
-    setState(() {
-      image = user.Images;
-    });
-  }
-
-  void storedata() {
+  void storedata() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
     User user = User(fname.text, lname.text, email.text, mobile.text, image);
     String userdata = jsonEncode(user);
-    sharedPreferences.setString('userdata', userdata);
+    preferences.setString('userdata', userdata);
     print(userdata);
+  }
+
+  void initial() async {
+    logindata = await SharedPreferences.getInstance();
   }
 
   @override
@@ -102,7 +91,7 @@ class _ImagePickerDesignState extends State<ImagePickerDesign> {
                             decoration: BoxDecoration(
                                 image: DecorationImage(
                                   image: AssetImage(
-                                    "assets/images/trainer.png",
+                                    "assets/images/profile.jpg",
                                   ),
                                 ),
                                 shape: BoxShape.circle),
@@ -330,7 +319,7 @@ class _ImagePickerDesignState extends State<ImagePickerDesign> {
                 ),
                 onTap: () async {
                   storedata();
-
+                  logindata.setBool('login', false);
                   Navigator.push(
                       context,
                       MaterialPageRoute(

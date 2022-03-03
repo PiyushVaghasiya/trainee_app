@@ -15,27 +15,31 @@ class ImagePickerUpdate extends StatefulWidget {
 }
 
 class _ImagePickerUpdateState extends State<ImagePickerUpdate> {
-  late SharedPreferences sharedPreferences;
-
   TextEditingController fname = TextEditingController();
   TextEditingController lname = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController mobile = TextEditingController();
   String? image;
-  String? images;
+
   ImagePicker pickimage = ImagePicker();
+  late SharedPreferences logindata;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     getSavedData();
+    initial();
+  }
+
+  void initial() async {
+    logindata = await SharedPreferences.getInstance();
   }
 
   getSavedData() async {
-    sharedPreferences = await SharedPreferences.getInstance();
+    SharedPreferences preferences = await SharedPreferences.getInstance();
     Map<String, dynamic> jsondatais =
-        jsonDecode(sharedPreferences.getString('userdata')!);
+        jsonDecode(preferences.getString('userdata')!);
     User user = User.fromJson(jsondatais);
     fname.value = TextEditingValue(text: user.Fname.toString());
     lname.value = TextEditingValue(text: user.Lname.toString());
@@ -94,7 +98,7 @@ class _ImagePickerUpdateState extends State<ImagePickerUpdate> {
                             decoration: BoxDecoration(
                                 image: DecorationImage(
                                   image: AssetImage(
-                                    "assets/images/trainer.png",
+                                    "assets/images/profile.jpg",
                                   ),
                                 ),
                                 shape: BoxShape.circle),
@@ -379,7 +383,8 @@ class _ImagePickerUpdateState extends State<ImagePickerUpdate> {
                       ),
                     ),
                     onTap: () {
-                      sharedPreferences.remove('userdata');
+                      remove();
+                      logindata.setBool('login', true);
                       Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -418,9 +423,18 @@ class _ImagePickerUpdateState extends State<ImagePickerUpdate> {
     );
   }
 
-  void storedata() {
+  Future<void> storedata() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
     User user = User(fname.text, lname.text, email.text, mobile.text, image);
     String userdata = jsonEncode(user);
-    sharedPreferences.setString('userdata', userdata);
+    preferences.setString('userdata', userdata);
+  }
+
+  Future<void> remove() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    User user = User(fname.text, lname.text, email.text, mobile.text, image);
+    String userdata = jsonEncode(user);
+    preferences.remove('userdata');
+    print(userdata);
   }
 }
