@@ -113,108 +113,85 @@ class _ImagePickerUpdateState extends State<ImagePickerUpdate> {
                         ),
                         IconButton(
                           onPressed: () {
-                            showDialog(
-                              barrierDismissible: true,
+                            showModalBottomSheet(
                               context: context,
                               builder: (BuildContext context) {
                                 return Container(
+                                  height: 125,
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      AlertDialog(
-                                        backgroundColor: Colors.white,
-                                        actions: [
-                                          Container(
-                                            width: double.infinity,
-                                            decoration: BoxDecoration(
+                                      InkWell(
+                                        child: Container(
+                                          alignment: Alignment.center,
+                                          height: 40,
+                                          decoration: BoxDecoration(
+                                              border: Border(
+                                                  bottom: BorderSide(
+                                                      color: Colors.black12,
+                                                      width: 0.8))),
+                                          child: Text(
+                                            "Photo Gallery",
+                                            style: TextStyle(
+                                                color: Colors.blue,
+                                                fontSize: 17),
+                                          ),
+                                        ),
+                                        onTap: () async {
+                                          final fileImage =
+                                          await pickimage.pickImage(
+                                              source: ImageSource.gallery);
+                                          setState(() {
+                                            image = fileImage?.path;
+                                          });
+                                          Navigator.pop(context);
+                                        },
+                                      ),
+                                      InkWell(
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              border: Border(
+                                                  bottom: BorderSide(
+                                                      color: Colors.black12,
+                                                      width: 0.8))),
+                                          alignment: Alignment.center,
+                                          // width: double.infinity,
+                                          height: 40,
+                                          child: Text(
+                                            "Camera",
+                                            style: TextStyle(
+                                                color: Colors.blue,
+                                                fontSize: 17),
+                                          ),
+                                        ),
+                                        onTap: () async {
+                                          final fileImage =
+                                          await pickimage.pickImage(
+                                              source: ImageSource.camera);
+                                          setState(() {
+                                            image = fileImage?.path;
+                                          });
+                                          Navigator.pop(context);
+                                        },
+                                      ),
+                                      InkWell(
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              color: Colors.white,
                                               borderRadius:
-                                                  BorderRadius.circular(30),
-                                            ),
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                InkWell(
-                                                  child: Container(
-                                                    alignment: Alignment.center,
-                                                    width: double.infinity,
-                                                    height: 40,
-                                                    decoration: BoxDecoration(
-                                                        border: Border(
-                                                            bottom: BorderSide(
-                                                                color: Colors
-                                                                    .black12,
-                                                                width: 0.8))),
-                                                    child: Text(
-                                                      "Photo Gallery",
-                                                      style: TextStyle(
-                                                          color: Colors.blue,
-                                                          fontSize: 17),
-                                                    ),
-                                                  ),
-                                                  onTap: () async {
-                                                    final fileImage =
-                                                        await pickimage.pickImage(
-                                                            source: ImageSource
-                                                                .gallery);
-                                                    setState(() {
-                                                      image = fileImage?.path;
-                                                    });
-                                                    Navigator.pop(context);
-                                                  },
-                                                ),
-                                                InkWell(
-                                                  child: Container(
-                                                    alignment: Alignment.center,
-                                                    width: double.infinity,
-                                                    height: 40,
-                                                    child: Text(
-                                                      "Camera",
-                                                      style: TextStyle(
-                                                          color: Colors.blue,
-                                                          fontSize: 17),
-                                                    ),
-                                                  ),
-                                                  onTap: () async {
-                                                    final fileImage =
-                                                        await pickimage
-                                                            .pickImage(
-                                                                source:
-                                                                    ImageSource
-                                                                        .camera);
-                                                    setState(() {
-                                                      image = fileImage?.path;
-                                                    });
-                                                    Navigator.pop(context);
-                                                  },
-                                                ),
-                                                InkWell(
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                        color: Colors.white,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5)),
-                                                    width: 280,
-                                                    alignment: Alignment.center,
-                                                    height: 40,
-                                                    child: Text(
-                                                      "Cancel",
-                                                      style: TextStyle(
-                                                          color: Colors.blue,
-                                                          fontSize: 17),
-                                                    ),
-                                                  ),
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                ),
-                                              ],
-                                            ),
-                                          )
-                                        ],
+                                              BorderRadius.circular(5)),
+                                          alignment: Alignment.center,
+
+                                          child: Text(
+                                            "Cancel",
+                                            style: TextStyle(
+                                                color: Colors.blue,
+                                                fontSize: 17),
+                                          ),
+                                        ),
+                                        onTap: () {
+                                          Navigator.pop(context);
+                                        },
                                       ),
                                     ],
                                   ),
@@ -227,6 +204,7 @@ class _ImagePickerUpdateState extends State<ImagePickerUpdate> {
                             color: Ccolor.black,
                           ),
                         ),
+
                       ],
                     ),
                   ],
