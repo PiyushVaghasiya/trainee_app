@@ -11,16 +11,15 @@ class DatabaseDemo extends StatefulWidget {
 class _DatabaseDemoState extends State<DatabaseDemo> {
   final dbhelper = DatabaseHelper.instance;
   TextEditingController namecontroller = TextEditingController();
+  TextEditingController agecontroller = TextEditingController();
+  TextEditingController standardcontroller = TextEditingController();
 
   void insertdata() async {
     Map<String, dynamic> row = {
-      DatabaseHelper.columnName: namecontroller,
+      DatabaseHelper.columnName: 'dishant',
       DatabaseHelper.columnAge: 15,
       DatabaseHelper.columnStandard: 10,
     };
-    final id = await dbhelper.insert(row);
-    print(id);
-
   }
 
   void queryall() async {
@@ -44,8 +43,8 @@ class _DatabaseDemoState extends State<DatabaseDemo> {
     var row = await dbhelper.updatedata(3);
     print(row);
   }
-  void readdata() async{
-  }
+
+  void readdata() async {}
 
   @override
   Widget build(BuildContext context) {
@@ -74,8 +73,25 @@ class _DatabaseDemoState extends State<DatabaseDemo> {
               onPressed: update,
               child: Text("Update"),
             ),
-            TextFormField(
-              controller: namecontroller,
+            Container(
+              padding: EdgeInsets.all(5),
+              child: Column(
+                children: [
+                  TextFormField(
+                    controller: namecontroller,
+                    decoration: InputDecoration(hintText: "enter name"),
+                  ),
+                  TextFormField(
+                    controller: agecontroller,
+                    decoration: InputDecoration(hintText: "enter age"),
+                  ),
+                  TextFormField(
+                    controller: standardcontroller,
+                    decoration: InputDecoration(hintText: "enter standard"),
+                  ),
+                  ElevatedButton(onPressed: () {}, child: Text("save")),
+                ],
+              ),
             ),
           ],
         ),

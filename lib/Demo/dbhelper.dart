@@ -1,5 +1,6 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:untitled/models/employee.dart';
 
 class DatabaseHelper {
   static final _databaseName = "studentdb.db";
@@ -40,9 +41,10 @@ class DatabaseHelper {
           ''');
   }
 
-  Future<int> insert(Map<String, dynamic> row) async {
-    Database? db = await instance.database;
-    return await db!.insert(table, row);
+  Future<void> insertdata(Student Student) async {
+    final  db = await _initDatabase();
+    await db.insert('$table',Student.toString(),
+      conflictAlgorithm: ConflictAlgorithm.replace,);
   }
 
   Future<List<Map<String, dynamic>>?> queryall() async {
@@ -73,4 +75,8 @@ class DatabaseHelper {
     return await db!.query(table);
   }
 
+
 }
+
+
+
