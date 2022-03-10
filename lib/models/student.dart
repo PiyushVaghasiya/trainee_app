@@ -8,18 +8,18 @@ class Student{
 
   Student(this.Id,this.Name,this.Age,this.Standard);
 
-  Student.fromMap(Map<String, dynamic> map) {
-    Id = map['id'];
-    Name = map['name'];
-    Age = map['Age'];
-    Standard=map['Standard'];
-  }
-  Map<String, dynamic> toMap() {
-    return {
-      DatabaseHelper.columnId: Id,
-      DatabaseHelper.columnName: Name,
-      DatabaseHelper.columnAge: Age,
-      DatabaseHelper.columnStandard: Standard,
-    };
-  }
+  // Student.fromMap(Map<String, dynamic> map) {
+  //   Id = map['id'];
+  //   Name = map['name'];
+  //   Age = map['Age'];
+  //   Standard=map['Standard'];
+  // }
+  // Map<String, dynamic> toMap() {
+  //   return {
+  //     DatabaseHelper.columnId: Id,
+  //     DatabaseHelper.columnName: Name,
+  //     DatabaseHelper.columnAge: Age,
+  //     DatabaseHelper.columnStandard: Standard,
+  //   };
+  // }
 }

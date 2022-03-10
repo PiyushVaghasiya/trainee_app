@@ -68,4 +68,9 @@ class DatabaseHelper {
         where: "id=?", whereArgs: [id]);
     return res;
   }
+  Future<List<Map<String, dynamic>>?> readData(Future<Database> database) async {
+    Database? db = (await instance.readData(database)) as Database?;
+    return await db!.query(table);
+  }
+
 }

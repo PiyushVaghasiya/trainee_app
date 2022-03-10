@@ -44,6 +44,8 @@ class _DatabaseDemoState extends State<DatabaseDemo> {
     var row = await dbhelper.updatedata(3);
     print(row);
   }
+  void readdata() async{
+  }
 
   @override
   Widget build(BuildContext context) {
