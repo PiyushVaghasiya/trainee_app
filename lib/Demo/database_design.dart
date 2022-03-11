@@ -76,15 +76,17 @@ class _DatabaseDesignState extends State<DatabaseDesign> {
                     ),
                   ),
                   actions: [
-                    TextButton(
+                    ElevatedButton(
                       onPressed: () {
                         DataModel dataLocal = DataModel(
                           Name: nameController.text,
                           Age: ageController.hashCode,
                           Standard: standardController.hashCode,
                         );
+                        print(dataLocal);
                         db.insertData(dataLocal);
-                        dataLocal.Id = datas[datas.length - 1].Id! + 1;
+                        dataLocal.Id =
+                            ([datas[datas.length - 1].Id! + 1]) as int?;
                         setState(() {
                           datas.add(dataLocal);
                         });
@@ -94,7 +96,7 @@ class _DatabaseDesignState extends State<DatabaseDesign> {
                         Navigator.pop(context);
                       },
                       child: Text("Save"),
-                    )
+                    ),
                   ],
                 );
               });

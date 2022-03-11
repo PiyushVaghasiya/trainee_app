@@ -28,7 +28,7 @@ class DatabaseHelper {
   Future _onCreate(Database db, int version) async {
     await db.execute('''
           CREATE TABLE student(
-            Id INTEGER PRIMARY KEY AUTO INCREMENT,
+            Id INTEGER PRIMARY KEY AUTOINCREMENT,
             Name TEXT NOT NULL,
             Age INTEGER NOT NULL,
             Standard INTEGER NOT NULL
@@ -44,7 +44,7 @@ class DatabaseHelper {
 
   Future<List<DataModel>> getData() async {
     final Database db = await _initDatabase();
-    final List<Map<String, Object?>> datas = await db.query("MYTable");
+    final List<Map<String, Object?>> datas = await db.query("student");
     return datas.map((e) => DataModel.fromMap(e)).toList();
   }
 
