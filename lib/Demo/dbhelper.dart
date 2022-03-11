@@ -1,16 +1,11 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:untitled/models/employee.dart';
+import 'package:untitled/models/student.dart';
 
 class DatabaseHelper {
   static final _databaseName = "studentdb.db";
   static final _databaseVersion = 1;
-  static final table = 'student';
 
-  static final columnId = 'id';
-  static final columnName = 'name';
-  static final columnAge = 'Age';
-  static final columnStandard = 'Standard';
 
   DatabaseHelper._privateConstructor();
 
@@ -32,24 +27,30 @@ class DatabaseHelper {
 
   Future _onCreate(Database db, int version) async {
     await db.execute('''
-          CREATE TABLE $table(
-            $columnId INTEGER PRIMARY KEY,
-            $columnName TEXT NOT NULL,
-            $columnAge INTEGER NOT NULL,
-            $columnStandard INTEGER NOT NULL
+          CREATE TABLE student(
+            Id INTEGER PRIMARY KEY AUTO INCREMENT,
+            Name TEXT NOT NULL,
+            Age INTEGER NOT NULL,
+            Standard INTEGER NOT NULL
           )
           ''');
   }
 
-  Future<void> insertdata(Student Student) async {
-    final  db = await _initDatabase();
-    await db.insert('$table',Student.toString(),
-      conflictAlgorithm: ConflictAlgorithm.replace,);
+  Future<bool> insertData(DataModel dataModel) async {
+    final Database db = await _initDatabase();
+    db.insert("student", dataModel.toMap());
+    return true;
+  }
+
+  Future<List<DataModel>> getData() async {
+    final Database db = await _initDatabase();
+    final List<Map<String, Object?>> datas = await db.query("MYTable");
+    return datas.map((e) => DataModel.fromMap(e)).toList();
   }
 
   Future<List<Map<String, dynamic>>?> queryall() async {
     Database? db = await instance.database;
-    return await db!.query(table);
+    return await db!.query("student");
   }
 
   Future<List<Map<String, dynamic>>?> queryspecific(int age) async {
@@ -60,23 +61,20 @@ class DatabaseHelper {
 
   Future<int?> deletedata(int id) async {
     Database? db = await instance.database;
-    var res = await db?.delete(table, where: "id = ?", whereArgs: [id]);
+    var res = await db?.delete("student", where: "id = ?", whereArgs: [id]);
     return res;
   }
 
   Future<int?> updatedata(int id) async {
     Database? db = await instance.database;
-    var res = await db?.update(table, {"name": "Piyush Vaghasiya", "age": 21},
+    var res = await db?.update("student", {"name": "Piyush Vaghasiya", "age": 21},
         where: "id=?", whereArgs: [id]);
     return res;
   }
-  Future<List<Map<String, dynamic>>?> readData(Future<Database> database) async {
+
+  Future<List<Map<String, dynamic>>?> readData(
+      Future<Database> database) async {
     Database? db = (await instance.readData(database)) as Database?;
-    return await db!.query(table);
+    return await db!.query("student");
   }
-
-
 }
-
-
-

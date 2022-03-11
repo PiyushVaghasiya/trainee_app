@@ -14,13 +14,6 @@ class _DatabaseDemoState extends State<DatabaseDemo> {
   TextEditingController agecontroller = TextEditingController();
   TextEditingController standardcontroller = TextEditingController();
 
-  void insertdata() async {
-    Map<String, dynamic> row = {
-      DatabaseHelper.columnName: 'dishant',
-      DatabaseHelper.columnAge: 15,
-      DatabaseHelper.columnStandard: 10,
-    };
-  }
 
   void queryall() async {
     var allrows = await dbhelper.queryall();
@@ -53,10 +46,7 @@ class _DatabaseDemoState extends State<DatabaseDemo> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-              onPressed: insertdata,
-              child: Text("insert"),
-            ),
+
             ElevatedButton(
               onPressed: queryall,
               child: Text("Query all"),
