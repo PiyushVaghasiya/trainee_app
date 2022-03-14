@@ -22,11 +22,12 @@ class _DatabaseDesignState extends State<DatabaseDesign> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    db = DatabaseHelper.instance;
-    getData();
+    db = DatabaseHelper();
+
+    getData2();
   }
 
-  void getData() async {
+  void getData2() async {
     datas = await db.getData();
     setState(() {
       fetching = false;
@@ -41,6 +42,7 @@ class _DatabaseDesignState extends State<DatabaseDesign> {
         title: Text("database design"),
       ),
       floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
         onPressed: () {
           showDialog(
               context: context,
@@ -59,6 +61,7 @@ class _DatabaseDesignState extends State<DatabaseDesign> {
                           height: 10,
                         ),
                         TextFormField(
+                          keyboardType: TextInputType.number,
                           controller: ageController,
                           decoration: InputDecoration(labelText: "Age"),
                         ),
@@ -78,22 +81,31 @@ class _DatabaseDesignState extends State<DatabaseDesign> {
                   actions: [
                     ElevatedButton(
                       onPressed: () {
-                        DataModel dataLocal = DataModel(
-                          Name: nameController.text,
-                          Age: ageController.hashCode,
-                          Standard: standardController.hashCode,
+                        // DataModel dataLocal = DataModel(
+                        //   Name: nameController.text,
+                        //   Age: ageController.hashCode,
+                        //   Standard: standardController.hashCode,
+                        // );
+                        // print(dataLocal);
+                        // db.insertData(dataLocal);
+                        // dataLocal.Id =
+                        //     ([datas[datas.length - 1].Id! + 1]) as int?;
+                        // setState(() {
+                        //   datas.add(dataLocal);
+                        // });
+
+                        db.insertData(
+                          DataModel(
+                            Name: nameController.text,
+                            Standard: standardController.hashCode,
+                            Age: ageController.hashCode,
+                          ),
                         );
-                        print(dataLocal);
-                        db.insertData(dataLocal);
-                        dataLocal.Id =
-                            ([datas[datas.length - 1].Id! + 1]) as int?;
-                        setState(() {
-                          datas.add(dataLocal);
-                        });
                         nameController.clear();
                         ageController.clear();
                         standardController.clear();
                         Navigator.pop(context);
+                        getData2();
                       },
                       child: Text("Save"),
                     ),
@@ -109,17 +121,27 @@ class _DatabaseDesignState extends State<DatabaseDesign> {
           : ListView.builder(
               itemCount: datas.length,
               itemBuilder: (context, index) {
-                return Container(
-                  alignment: Alignment.center,
-                  child: Row(
-                    children: [
+                return DataTable(columns: [
+                  DataColumn(label: Text("Id")),
+                  DataColumn(label: Text("Name")),
+                  DataColumn(label: Text("Age")),
+                  DataColumn(label: Text("Standard")),
+                ], rows: [
+                  DataRow(cells: [
+                    DataCell(
                       Text(datas[index].Id.toString()),
+                    ),
+                    DataCell(
                       Text(datas[index].Name.toString()),
+                    ),
+                    DataCell(
                       Text(datas[index].Age.toString()),
+                    ),
+                    DataCell(
                       Text(datas[index].Standard.toString()),
-                    ],
-                  ),
-                );
+                    ),
+                  ]),
+                ]);
               }),
     );
   }

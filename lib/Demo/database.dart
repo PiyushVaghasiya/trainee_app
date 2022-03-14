@@ -9,33 +9,33 @@ class DatabaseDemo extends StatefulWidget {
 }
 
 class _DatabaseDemoState extends State<DatabaseDemo> {
-  final dbhelper = DatabaseHelper.instance;
+  final dbhelper = DatabaseHelper();
   TextEditingController namecontroller = TextEditingController();
   TextEditingController agecontroller = TextEditingController();
   TextEditingController standardcontroller = TextEditingController();
 
 
-  void queryall() async {
-    var allrows = await dbhelper.queryall();
-    allrows?.forEach((row) {
-      print(row);
-    });
-  }
-
-  void queryspecific() async {
-    var allrows = await dbhelper.queryspecific(18);
-    print(allrows);
-  }
-
-  void delete() async {
-    var id = await dbhelper.deletedata(4);
-    print(id);
-  }
-
-  void update() async {
-    var row = await dbhelper.updatedata(3);
-    print(row);
-  }
+  // void queryall() async {
+  //   var allrows = await dbhelper.queryall();
+  //   allrows?.forEach((row) {
+  //     print(row);
+  //   });
+  // }
+  //
+  // void queryspecific() async {
+  //   var allrows = await dbhelper.queryspecific(18);
+  //   print(allrows);
+  // }
+  //
+  // void delete() async {
+  //   var id = await dbhelper.deletedata(4);
+  //   print(id);
+  // }
+  //
+  // void update() async {
+  //   var row = await dbhelper.updatedata(3);
+  //   print(row);
+  // }
 
   void readdata() async {}
 
@@ -48,19 +48,19 @@ class _DatabaseDemoState extends State<DatabaseDemo> {
           children: [
 
             ElevatedButton(
-              onPressed: queryall,
+              onPressed: (){},
               child: Text("Query all"),
             ),
             ElevatedButton(
-              onPressed: queryspecific,
+              onPressed: (){},
               child: Text("Query specific"),
             ),
             ElevatedButton(
-              onPressed: delete,
+              onPressed: (){},
               child: Text("Delete"),
             ),
             ElevatedButton(
-              onPressed: update,
+              onPressed: (){},
               child: Text("Update"),
             ),
             Container(
