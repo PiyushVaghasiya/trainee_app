@@ -69,6 +69,7 @@ class _DatabaseDesignState extends State<DatabaseDesign> {
                           height: 10,
                         ),
                         TextFormField(
+                          keyboardType: TextInputType.number,
                           controller: standardController,
                           decoration: InputDecoration(labelText: "Standard"),
                         ),
@@ -97,8 +98,8 @@ class _DatabaseDesignState extends State<DatabaseDesign> {
                         db.insertData(
                           DataModel(
                             Name: nameController.text,
-                            Standard: standardController.hashCode,
-                            Age: ageController.hashCode,
+                            Standard: int.parse(standardController.text),
+                            Age: int.parse(ageController.text),
                           ),
                         );
                         nameController.clear();
@@ -118,31 +119,104 @@ class _DatabaseDesignState extends State<DatabaseDesign> {
           ? Center(
               child: CircularProgressIndicator(),
             )
-          : ListView.builder(
-              itemCount: datas.length,
-              itemBuilder: (context, index) {
-                return DataTable(columns: [
-                  DataColumn(label: Text("Id")),
-                  DataColumn(label: Text("Name")),
-                  DataColumn(label: Text("Age")),
-                  DataColumn(label: Text("Standard")),
-                ], rows: [
-                  DataRow(cells: [
-                    DataCell(
-                      Text(datas[index].Id.toString()),
+          : Container(
+              child: Column(
+                children: [
+                  Container(
+                    height: 60,
+                    color: Colors.blue,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                          width: 82,
+                          alignment: Alignment.center,
+                          child: Text(
+                            "Id",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 17),
+                          ),
+                        ),
+                        Container(
+                          width: 82,
+                          alignment: Alignment.center,
+                          child: Text(
+                            "Name",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 17),
+                          ),
+                        ),
+                        Container(
+                          width: 82,
+                          alignment: Alignment.center,
+                          child: Text(
+                            "Age",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 17),
+                          ),
+                        ),
+                        Container(
+                          width: 82,
+                          alignment: Alignment.center,
+                          child: Text(
+                            "Standard",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 17),
+                          ),
+                        ),
+                      ],
                     ),
-                    DataCell(
-                      Text(datas[index].Name.toString()),
-                    ),
-                    DataCell(
-                      Text(datas[index].Age.toString()),
-                    ),
-                    DataCell(
-                      Text(datas[index].Standard.toString()),
-                    ),
-                  ]),
-                ]);
-              }),
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                        itemCount: datas.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            color: Colors.blue.shade100,
+                            height: 40,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Container(
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    datas[index].Id.toString(),
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(fontSize: 17),
+                                  ),
+                                ),
+                                Container(
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    datas[index].Name.toString(),
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(fontSize: 17),
+                                  ),
+                                ),
+                                Container(
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    datas[index].Age.toString(),
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(fontSize: 17),
+                                  ),
+                                ),
+                                Container(
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    datas[index].Standard.toString(),
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(fontSize: 17),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        }),
+                  ),
+                ],
+              ),
+            ),
     );
   }
 }
