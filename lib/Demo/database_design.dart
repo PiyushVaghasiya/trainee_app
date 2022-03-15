@@ -105,8 +105,8 @@ class _DatabaseDesignState extends State<DatabaseDesign> {
                         nameController.clear();
                         ageController.clear();
                         standardController.clear();
-                        Navigator.pop(context);
                         getData2();
+                        Navigator.pop(context);
                       },
                       child: Text("Save"),
                     ),
@@ -171,45 +171,73 @@ class _DatabaseDesignState extends State<DatabaseDesign> {
                     child: ListView.builder(
                         itemCount: datas.length,
                         itemBuilder: (context, index) {
-                          return Container(
-                            color: Colors.blue.shade100,
-                            height: 40,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Container(
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    datas[index].Id.toString(),
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 17),
+                          return Dismissible(
+                            key: UniqueKey(),
+                            background: Container(
+                              padding: EdgeInsets.only(left: 20),
+                              alignment: Alignment.centerLeft,
+                              color: Colors.purple,
+                              child: Text("ARCHIVE"),
+                            ),
+                            secondaryBackground: Container(
+                              padding: EdgeInsets.only(right: 20),
+                              alignment: Alignment.centerRight,
+                              color: Colors.red,
+                              child: Text("DELETE"),
+                            ),
+                            onDismissed: (DismissDirection direction) {
+                              String action =
+                                  direction == DismissDirection.startToEnd
+                                      ? "Archieve"
+                                      : "Delete";
+                              print(action);
+                              db.delete(datas[index].Id!);
+                              setState(() {
+                                datas.removeAt(index);
+                              });
+
+                            },
+                            child: Container(
+                              color: Colors.blue.shade100,
+                              height: 40,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Container(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      datas[index].Id.toString(),
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(fontSize: 17),
+                                    ),
                                   ),
-                                ),
-                                Container(
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    datas[index].Name.toString(),
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 17),
+                                  Container(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      datas[index].Name.toString(),
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(fontSize: 17),
+                                    ),
                                   ),
-                                ),
-                                Container(
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    datas[index].Age.toString(),
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 17),
+                                  Container(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      datas[index].Age.toString(),
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(fontSize: 17),
+                                    ),
                                   ),
-                                ),
-                                Container(
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    datas[index].Standard.toString(),
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 17),
+                                  Container(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      datas[index].Standard.toString(),
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(fontSize: 17),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           );
                         }),

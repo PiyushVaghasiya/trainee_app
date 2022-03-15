@@ -65,6 +65,11 @@ class DatabaseHelper {
     return datas.map((e) => DataModel.fromMap(e)).toList();
   }
 
+  Future<void> delete(int id) async {
+    final Database db = await _initDatabase();
+    await db.delete("student", where: "id=?", whereArgs: [id]);
+  }
+
 // Future<List<Map<String, dynamic>>?> queryall() async {
 //   Database? db = await instance.database;
 //   return await db!.query("student");
