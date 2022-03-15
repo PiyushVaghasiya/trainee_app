@@ -37,6 +37,7 @@ import 'package:untitled/whatsapp_person_chat.dart';
 import 'package:untitled/whatsapp_status.dart';
 import 'Demo/database.dart';
 import 'Demo/database_design.dart';
+import 'Demo/database_design2.dart';
 import 'Demo/dropdown_button.dart';
 import 'gallary_pageview.dart';
 import 'hero_widget.dart';
@@ -56,7 +57,7 @@ class MyApp extends StatelessWidget {
         SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DatabaseDesign(),
+      home: DatabaseAddDesign(),
     );
   }
 }

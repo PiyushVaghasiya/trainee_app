@@ -40,6 +40,7 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
         Descri:
             "Pizza is a savory dish of italian origin consisting of all elements"),
   ];
+
   List<AdvancedDrawerModel> uitem = [];
   String lowersearchtext = "";
   String lowerOrgtext = "";
@@ -142,7 +143,7 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
                   itemCount: uitem.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       mainAxisExtent: 210, crossAxisCount: 2),
-                  itemBuilder: (BuildContext cotext, int index) {
+                  itemBuilder: (BuildContext context , int index) {
                     return Padding(
                       padding: EdgeInsets.all(3),
                       child: Card(
@@ -292,7 +293,8 @@ class _AdvancedDrawerDemoState extends State<AdvancedDrawerDemo> {
                                 color: Colors.grey.shade400, width: 0.5))),
                     child: ListTile(
                       leading: Icon(
-                        Icons.home,color: Colors.black,
+                        Icons.home,
+                        color: Colors.black,
                       ),
                       title: Transform.translate(
                         offset: Offset(-25, 0),

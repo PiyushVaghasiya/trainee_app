@@ -195,7 +195,6 @@ class _DatabaseDesignState extends State<DatabaseDesign> {
                               setState(() {
                                 datas.removeAt(index);
                               });
-
                             },
                             child: Container(
                               color: Colors.blue.shade100,
@@ -235,6 +234,17 @@ class _DatabaseDesignState extends State<DatabaseDesign> {
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 17),
                                     ),
+                                  ),
+                                  IconButton(
+                                    onPressed: () {
+                                      showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return Container();
+                                          },
+                                      );
+                                    },
+                                    icon: Icon(Icons.edit_outlined),
                                   ),
                                 ],
                               ),

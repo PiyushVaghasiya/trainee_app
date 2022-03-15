@@ -70,6 +70,12 @@ class DatabaseHelper {
     await db.delete("student", where: "id=?", whereArgs: [id]);
   }
 
+  Future<void> update(DataModel dataModel, int id) async {
+    final Database db = await _initDatabase();
+    await db
+        .update("student", dataModel.toMap(), where: "id=?", whereArgs: [id]);
+  }
+
 // Future<List<Map<String, dynamic>>?> queryall() async {
 //   Database? db = await instance.database;
 //   return await db!.query("student");
