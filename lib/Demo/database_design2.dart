@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/models/database_cart_model.dart';
+
+import 'cartdatabase.dart';
 
 class DatabaseAddDesign extends StatefulWidget {
   const DatabaseAddDesign({Key? key}) : super(key: key);
@@ -8,6 +11,9 @@ class DatabaseAddDesign extends StatefulWidget {
 }
 
 class _DatabaseAddDesignState extends State<DatabaseAddDesign> {
+  late DB db;
+  int counter = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +23,7 @@ class _DatabaseAddDesignState extends State<DatabaseAddDesign> {
       body: GridView.builder(
         itemCount: 4,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          mainAxisExtent: 240,
+          mainAxisExtent: 260,
           crossAxisCount: 2,
           mainAxisSpacing: 5,
         ),
@@ -96,7 +102,64 @@ class _DatabaseAddDesignState extends State<DatabaseAddDesign> {
                             ),
                           ),
                         ]),
-                  )
+                  ),
+                  SizedBox(height: 5),
+                  counter != 0
+                      ? Container(
+                          color: Colors.blue,
+                          alignment: Alignment.center,
+                          height: 35,
+                          width: 110,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    counter--;
+                                  });
+                                  print(counter);
+                                },
+                                icon: Icon(
+                                  Icons.remove,
+                                  color: Colors.white,
+                                  size: 20,
+                                ),
+                              ),
+                              Text('$counter'),
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    counter++;
+                                  });
+                                  print(counter);
+                                },
+                                icon: Icon(
+                                  Icons.add,
+                                  color: Colors.white,
+                                  size: 20,
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      : InkWell(
+                          child: Container(
+                            color: Colors.blue,
+                            alignment: Alignment.center,
+                            height: 30,
+                            width: 60,
+                            child: Text("Add"),
+                          ),
+                          onTap: () {
+                            db.insertData(DatabaseCartModel(Counter: counter));
+                            setState(() {
+                              counter++;
+                            });
+                            print(counter);
+                          },
+                        ),
                 ],
               ),
             ),
