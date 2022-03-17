@@ -10,10 +10,10 @@ class DB {
       onCreate: (database, verison) async {
         await database.execute("""
         CREATE TABLE cart(
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        Name TEXT NOT NULL,
-        Age INTEGER NOT NULL,
-        Standard INTEGER NOT NULL
+        Images TEXT NOT NULL,
+        Title TEXT NOT NULL,
+        Description TEXT NOT NULL,
+        Counter INTEGER NOT NULL
         )
         """);
       },

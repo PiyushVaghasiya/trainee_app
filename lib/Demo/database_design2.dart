@@ -13,6 +13,43 @@ class DatabaseAddDesign extends StatefulWidget {
 class _DatabaseAddDesignState extends State<DatabaseAddDesign> {
   late DB db;
   int counter = 0;
+  List<DatabaseCartModel> datalist = [
+    DatabaseCartModel(
+        Images:
+            "https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395__480.jpg",
+        Title: "Pizza",
+        Description:
+            "Pizza is a savory dish of italian origin consisting of all elements",
+        Counter: 0),
+    DatabaseCartModel(
+        Images:
+            "https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YnVyZ2VyfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+        Title: "Burger",
+        Description:
+            "Burger is a savory dish of italian origin consisting of all elements",
+        Counter: 0),
+    DatabaseCartModel(
+        Images:
+            "https://im1.dineout.co.in/images/uploads/restaurant/sharpen/6/x/p/p6816-15811593495e3e93b50466a.jpg?tr=tr:n-xlarge",
+        Title: "Pizza",
+        Description:
+            "Pizza is a savory dish of italian origin consisting of all elements",
+        Counter: 0),
+    DatabaseCartModel(
+        Images:
+            "https://img.freepik.com/free-photo/top-view-pepperoni-pizza-sliced-into-six-slices_141793-2157.jpg?size=626&ext=jpg",
+        Title: "Pizza",
+        Description:
+            "Pizza is a savory dish of italian origin consisting of all elements",
+        Counter: 0),
+  ];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    db = DB();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +58,7 @@ class _DatabaseAddDesignState extends State<DatabaseAddDesign> {
         title: Text("Home"),
       ),
       body: GridView.builder(
-        itemCount: 4,
+        itemCount: datalist.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           mainAxisExtent: 260,
           crossAxisCount: 2,
@@ -45,7 +82,7 @@ class _DatabaseAddDesignState extends State<DatabaseAddDesign> {
                           topRight: Radius.circular(10)),
                       image: DecorationImage(
                           image: NetworkImage(
-                            "https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395__480.jpg",
+                            datalist[index].Images.toString(),
                           ),
                           fit: BoxFit.cover),
                     ),
@@ -67,7 +104,7 @@ class _DatabaseAddDesignState extends State<DatabaseAddDesign> {
                                     Container(
                                       margin: EdgeInsets.only(bottom: 3),
                                       child: Text(
-                                        "Italian Pizza",
+                                        datalist[index].Title.toString(),
                                         textAlign: TextAlign.start,
                                         style: TextStyle(
                                             fontFamily: "Rye",
@@ -76,7 +113,7 @@ class _DatabaseAddDesignState extends State<DatabaseAddDesign> {
                                       ),
                                     ),
                                     Text(
-                                      "Pizza is a savory dish of italian origin consisting of all elements",
+                                      datalist[index].Description.toString(),
                                       textAlign: TextAlign.start,
                                       maxLines: 2,
                                       style: TextStyle(
@@ -104,7 +141,7 @@ class _DatabaseAddDesignState extends State<DatabaseAddDesign> {
                         ]),
                   ),
                   SizedBox(height: 5),
-                  counter != 0
+                  datalist[index].Counter != 0
                       ? Container(
                           color: Colors.blue,
                           alignment: Alignment.center,
@@ -118,8 +155,11 @@ class _DatabaseAddDesignState extends State<DatabaseAddDesign> {
                                 onPressed: () {
                                   setState(() {
                                     counter--;
+                                    datalist[index].Counter = counter;
+                                    // datalist[index].Counter! - 1;
                                   });
                                   print(counter);
+                                  print(datalist[index].Counter);
                                 },
                                 icon: Icon(
                                   Icons.remove,
@@ -127,13 +167,16 @@ class _DatabaseAddDesignState extends State<DatabaseAddDesign> {
                                   size: 20,
                                 ),
                               ),
-                              Text('$counter'),
+                              Text(datalist[index].Counter.toString()),
                               IconButton(
                                 onPressed: () {
                                   setState(() {
                                     counter++;
+                                    datalist[index].Counter = counter;
+                                    // datalist[index].Counter! + 1;
                                   });
                                   print(counter);
+                                  print(datalist[index].Counter);
                                 },
                                 icon: Icon(
                                   Icons.add,
@@ -153,11 +196,22 @@ class _DatabaseAddDesignState extends State<DatabaseAddDesign> {
                             child: Text("Add"),
                           ),
                           onTap: () {
-                            db.insertData(DatabaseCartModel(Counter: counter));
                             setState(() {
                               counter++;
+                              datalist[index].Counter = counter;
+                              // datalist[index].Counter =
+                              //     (datalist[index].Counter! + 1);
                             });
+                            db.insertData(
+                              DatabaseCartModel(
+                                Images: datalist[index].Images,
+                                Title: datalist[index].Title,
+                                Description: datalist[index].Description,
+                                Counter: datalist[index].Counter,
+                              ),
+                            );
                             print(counter);
+                            print(datalist[index].Counter);
                           },
                         ),
                 ],
