@@ -9,6 +9,7 @@ class DB {
       join(path, "cartdb.db"),
       onCreate: (database, verison) async {
         await database.execute("""
+         
         CREATE TABLE cart(
         Images TEXT NOT NULL,
         Title TEXT NOT NULL,
@@ -25,5 +26,16 @@ class DB {
     final Database db = await _initDatabase();
     db.insert("cart", dataModel.toMap());
     return true;
+  }
+
+  Future<List<DatabaseCartModel>> getData() async {
+    final Database db = await _initDatabase();
+    final List<Map<String, Object?>> datas = await db.query("cart");
+    return datas.map((e) => DatabaseCartModel.fromMap(e)).toList();
+  }
+
+  Future<void> update(int counter, int id) async {
+    final Database db = await _initDatabase();
+    await db.execute("Update cart set Counter=$counter where Id=$id");
   }
 }
