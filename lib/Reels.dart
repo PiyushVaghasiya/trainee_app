@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:untitled/Activity.dart';
-import 'package:untitled/main.dart';
+import 'package:untitled/insta_Home.dart';
+
 import 'package:untitled/profile.dart';
 import 'package:untitled/search.dart';
 
@@ -159,7 +160,7 @@ class _ReelsState extends State<Reels> with SingleTickerProviderStateMixin {
                     ),
                     onPressed: () {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Chat()));
+                          MaterialPageRoute(builder: (context) => InstaHome()));
                     },
                   ),
                   IconButton(

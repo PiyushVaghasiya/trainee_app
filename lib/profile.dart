@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:untitled/Activity.dart';
 import 'package:untitled/Reels.dart';
 import 'package:untitled/edit_profile.dart';
-import 'package:untitled/main.dart';
 import 'package:untitled/search.dart';
+
+import 'insta_Home.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -392,7 +393,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                     ),
                     onPressed: () {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Chat()));
+                          MaterialPageRoute(builder: (context) => InstaHome()));
                     },
                   ),
                   IconButton(

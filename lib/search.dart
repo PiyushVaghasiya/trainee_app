@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:untitled/Activity.dart';
 import 'package:untitled/Reels.dart';
-import 'package:untitled/main.dart';
+import 'package:untitled/insta_Home.dart';
 import 'package:untitled/profile.dart';
 
 class Search extends StatefulWidget {
@@ -341,7 +341,7 @@ class _SearchState extends State<Search> with SingleTickerProviderStateMixin {
                     ),
                     onPressed: () {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Chat()));
+                          MaterialPageRoute(builder: (context) => InstaHome()));
                     },
                   ),
                   IconButton(

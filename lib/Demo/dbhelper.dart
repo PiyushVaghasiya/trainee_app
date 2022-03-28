@@ -1,10 +1,8 @@
 import 'dart:io';
-
 import 'package:flutter/services.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-
-import '../models/student.dart';
+import 'package:untitled/models/insta_post.dart';
 
 class DBHelper {
   Database? db;
@@ -22,15 +20,22 @@ class DBHelper {
     var dbPath = join(dbDir, "asset_insta.db");
     if (FileSystemEntity.typeSync(dbPath) == FileSystemEntityType.notFound) {
       ByteData data = await rootBundle.load("assets/database/insta.db");
-      List<int> bytes =
-          data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+      List<int> bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
       await new File(dbPath).writeAsBytes(bytes);
     }
-  }
-  Future<bool> insertData(DataModel dataModel) async {
-    final Database db = await initDatabase();
-    db.insert("student", dataModel.toMap());
-    return true;
+    var db = await openDatabase(dbPath);
+    return db;
   }
 
+  dbSelect() async {
+    Database? db = await database;
+    List<Post> lstData = [];
+    final result = await db?.rawQuery('SELECT * FROM instagram');
+    if (result != null && result.isNotEmpty) {
+      result.forEach((element) {
+        lstData.add(Post.fromMap(element));
+      });
+    }
+    return lstData;
+  }
 }

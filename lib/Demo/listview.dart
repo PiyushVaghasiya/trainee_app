@@ -29,7 +29,34 @@ class _ListviewDemoState extends State<ListviewDemo>
 
   @override
   Widget build(BuildContext context) {
-    Insta insta = Insta();
+    List<Post> instapost = [
+      Post(
+          Images:
+          "https://e0.365dm.com/21/11/768x432/skysports-cristiano-ronaldo_5569575.jpg",
+          Name: "piyushv",
+          pImage:
+          "https://images.unsplash.com/photo-1516617442634-75371039cb3a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGhvdG8lMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+          likes: 100,
+          Comments: 15),
+      Post(
+        Images:
+        "https://stat2.bollywoodhungama.in/wp-content/uploads/2021/02/WhatsApp-Image-2021-02-22-at-9.12.41-PM.jpeg",
+        Name: "piyushvaghasiya",
+        pImage:
+        "https://i.pinimg.com/736x/d8/bd/d9/d8bdd9632becd0fe3ad025cabb91ba93.jpg",
+        likes: 200,
+        Comments: 20,
+      ),
+      Post(
+        Images:
+        "https://filmfare.wwmindia.com/content/2021/jan/hrithikroshan41612021598.jpg",
+        Name: "utsav",
+        pImage:
+        "https://www.nawpic.com/media/2020/cool-backgrounds-nawpic-500x931.jpg",
+        likes: 108,
+        Comments: 22,
+      ),
+    ];
     List<String> name = ["piyush", "dishant", "abc"];
 
     List<Employee> employeelist = [
@@ -55,7 +82,7 @@ class _ListviewDemoState extends State<ListviewDemo>
                 child: ListView.builder(
                   scrollDirection: Axis.vertical,
                   shrinkWrap: true,
-                  itemCount: post.pName.toString().length,
+                  itemCount: post.Name.toString().length,
                   itemBuilder: (context, index) {
                     return Container(
                       child: Column(
@@ -98,7 +125,7 @@ class _ListviewDemoState extends State<ListviewDemo>
                                 child: Container(
                                   margin: EdgeInsets.all(10),
                                   child: Text(
-                                    instapost[index].pName.toString(),
+                                    instapost[index].Name.toString(),
                                     style: TextStyle(color: Colors.white),
                                   ),
                                 ),
@@ -119,7 +146,7 @@ class _ListviewDemoState extends State<ListviewDemo>
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                   image: NetworkImage(
-                                      instapost[index].postImage.toString()),
+                                      instapost[index].Images.toString()),
                                   fit: BoxFit.cover),
                             ),
                           ),
@@ -184,7 +211,7 @@ class _ListviewDemoState extends State<ListviewDemo>
                                       children: [
                                         TextSpan(
                                             text: instapost[index]
-                                                .likeName
+                                                .Name
                                                 .toString(),
                                             style:
                                                 TextStyle(color: Colors.white)),
@@ -262,7 +289,7 @@ class _ListviewDemoState extends State<ListviewDemo>
                             alignment: Alignment.centerLeft,
                             child: RichText(
                               text: TextSpan(
-                                  text: instapost[index].pTime.toString(),
+                                  text: instapost[index].Name.toString(),
                                   style: TextStyle(
                                       color: Colors.grey, fontSize: 10),
                                   children: [
