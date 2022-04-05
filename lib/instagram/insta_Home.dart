@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/Demo/dbhelper.dart';
-import 'package:untitled/messages.dart';
+import 'package:untitled/instagram/messages.dart';
 import 'package:untitled/models/insta_post.dart';
 import 'package:untitled/models/insta_story.dart';
-import 'package:untitled/profile.dart';
-import 'package:untitled/search.dart';
-import 'Activity.dart';
-import 'Reels.dart';
 
 class InstaHome extends StatefulWidget {
   const InstaHome({Key? key}) : super(key: key);
@@ -17,6 +13,7 @@ class InstaHome extends StatefulWidget {
 
 class _InstaHomeState extends State<InstaHome> {
   late DBHelper db;
+  bool islike = false;
   List<Post> instapost = [];
 
   @override
@@ -194,9 +191,7 @@ class _InstaHomeState extends State<InstaHome> {
                                           Icons.info,
                                           color: Colors.white,
                                         ),
-                                        onPressed: () {
-                                          // do something
-                                        },
+                                        onPressed: () {},
                                       ),
                                     ],
                                   ),
@@ -215,8 +210,7 @@ class _InstaHomeState extends State<InstaHome> {
                                       children: [
                                         IconButton(
                                           icon: Icon(
-                                            Icons.favorite_border_rounded,
-                                            color: Colors.white,
+                                            Icons.favorite,
                                           ),
                                           onPressed: () {},
                                         ),
@@ -383,12 +377,9 @@ class _InstaHomeState extends State<InstaHome> {
                 ),
               ),
               Container(
-                alignment: Alignment.topCenter,
-                height: 55,
                 margin: EdgeInsets.only(bottom: 35),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     IconButton(
                       icon: Icon(
@@ -397,10 +388,7 @@ class _InstaHomeState extends State<InstaHome> {
                         color: Colors.white,
                       ),
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => InstaHome()));
+                        Navigator.pushNamed(context, 'instaHome');
                       },
                     ),
                     IconButton(
@@ -410,8 +398,7 @@ class _InstaHomeState extends State<InstaHome> {
                         color: Colors.white,
                       ),
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Search()));
+                        Navigator.pushNamed(context, 'instaSearch');
                       },
                     ),
                     IconButton(
@@ -421,8 +408,7 @@ class _InstaHomeState extends State<InstaHome> {
                         color: Colors.white,
                       ),
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Reels()));
+                        Navigator.pushNamed(context, 'instaReels');
                       },
                     ),
                     IconButton(
@@ -432,10 +418,7 @@ class _InstaHomeState extends State<InstaHome> {
                         color: Colors.white,
                       ),
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Activity()));
+                        Navigator.pushNamed(context, 'instaActivity');
                       },
                     ),
                     InkWell(
@@ -454,10 +437,7 @@ class _InstaHomeState extends State<InstaHome> {
                           margin: EdgeInsets.all(5),
                         ),
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Profile()));
+                          Navigator.pushNamed(context, 'instaProfile');
                         }),
                   ],
                 ),

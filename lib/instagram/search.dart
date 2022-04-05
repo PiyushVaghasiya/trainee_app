@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-import 'package:untitled/Activity.dart';
-import 'package:untitled/Reels.dart';
-import 'package:untitled/insta_Home.dart';
-import 'package:untitled/profile.dart';
+
 
 class Search extends StatefulWidget {
   const Search({Key? key}) : super(key: key);
@@ -340,8 +337,7 @@ class _SearchState extends State<Search> with SingleTickerProviderStateMixin {
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => InstaHome()));
+                      Navigator.pushNamed(context, 'instaHome');
                     },
                   ),
                   IconButton(
@@ -351,8 +347,7 @@ class _SearchState extends State<Search> with SingleTickerProviderStateMixin {
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Search()));
+                      Navigator.pushNamed(context, 'instaSearch');
                     },
                   ),
                   IconButton(
@@ -362,8 +357,7 @@ class _SearchState extends State<Search> with SingleTickerProviderStateMixin {
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Reels()));
+                      Navigator.pushNamed(context, 'instaReels');
                     },
                   ),
                   IconButton(
@@ -373,8 +367,7 @@ class _SearchState extends State<Search> with SingleTickerProviderStateMixin {
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Activity()));
+                      Navigator.pushNamed(context, 'instaActivity');
                     },
                   ),
                   InkWell(
@@ -393,8 +386,7 @@ class _SearchState extends State<Search> with SingleTickerProviderStateMixin {
                         margin: EdgeInsets.all(5),
                       ),
                       onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Profile()));
+                        Navigator.pushNamed(context, 'instaProfile');
                       }),
                 ],
               ),

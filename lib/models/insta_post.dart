@@ -1,10 +1,11 @@
 class Post {
   int? id;
   String? Images;
-  dynamic? Name;
+  String? Name;
   String? pImage;
   int? likes;
   int? Comments;
+  bool? islike;
 
   Post(
       {this.id,
@@ -12,7 +13,8 @@ class Post {
       this.Name,
       this.pImage,
       this.likes,
-      this.Comments});
+      this.Comments,
+      this.islike = false});
 
   Map<String, dynamic> toMap() => {
         "id": id,
@@ -32,4 +34,3 @@ class Post {
         Comments: json["Comments"],
       );
 }
-

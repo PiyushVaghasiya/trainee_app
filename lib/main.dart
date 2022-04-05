@@ -2,48 +2,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
-import 'package:untitled/Activity.dart';
-import 'package:untitled/Demo/Design.dart';
-import 'package:untitled/Demo/Design2.dart';
-import 'package:untitled/Demo/Slider.dart';
-import 'package:untitled/Demo/Textformfield.dart';
-import 'package:untitled/Demo/advanced_drawer.dart';
-import 'package:untitled/Demo/dialog.dart';
-import 'package:untitled/Demo/download_image.dart';
-import 'package:untitled/Demo/drawer.dart';
-import 'package:untitled/Demo/drawer_design.dart';
-import 'package:untitled/Demo/grid_view.dart';
-import 'package:untitled/Demo/listview.dart';
-import 'package:untitled/Demo/model_demo.dart';
-import 'package:untitled/Demo/page_view.dart';
-import 'package:untitled/Demo/pageview_demo2.dart';
-import 'package:untitled/Demo/radio_button_demo.dart';
-import 'package:untitled/Demo/tridimensional_drawer.dart';
-import 'package:untitled/Reels.dart';
-import 'package:untitled/Shared%20Preferences/sharedpreferences_splashScreen.dart';
-import 'package:untitled/edit_profile.dart';
-import 'package:untitled/insta_Home.dart';
-import 'package:untitled/messages.dart';
+import 'package:untitled/instagram/Reels.dart';
+import 'package:untitled/instagram/insta_Home.dart';
+import 'package:untitled/instagram/messages.dart';
 import 'package:untitled/models/insta_post.dart';
 import 'package:untitled/models/insta_story.dart';
-import 'package:untitled/models/whatsapp_status_model.dart';
-import 'package:untitled/profile.dart';
-import 'package:untitled/search.dart';
-import 'package:untitled/Shared%20Preferences/sharedpreferences_login.dart';
-import 'package:untitled/whatsapp_chats.dart';
-import 'package:untitled/whatsapp_calls.dart';
-import 'package:untitled/whatsapp_home.dart';
-import 'package:untitled/whatsapp_person_chat.dart';
-import 'package:untitled/whatsapp_status.dart';
-import 'Demo/database.dart';
-import 'Demo/database_design.dart';
-import 'Demo/database_design2.dart';
-import 'Demo/dropdown_button.dart';
-import 'gallary_pageview.dart';
-import 'hero_widget.dart';
-import 'image_picker_demo.dart';
-import 'imagepicker_design.dart';
+import 'package:untitled/instagram/profile.dart';
+import 'package:untitled/instagram/search.dart';
+import 'Demo/api_demo.dart';
+import 'Demo/api_demo2.dart';
+import 'Shared Preferences/sharedpreferences_splashScreen.dart';
 import 'imagepicker_splashscreen.dart';
+import 'instagram/Activity.dart';
 
 void main() {
   runApp(MyApp());
@@ -56,8 +26,16 @@ class MyApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return MaterialApp(
+      routes: {
+        'instaHome': (context) => const InstaHome(),
+        'instaSearch':(context)=> const Search(),
+        'instaReels':(context)=> const Reels(),
+        'instaActivity':(context)=> const Activity(),
+        'instaProfile':(context)=> const Profile(),
+        'instaMessages':(context)=> const Messages(),
+      },
       debugShowCheckedModeBanner: false,
-      home: InstaHome(),
+      home: FetchList(),
     );
   }
 }
@@ -77,30 +55,31 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
     super.initState();
     _controller = AnimationController(vsync: this);
   }
+
   List<Post> instapost = [
     Post(
         Images:
-        "https://e0.365dm.com/21/11/768x432/skysports-cristiano-ronaldo_5569575.jpg",
+            "https://e0.365dm.com/21/11/768x432/skysports-cristiano-ronaldo_5569575.jpg",
         Name: "piyushv",
         pImage:
-        "https://images.unsplash.com/photo-1516617442634-75371039cb3a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGhvdG8lMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+            "https://images.unsplash.com/photo-1516617442634-75371039cb3a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGhvdG8lMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
         likes: 100,
         Comments: 15),
     Post(
       Images:
-      "https://stat2.bollywoodhungama.in/wp-content/uploads/2021/02/WhatsApp-Image-2021-02-22-at-9.12.41-PM.jpeg",
+          "https://stat2.bollywoodhungama.in/wp-content/uploads/2021/02/WhatsApp-Image-2021-02-22-at-9.12.41-PM.jpeg",
       Name: "piyushvaghasiya",
       pImage:
-      "https://i.pinimg.com/736x/d8/bd/d9/d8bdd9632becd0fe3ad025cabb91ba93.jpg",
+          "https://i.pinimg.com/736x/d8/bd/d9/d8bdd9632becd0fe3ad025cabb91ba93.jpg",
       likes: 200,
       Comments: 20,
     ),
     Post(
       Images:
-      "https://filmfare.wwmindia.com/content/2021/jan/hrithikroshan41612021598.jpg",
+          "https://filmfare.wwmindia.com/content/2021/jan/hrithikroshan41612021598.jpg",
       Name: "utsav",
       pImage:
-      "https://www.nawpic.com/media/2020/cool-backgrounds-nawpic-500x931.jpg",
+          "https://www.nawpic.com/media/2020/cool-backgrounds-nawpic-500x931.jpg",
       likes: 108,
       Comments: 22,
     ),
@@ -165,7 +144,6 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                   context,
                   MaterialPageRoute(builder: (context) => Messages()),
                 );
-                // do something
               },
             ),
           ],
@@ -496,8 +474,7 @@ class _ChatState extends State<Chat> with SingleTickerProviderStateMixin {
                         color: Colors.white,
                       ),
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Chat()));
+                        Navigator.pushNamed(context, 'instaHome');
                       },
                     ),
                     IconButton(

@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:untitled/Reels.dart';
-import 'package:untitled/main.dart';
-import 'package:untitled/profile.dart';
-import 'package:untitled/search.dart';
+
 
 class Activity extends StatefulWidget {
   const Activity({Key? key}) : super(key: key);
@@ -691,7 +688,7 @@ class _ActivityState extends State<Activity>
                 ),
               ),
             ),
-            Container(color: Colors.black,
+            Container(
               margin: EdgeInsets.only(bottom: 35),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -703,10 +700,7 @@ class _ActivityState extends State<Activity>
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Chat()));
+                      Navigator.pushNamed(context, 'instaHome');
                     },
                   ),
                   IconButton(
@@ -716,10 +710,7 @@ class _ActivityState extends State<Activity>
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Search()));
+                      Navigator.pushNamed(context, 'instaSearch');
                     },
                   ),
                   IconButton(
@@ -729,10 +720,7 @@ class _ActivityState extends State<Activity>
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Reels()));
+                      Navigator.pushNamed(context, 'instaReels');
                     },
                   ),
                   IconButton(
@@ -742,10 +730,7 @@ class _ActivityState extends State<Activity>
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Activity()));
+                      Navigator.pushNamed(context, 'instaActivity');
                     },
                   ),
                   InkWell(
@@ -757,7 +742,6 @@ class _ActivityState extends State<Activity>
                             ),
                             fit: BoxFit.fill,
                           ),
-
                           shape: BoxShape.circle,
                         ),
                         height: 45,
@@ -765,10 +749,7 @@ class _ActivityState extends State<Activity>
                         margin: EdgeInsets.all(5),
                       ),
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Profile()));
+                        Navigator.pushNamed(context, 'instaProfile');
                       }),
                 ],
               ),

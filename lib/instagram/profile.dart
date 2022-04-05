@@ -1,11 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:untitled/Activity.dart';
-import 'package:untitled/Reels.dart';
 import 'package:untitled/edit_profile.dart';
-import 'package:untitled/search.dart';
 
-import 'insta_Home.dart';
+
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -351,8 +348,10 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                                 ],
                               ),
                             ),
-                            Container(height: 300,
-                              child: GridView.builder(padding: EdgeInsets.zero,
+                            Container(
+                              height: 300,
+                              child: GridView.builder(
+                                  padding: EdgeInsets.zero,
                                   shrinkWrap: true,
                                   itemCount: netimg.length,
                                   gridDelegate:
@@ -392,8 +391,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => InstaHome()));
+                      Navigator.pushNamed(context, 'instaHome');
                     },
                   ),
                   IconButton(
@@ -403,8 +401,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Search()));
+                      Navigator.pushNamed(context, 'instaSearch');
                     },
                   ),
                   IconButton(
@@ -414,8 +411,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Reels()));
+                      Navigator.pushNamed(context, 'instaReels');
                     },
                   ),
                   IconButton(
@@ -425,8 +421,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Activity()));
+                      Navigator.pushNamed(context, 'instaActivity');
                     },
                   ),
                   InkWell(
@@ -445,8 +440,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                         margin: EdgeInsets.all(5),
                       ),
                       onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Profile()));
+                            Navigator.pushNamed(context, 'instaProfile');
                       }),
                 ],
               ),

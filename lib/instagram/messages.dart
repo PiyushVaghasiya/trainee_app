@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/main.dart';
 
 class Messages extends StatefulWidget {
   const Messages({Key? key}) : super(key: key);
@@ -23,6 +22,7 @@ class _MessagesState extends State<Messages>
     _controller.dispose();
     super.dispose();
   }
+
   final barColor = const Color(0xFF232121);
 
   @override
@@ -42,10 +42,8 @@ class _MessagesState extends State<Messages>
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Chat()),
-                      );
+                      Navigator.pushNamed(context, 'instaHome');
+
                       // do something
                     },
                   ),
@@ -131,8 +129,7 @@ class _MessagesState extends State<Messages>
                         borderRadius: BorderRadius.circular(10),
                       ),
                       hintText: "Search",
-                      hintStyle:
-                      TextStyle(color: Colors.grey, fontSize: 15),
+                      hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
                       contentPadding: EdgeInsets.only(top: 3),
                       prefixIcon: Icon(
                         Icons.search,
@@ -159,7 +156,8 @@ class _MessagesState extends State<Messages>
                                   margin: EdgeInsets.only(top: 10),
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
-                                      image: AssetImage("assets/images/taj.jpeg"),
+                                      image:
+                                          AssetImage("assets/images/taj.jpeg"),
                                       fit: BoxFit.fill,
                                     ),
                                     shape: BoxShape.circle,
@@ -181,7 +179,8 @@ class _MessagesState extends State<Messages>
                                           margin: EdgeInsets.only(top: 5),
                                           child: Text(
                                             "seen 1h ago",
-                                            style: TextStyle(color: Colors.grey),
+                                            style:
+                                                TextStyle(color: Colors.grey),
                                           ),
                                         ),
                                       ],
@@ -226,7 +225,8 @@ class _MessagesState extends State<Messages>
                                           margin: EdgeInsets.only(top: 5),
                                           child: Text(
                                             "seen 1h ago",
-                                            style: TextStyle(color: Colors.grey),
+                                            style:
+                                                TextStyle(color: Colors.grey),
                                           ),
                                         ),
                                       ],
@@ -248,7 +248,8 @@ class _MessagesState extends State<Messages>
                                   margin: EdgeInsets.only(top: 10),
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
-                                      image: AssetImage("assets/images/taj.jpeg"),
+                                      image:
+                                          AssetImage("assets/images/taj.jpeg"),
                                       fit: BoxFit.fill,
                                     ),
                                     shape: BoxShape.circle,
@@ -270,7 +271,8 @@ class _MessagesState extends State<Messages>
                                           margin: EdgeInsets.only(top: 5),
                                           child: Text(
                                             "seen 1h ago",
-                                            style: TextStyle(color: Colors.grey),
+                                            style:
+                                                TextStyle(color: Colors.grey),
                                           ),
                                         ),
                                       ],
@@ -315,7 +317,8 @@ class _MessagesState extends State<Messages>
                                           margin: EdgeInsets.only(top: 5),
                                           child: Text(
                                             "seen 1h ago",
-                                            style: TextStyle(color: Colors.grey),
+                                            style:
+                                                TextStyle(color: Colors.grey),
                                           ),
                                         ),
                                       ],
@@ -337,7 +340,8 @@ class _MessagesState extends State<Messages>
                                   margin: EdgeInsets.only(top: 10),
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
-                                      image: AssetImage("assets/images/taj.jpeg"),
+                                      image:
+                                          AssetImage("assets/images/taj.jpeg"),
                                       fit: BoxFit.fill,
                                     ),
                                     shape: BoxShape.circle,
@@ -359,7 +363,8 @@ class _MessagesState extends State<Messages>
                                           margin: EdgeInsets.only(top: 5),
                                           child: Text(
                                             "seen 1h ago",
-                                            style: TextStyle(color: Colors.grey),
+                                            style:
+                                                TextStyle(color: Colors.grey),
                                           ),
                                         ),
                                       ],
@@ -404,7 +409,8 @@ class _MessagesState extends State<Messages>
                                           margin: EdgeInsets.only(top: 5),
                                           child: Text(
                                             "seen 1h ago",
-                                            style: TextStyle(color: Colors.grey),
+                                            style:
+                                                TextStyle(color: Colors.grey),
                                           ),
                                         ),
                                       ],
@@ -426,7 +432,8 @@ class _MessagesState extends State<Messages>
                                   margin: EdgeInsets.only(top: 10),
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
-                                      image: AssetImage("assets/images/taj.jpeg"),
+                                      image:
+                                          AssetImage("assets/images/taj.jpeg"),
                                       fit: BoxFit.fill,
                                     ),
                                     shape: BoxShape.circle,
@@ -448,7 +455,8 @@ class _MessagesState extends State<Messages>
                                           margin: EdgeInsets.only(top: 5),
                                           child: Text(
                                             "seen 1h ago",
-                                            style: TextStyle(color: Colors.grey),
+                                            style:
+                                                TextStyle(color: Colors.grey),
                                           ),
                                         ),
                                       ],
@@ -493,7 +501,8 @@ class _MessagesState extends State<Messages>
                                           margin: EdgeInsets.only(top: 5),
                                           child: Text(
                                             "seen 1h ago",
-                                            style: TextStyle(color: Colors.grey),
+                                            style:
+                                                TextStyle(color: Colors.grey),
                                           ),
                                         ),
                                       ],
@@ -515,7 +524,8 @@ class _MessagesState extends State<Messages>
                                   margin: EdgeInsets.only(top: 10),
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
-                                      image: AssetImage("assets/images/taj.jpeg"),
+                                      image:
+                                          AssetImage("assets/images/taj.jpeg"),
                                       fit: BoxFit.fill,
                                     ),
                                     shape: BoxShape.circle,
@@ -537,7 +547,8 @@ class _MessagesState extends State<Messages>
                                           margin: EdgeInsets.only(top: 5),
                                           child: Text(
                                             "seen 1h ago",
-                                            style: TextStyle(color: Colors.grey),
+                                            style:
+                                                TextStyle(color: Colors.grey),
                                           ),
                                         ),
                                       ],
@@ -582,7 +593,8 @@ class _MessagesState extends State<Messages>
                                           margin: EdgeInsets.only(top: 5),
                                           child: Text(
                                             "seen 1h ago",
-                                            style: TextStyle(color: Colors.grey),
+                                            style:
+                                                TextStyle(color: Colors.grey),
                                           ),
                                         ),
                                       ],
@@ -604,7 +616,8 @@ class _MessagesState extends State<Messages>
                                   margin: EdgeInsets.only(top: 10),
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
-                                      image: AssetImage("assets/images/taj.jpeg"),
+                                      image:
+                                          AssetImage("assets/images/taj.jpeg"),
                                       fit: BoxFit.fill,
                                     ),
                                     shape: BoxShape.circle,
@@ -626,7 +639,8 @@ class _MessagesState extends State<Messages>
                                           margin: EdgeInsets.only(top: 5),
                                           child: Text(
                                             "seen 1h ago",
-                                            style: TextStyle(color: Colors.grey),
+                                            style:
+                                                TextStyle(color: Colors.grey),
                                           ),
                                         ),
                                       ],

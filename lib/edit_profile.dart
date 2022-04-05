@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-import 'package:untitled/profile.dart';
+import 'package:untitled/instagram/profile.dart';
 
 class Edit_profile extends StatefulWidget {
   const Edit_profile({Key? key}) : super(key: key);

@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -31,10 +30,12 @@ class _Sharedpreferences_splashscreenState
             ? Sharedpreferences_login()
             : Sharedpreferences_home()),
       );
-      timer.cancel();
     });
+  }
 
-    super.initState();
+  void dispose() {
+    timer.cancel();
+    super.dispose();
   }
 
   Future getvalidationData() async {

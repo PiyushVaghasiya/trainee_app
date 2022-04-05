@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:untitled/search.dart';
+import 'package:untitled/instagram/search.dart';
 
 class Dialogdemo extends StatefulWidget {
   const Dialogdemo({Key? key}) : super(key: key);
